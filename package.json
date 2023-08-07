@@ -2,7 +2,7 @@
     "name": "dessert-person",
     "version": "0.0.0",
     "scripts": {
-        "dessertperson": "vite",
+        "start": "vite",
         "build": "vite build",
         "preview": "vite preview --port=8520"
     },

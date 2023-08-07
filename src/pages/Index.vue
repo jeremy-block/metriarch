@@ -45,17 +45,18 @@
                 <div>
                     Cookbook by Clare Saffitz / Book & Infographic designed by
                     Mia Johnson
+                    / Original Interactive UI built by <a href="https://github.com/margueriteroth">@margueriteroth</a>
                 </div>
             </div>
             <div class="col">
                 <Button @click="toggleNote" class="note-btn"> See Note </Button>
             </div>
         </div>
+        <FilterBar />
         <div class="flex">
             <Scatterplot ref="plot" />
             <Recipe />
         </div>
-        <FilterBar />
         <Note v-if="!hasSeenNote.hasSeenNote" />
     </MaxWidth>
 </template>
@@ -78,7 +79,7 @@
         }
 
         .metas {
-            padding: 1em 0;
+            // padding: 1em 0;
             color: var(--background-color);
             position: relative;
             z-index: 10;
