@@ -45,7 +45,7 @@
                 return this.lockedData.lockedCoords.y - 5;
             },
             title() {
-                return this.data.recipe;
+                return this.data.session;
             },
         },
         methods: {},

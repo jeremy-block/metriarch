@@ -10,14 +10,14 @@
         data() {
             return {
                 loading: false,
-                localDataUrl: "./data/dessert-person-recipes.csv",
+                localDataUrl: "./data/dessert-person-sessions.csv",
             };
         },
         computed: {
             ...mapState({
                 mode: state => state.mode,
                 data: state => state.data,
-                recipes: state => state.recipes,
+                sessions: state => state.sessions,
                 hasSeenNote: state => state.hasSeenNote,
                 localStorageKey: state => state.localStorageKey,
             }),

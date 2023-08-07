@@ -16,9 +16,9 @@ const store = createStore({
                 index: "",
             },
             data: [],
-            recipes: {},
+            sessions: {},
             selection: {
-                recipe: "",
+                session: "",
                 chapter: "",
                 other: [],
             },
@@ -49,7 +49,7 @@ const store = createStore({
         setData(state, data) {
             let processed = [...data];
             processed.forEach(row => {
-                let slug = row.recipe
+                let slug = row.session
                     .toLowerCase()
                     .replaceAll(" ", "-")
                     .replaceAll("'", "");
@@ -58,9 +58,9 @@ const store = createStore({
             });
             state.data = processed;
 
-            let recipes = {};
+            let sessions = {};
             data.forEach(row => {
-                recipes[row.slug] = row;
+                sessions[row.slug] = row;
             });
 
             let chapters = [
@@ -80,7 +80,7 @@ const store = createStore({
                 chapterColors[chapter] = colors[i];
             })
 
-            state.recipes = recipes;
+            state.sessions = sessions;
             state.chapterColors = chapterColors;
         },
         setHasSeenNote(state, hasSeenNote) {

@@ -39,7 +39,7 @@
 <template>
     <Link class="YouTubeLink" do-open-in-new-tab :to="src" :title="title">
         <div class="image-container">
-            <img :src="thumbnail" :alt="`${data.recipe} YouTube still.`" />
+            <img :src="thumbnail" :alt="`${data.session} YouTube still.`" />
             <div class="youtube-icon">
                 <svg
                     width="20"

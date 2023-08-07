@@ -41,7 +41,7 @@
                 <br />
                 <br />
                 This chart appears at the beginning of the cookbook, showcasing
-                the relationships between recipe difficulty and recipe time.
+                the relationships between session difficulty and session time.
             </h4>
             <div class="toggle-neon-separator">&nbsp; &nbsp; &nbsp; &nbsp;</div>
             <div class="flex-sections">

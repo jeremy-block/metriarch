@@ -90,7 +90,7 @@
                 data: state => state.data,
                 lockedData: state => state.lockedData,
                 selection: state => state.selection,
-                recipes: state => state.recipes,
+                sessions: state => state.sessions,
                 doShowChapterColors: state => state.doShowChapterColors,
                 doShowVoronoi: state => state.doShowVoronoi,
             }),
@@ -201,8 +201,8 @@
                 let data;
                 if (this.selection.chapter) {
                     data = Object.values(this.data).filter(
-                        recipe =>
-                            utils.slugify(recipe.section) ==
+                        session =>
+                            utils.slugify(session.section) ==
                             this.selection.chapter
                     );
                 } else {
@@ -279,13 +279,13 @@
                     let obj = {
                         x: this.xAccessorScaled(row),
                         y: this.yAccessorScaled(row),
-                        title: row.recipe,
+                        title: row.session,
                         section: utils.slugify(row.section),
                     };
                     dots.push(obj);
 
                     if (shouldSetCoords) {
-                        coordLookup[this.processTitle(row.recipe)] = obj;
+                        coordLookup[this.processTitle(row.session)] = obj;
                     }
                 });
 
@@ -340,13 +340,13 @@
             changeRoute() {
                 let query = {...this.$route.query};
                 if (
-                    !query["recipe"] ||
-                    query["recipe"] != this.hoveredData.slug
+                    !query["session"] ||
+                    query["session"] != this.hoveredData.slug
                 ) {
-                    query["recipe"] = this.hoveredData.slug;
+                    query["session"] = this.hoveredData.slug;
                     this.$router.push({query});
                 } else {
-                    query["recipe"] = undefined;
+                    query["session"] = undefined;
                     this.$router.push({query});
                 }
             },
@@ -369,27 +369,27 @@
                 handler() {
                     let query = {...this.$route.query};
                     let selection = {...this.selection};
-                    let recipe = query.recipe;
+                    let session = query.session;
 
-                    if (this.lockedData?.recipe != recipe) {
+                    if (this.lockedData?.session != session) {
                         // set locked data and coords
 
-                        let data = this.recipes[recipe];
-                        this.lockedIndex = Object.keys(this.recipes).indexOf(
-                            recipe
+                        let data = this.sessions[session];
+                        this.lockedIndex = Object.keys(this.sessions).indexOf(
+                            session
                         );
 
-                        if (this.coordLookup[recipe]) {
+                        if (this.coordLookup[session]) {
                             this.lockedCoords = {
-                                x: this.coordLookup[recipe].x,
-                                y: this.coordLookup[recipe].y,
+                                x: this.coordLookup[session].x,
+                                y: this.coordLookup[session].y,
                             };
                         }
 
-                        selection["recipe"] = recipe;
+                        selection["session"] = session;
 
                         this.$store.dispatch("setLockedData", data);
-                    } else if (!this.selection.recipe) {
+                    } else if (!this.selection.session) {
                         // clear
                         this.lockedIndex = "";
                         this.lockedCoords = {x: 0, y: 0};
@@ -412,12 +412,12 @@
             coordLookup: {
                 handler() {
                     let query = {...this.$route.query};
-                    let recipe = query.recipe;
+                    let session = query.session;
 
-                    if (this.lockedCoords.x == 0 && this.coordLookup[recipe]) {
+                    if (this.lockedCoords.x == 0 && this.coordLookup[session]) {
                         this.lockedCoords = {
-                            x: this.coordLookup[recipe].x,
-                            y: this.coordLookup[recipe].y,
+                            x: this.coordLookup[session].x,
+                            y: this.coordLookup[session].y,
                         };
                     }
                 },
@@ -586,7 +586,7 @@
         </svg>
 
         <Tooltip
-            v-if="lockedData?.recipe"
+            v-if="lockedData?.session"
             locked
             :no-pointer-events="!!lockedData"
             :data="lockedData"

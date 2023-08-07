@@ -4,34 +4,34 @@
     import YouTubeLink from "./YouTubeLink.vue";
 
     export default {
-        name: "Recipe",
+        name: "Session",
         components: {YouTubeLink},
         props: {},
         data() {
             return {
-                activeSort: ["recipe", 1],
-                sortedRecipes: [],
+                activeSort: ["session", 1],
+                sortedSessions: [],
                 isLoaded: false,
             };
         },
         computed: {
             ...mapState({
                 lockedData: state => state.lockedData,
-                recipes: state => state.recipes,
+                sessions: state => state.sessions,
                 selection: state => state.selection,
                 dimensions: state => state.dimensions,
                 chapterColors: state => state.chapterColors,
             }),
         },
         methods: {
-            changeRoute(recipe) {
+            changeRoute(session) {
                 let query = {...this.$route.query};
 
-                if (recipe && query["recipe"] != recipe.slug) {
-                    query["recipe"] = recipe.slug;
+                if (session && query["session"] != session.slug) {
+                    query["session"] = session.slug;
                     this.$router.push({query});
                 } else {
-                    query["recipe"] = undefined;
+                    query["session"] = undefined;
                     this.$router.push({query});
                 }
             },
@@ -48,29 +48,29 @@
                     this.activeSort = [sort, 1];
                 }
 
-                this.sortRecipes();
+                this.sortSessions();
             },
-            sortRecipes() {
+            sortSessions() {
                 let sorted;
 
                 if (this.selection.chapter) {
-                    sorted = Object.values(this.recipes).filter(
-                        recipe =>
-                            utils.slugify(recipe.section) ==
+                    sorted = Object.values(this.sessions).filter(
+                        session =>
+                            utils.slugify(session.section) ==
                             this.selection.chapter
                     );
                 } else {
-                    sorted = Object.values(this.recipes);
+                    sorted = Object.values(this.sessions);
                 }
 
-                if (this.activeSort[0] == "recipe") {
+                if (this.activeSort[0] == "session") {
                     if (this.activeSort[1] == 1) {
                         sorted = sorted.sort((a, b) => {
-                            return a.recipe.localeCompare(b.recipe);
+                            return a.session.localeCompare(b.session);
                         });
                     } else {
                         sorted = sorted.sort((a, b) => {
-                            return b.recipe.localeCompare(a.recipe);
+                            return b.session.localeCompare(a.session);
                         });
                     }
                 } else {
@@ -85,7 +85,7 @@
                     }
                 }
 
-                this.sortedRecipes = sorted;
+                this.sortedSessions = sorted;
 
                 this.$nextTick(() => {
                     if (this.lockedData?.slug) {
@@ -99,10 +99,10 @@
 
                 this.$router.push({query});
             },
-            scrollList(recipe) {
+            scrollList(session) {
                 let scrollDiv = this.$refs["table-scroll"];
 
-                if (!recipe) {
+                if (!session) {
                     scrollDiv.scrollTo({
                         top: 0,
                         behavior: "smooth",
@@ -112,15 +112,15 @@
                 }
 
                 let scrollDepth = scrollDiv.scrollTop;
-                let rowHeight = this.$refs[recipe][0]?.clientHeight
-                    ? this.$refs[recipe][0]?.clientHeight
+                let rowHeight = this.$refs[session][0]?.clientHeight
+                    ? this.$refs[session][0]?.clientHeight
                     : 0;
-                let rowOffsetTop = this.$refs[recipe][0]?.offsetTop - rowHeight;
+                let rowOffsetTop = this.$refs[session][0]?.offsetTop - rowHeight;
 
                 let tableHeight =
                     this.$refs["table-container"].clientHeight * 0.85;
 
-                let isRecipeVisible =
+                let isSessionVisible =
                     rowOffsetTop > scrollDepth &&
                     rowOffsetTop - 50 < scrollDepth + tableHeight;
 
@@ -129,7 +129,7 @@
                     additionalOffset = 10;
                 }
 
-                if (!isRecipeVisible) {
+                if (!isSessionVisible) {
                     scrollDiv.scrollTo({
                         top: rowOffsetTop - additionalOffset,
                         behavior: "smooth",
@@ -155,7 +155,7 @@
             },
         },
         mounted() {
-            this.sortRecipes();
+            this.sortSessions();
             this.$nextTick(() => {
                 if (this.lockedData?.slug) {
                     this.scrollList(this.lockedData?.slug);
@@ -178,7 +178,7 @@
                 deep: true,
                 immediate: true,
                 handler() {
-                    this.sortRecipes();
+                    this.sortSessions();
                 },
             },
         },
@@ -186,24 +186,24 @@
 </script>
 
 <template>
-    <div class="Recipe">
-        <div class="recipe-list-container">
+    <div class="Session">
+        <div class="session-list-container">
             <h2>
                 <!-- <span
                     class="letter-rotate"
-                    v-for="letter in 'Recipes'.split('')"
+                    v-for="letter in 'Sessions'.split('')"
                     :style="{opacity: letter == '_' ? 0 : 1}"
                     :key="letter"
                 >
                     {{ letter }}
                 </span> -->
-                Recipes
+                Sessions
             </h2>
             <div class="table-container" ref="table-container">
                 <div class="table-header">
-                    <div class="header-toggle" @click="toggleSort('recipe')">
-                        Recipe
-                        <span v-if="activeSort[0] == 'recipe'" class="arrow">
+                    <div class="header-toggle" @click="toggleSort('session')">
+                        Session
+                        <span v-if="activeSort[0] == 'session'" class="arrow">
                             {{ activeSort[1] == 1 ? "&#8593;" : "&#8595;" }}
                         </span>
                     </div>
@@ -225,29 +225,29 @@
                     ref="table-scroll"
                     :style="{maxHeight: `${dimensions.boundedHeight + 20}px`}"
                 >
-                    <div class="table" v-if="sortedRecipes[0]" ref="table">
+                    <div class="table" v-if="sortedSessions[0]" ref="table">
                         <template
-                            v-for="(recipe, index) in sortedRecipes"
+                            v-for="(session, index) in sortedSessions"
                             :key="index"
                         >
                             <a
-                                @click="changeRoute(recipe)"
+                                @click="changeRoute(session)"
                                 class="row"
                                 :class="{
-                                    active: selection?.recipe == recipe.slug,
+                                    active: selection?.session == session.slug,
                                     inactive:
-                                        selection?.recipe &&
-                                        selection?.recipe != recipe.slug,
+                                        selection?.session &&
+                                        selection?.session != session.slug,
                                 }"
-                                :ref="recipe.slug"
+                                :ref="session.slug"
                             >
-                                <div class="recipe">
-                                    {{ processTitle(recipe.recipe) }}
+                                <div class="session">
+                                    {{ processTitle(session.session) }}
                                 </div>
                                 <div>
                                     <div
                                         class="youtube-icon"
-                                        v-if="recipe.video_src"
+                                        v-if="session.video_src"
                                         title="Has a YouTube video!"
                                     >
                                         <svg
@@ -281,7 +281,7 @@
                                 <div class="right-align">
                                     {{
                                         (
-                                            Math.floor(recipe.difficulty * 10) /
+                                            Math.floor(session.difficulty * 10) /
                                             10
                                         ).toFixed(1)
                                     }}
@@ -289,7 +289,7 @@
                             </a>
                             <div
                                 class="expanded-row"
-                                v-if="selection?.recipe == recipe.slug"
+                                v-if="selection?.session == session.slug"
                             >
                                 <div class="info">
                                     <div
@@ -325,7 +325,7 @@
                                 />
                             </div>
                         </template>
-                        <div v-if="selection.recipe">
+                        <div v-if="selection.session">
                             <div @click="clearAll()">Clear all</div>
                         </div>
                     </div>
@@ -343,7 +343,7 @@
 </template>
 
 <style lang="scss">
-    .Recipe {
+    .Session {
         position: relative;
         max-width: 22em;
         width: 100%;
@@ -374,7 +374,7 @@
             wax-width: 100%;
         }
 
-        .active-recipe {
+        .active-session {
             padding: 0 1em;
 
             h2 {
@@ -388,7 +388,7 @@
             color: #97484f;
         }
 
-        .recipe-list-container {
+        .session-list-container {
             h2 {
                 text-align: center;
                 margin: 0 0 1em;
@@ -474,7 +474,7 @@
                     }
                 }
 
-                .recipe {
+                .session {
                     padding-right: 0.5em;
                     opacity: 0.7;
                 }
@@ -482,7 +482,7 @@
                 &.active {
                     background: white;
 
-                    .recipe {
+                    .session {
                         font-weight: 600;
                         padding-right: 0.25em;
                         opacity: 1;
@@ -517,7 +517,7 @@
 
             @media (max-width: 1200px) {
                 .row {
-                    .recipe {
+                    .session {
                         display: -webkit-box;
                         -webkit-line-clamp: 1;
                         -webkit-box-orient: vertical;

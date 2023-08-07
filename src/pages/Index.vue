@@ -18,7 +18,7 @@
             ...mapState({
                 hasSeenNote: state => state.hasSeenNote,
                 selection: state => state.selection,
-                recipes: state => state.recipes,
+                sessions: state => state.sessions,
             }),
         },
 
@@ -28,8 +28,8 @@
             },
         },
         watch: {
-            recipes() {
-                if (Object.keys(this.recipes).length) {
+            sessions() {
+                if (Object.keys(this.sessions).length) {
                     this.isLoaded = true;
                 }
             },
@@ -55,7 +55,7 @@
         <FilterBar />
         <div class="flex">
             <Scatterplot ref="plot" />
-            <Recipe />
+            <Session />
         </div>
         <Note v-if="!hasSeenNote.hasSeenNote" />
     </MaxWidth>

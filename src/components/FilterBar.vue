@@ -25,15 +25,15 @@
             ...mapState({
                 data: state => state.data,
                 lockedData: state => state.lockedData,
-                recipes: state => state.recipes,
+                sessions: state => state.sessions,
                 doShowChapterColors: state => state.doShowChapterColors,
                 doShowVoronoi: state => state.doShowChapterColors,
                 chapterColors: state => state.chapterColors,
                 selection: state => state.selection,
             }),
             chapterList() {
-                let chapterList = Object.values(this.recipes).map(
-                    recipe => recipe["section"]
+                let chapterList = Object.values(this.sessions).map(
+                    session => session["section"]
                 );
                 return (chapterList = [...new Set(chapterList)]);
             },
@@ -51,9 +51,9 @@
 
                 if (!query["chapter"] || query["chapter"] != newChap) {
                     query["chapter"] = newChap;
-                    query["recipe"] = undefined;
+                    query["session"] = undefined;
                     newSelection["chapter"] = newChap;
-                    newSelection["recipe"] = "";
+                    newSelection["session"] = "";
                 } else {
                     query["chapter"] = undefined;
                     newSelection["chapter"] = "";
@@ -116,8 +116,8 @@
             <button
                 @click="clearAll"
                 class="FilterBar__button clear"
-                :disabled="!selection.chapter && !selection.recipe"
-                :style="{opacity: !selection.chapter && !selection.recipe ? 0.5 : 1}"
+                :disabled="!selection.chapter && !selection.session"
+                :style="{opacity: !selection.chapter && !selection.session ? 0.5 : 1}"
             >
                 Clear all
             </button>
