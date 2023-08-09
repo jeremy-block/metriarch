@@ -24,7 +24,7 @@
             },
             title: {
                 type: String,
-                default: "",
+                default: "Matrix",
             },
         },
         data() {
@@ -441,7 +441,7 @@
     <div class="Scatterplot" ref="container">
         <div v-if="!isLoaded">Loading...</div>
         <div class="chart-header">
-            <h2>Matrix</h2>
+            <h2>{{title}}</h2>
             <div class="actions">
                 <div class="FilterBar__switch__container">
                     Chapter colors

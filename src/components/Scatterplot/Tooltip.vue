@@ -3,6 +3,7 @@
     import utils from "@/scripts/utils.js";
 
     export default {
+    //Todo: discover why the first item on the scatterplot list is not getting a tooltip on hover with the crosshairs.
         name: "Tooltip",
         components: {},
         props: {
