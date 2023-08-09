@@ -1,12 +1,14 @@
 <script>
     import {mapState} from "vuex";
     import Scatterplot from "@/components/Scatterplot/Scatterplot.vue";
+    import SelectionPanel from '@/components/SelectionPanel.vue';
     import {median} from "d3-array";
 
     export default {
         name: "Index",
         components: {
             Scatterplot,
+            SelectionPanel,
         },
         data() {
             return {
@@ -52,6 +54,7 @@
                 <Button @click="toggleNote" class="note-btn"> See Note </Button>
             </div>
         </div>
+        <SelectionPanel/>
         <FilterBar />
         <div class="flex">
             <Scatterplot ref="plot" />
