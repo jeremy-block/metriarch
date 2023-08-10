@@ -65,7 +65,7 @@
                     mins120: 1,
                     mins360: 2,
                 },
-                dimensions: {
+                mainChartProps: {
                     marginTop: 10,
                     marginRight: 40,
                     marginBottom: 125,
@@ -136,29 +136,29 @@
         methods: {
             setDimensions() {
                 let box = this.$refs.container?.getBoundingClientRect();
-                this.dimensions.width = box.width;
-                this.dimensions.height = box.height;
-                this.dimensions.boundedHeight =
+                this.mainChartProps.width = box.width;
+                this.mainChartProps.height = box.height;
+                this.mainChartProps.boundedHeight =
                     box.height -
-                    this.dimensions.marginTop -
-                    this.dimensions.marginBottom;
-                this.dimensions.boundedWidth =
+                    this.mainChartProps.marginTop -
+                    this.mainChartProps.marginBottom;
+                this.mainChartProps.boundedWidth =
                     box.width -
-                    this.dimensions.marginLeft -
-                    this.dimensions.marginRight;
-                this.dimensions.sectionWidth =
-                    this.dimensions.boundedWidth /
+                    this.mainChartProps.marginLeft -
+                    this.mainChartProps.marginRight;
+                this.mainChartProps.sectionWidth =
+                    this.mainChartProps.boundedWidth /
                     Object.values(this.colsPerSection).reduce(
                         (a, b) => a + b,
                         0
                     );
 
                 if (window.screen.width < 601) {
-                    this.dimensions.marginLeft = 20;
-                    this.dimensions.marginBottom = 90;
+                    this.mainChartProps.marginLeft = 20;
+                    this.mainChartProps.marginBottom = 90;
                 }
 
-                this.$store.commit("setDimensions", this.dimensions);
+                this.$store.commit("setDimensions", this.mainChartProps);
                 this.setScales();
             },
             setScales() {
@@ -167,7 +167,7 @@
                 }
                 this.yScale = scaleLinear()
                     .domain([this.yMax, 1])
-                    .range([0, this.dimensions.boundedHeight]);
+                    .range([0, this.mainChartProps.boundedHeight]);
                 this.yRuleDistance =
                     this.yScale(this.levelRules[1]) -
                     this.yScale(this.levelRules[2]);
@@ -187,7 +187,7 @@
                         .domain(xDomains[i])
                         .range([
                             0,
-                            this.dimensions.sectionWidth *
+                            this.mainChartProps.sectionWidth *
                                 this.colsPerSection[mins],
                         ]);
                 });
@@ -222,8 +222,8 @@
                 let voronoi = delaunay.voronoi([
                     0,
                     0,
-                    this.dimensions.boundedWidth,
-                    this.dimensions.boundedHeight,
+                    this.mainChartProps.boundedWidth,
+                    this.mainChartProps.boundedHeight,
                 ]);
                 let voronoiPaths = dots.map((d, i) => ({
                     d: voronoi.renderCell(i),
@@ -253,12 +253,12 @@
                     ? this.xScales.mins55(this.xAccessor(d))
                     : this.xAccessor(d) <= 240
                     ? this.xScales.mins30(this.xAccessor(d)) +
-                      this.dimensions.sectionWidth
+                      this.mainChartProps.sectionWidth
                     : this.xAccessor(d) <= 360
                     ? this.xScales.mins120(this.xAccessor(d)) +
-                      this.dimensions.sectionWidth * 7
+                      this.mainChartProps.sectionWidth * 7
                     : this.xScales.mins360(this.xAccessor(d)) +
-                      this.dimensions.sectionWidth * 8;
+                      this.mainChartProps.sectionWidth * 8;
             },
             yAccessorScaled(d) {
                 return this.yScale(this.yAccessor(d));
@@ -309,7 +309,7 @@
                     }
                 );
                 let currentCol = Math.ceil(
-                    x / (this.dimensions.boundedWidth / totalCols)
+                    x / (this.mainChartProps.boundedWidth / totalCols)
                 );
                 this.currentHoveredCol = currentCol;
                 let correctXScale = this.getXScale(x);
@@ -499,19 +499,19 @@
 
         <svg
             class="chart"
-            :width="dimensions.width"
-            :height="dimensions.height"
+            :width="mainChartProps.width"
+            :height="mainChartProps.height"
             @click="changeRoute"
         >
             <g
                 class="x-rules"
                 :style="{
-                    transform: `translate(${dimensions.marginLeft}px, ${dimensions.marginTop}px)`,
+                    transform: `translate(${mainChartProps.marginLeft}px, ${mainChartProps.marginTop}px)`,
                 }"
             >
                 <Axis
                     dimension="x"
-                    :dimensions="dimensions"
+                    :mainChartProps="mainChartProps"
                     :y-scale="yScale"
                     :minrules="minVertRules"
                     :xscales="xScales"
@@ -525,7 +525,7 @@
                 <Axis
                     dimension="y"
                     :scale="yScale"
-                    :dimensions="dimensions"
+                    :mainChartProps="mainChartProps"
                     :y-scale="yScale"
                     :minrules="minVertRules"
                     :xscales="xScales"
@@ -540,7 +540,7 @@
                     v-if="isLoaded"
                     :data="dataDots"
                     :total-data="totalDots"
-                    :dimensions="dimensions"
+                    :mainChartProps="mainChartProps"
                 />
                 <g v-if="doShowVoronoi">
                     <path
@@ -569,14 +569,14 @@
                         lockedData,
                         lockedIndex,
                     }"
-                    :dimensions="dimensions"
+                    :mainChartProps="mainChartProps"
                     :x-rule-distance="xRuleDistance"
                 />
 
                 <rect
                     class="Chart__listener listener"
-                    :height="dimensions.boundedHeight"
-                    :width="dimensions.boundedWidth"
+                    :height="mainChartProps.boundedHeight"
+                    :width="mainChartProps.boundedWidth"
                     @mousemove="onHover"
                     @mouseleave="onMouseLeave"
                     fill="transparent"
@@ -592,10 +592,10 @@
             :data="lockedData"
             :style="{
                 transform: `translate(${
-                    dimensions.marginLeft + lockedCoords.x
-                }px, ${dimensions.marginTop + lockedCoords.y}px)`,
+                    mainChartProps.marginLeft + lockedCoords.x
+                }px, ${mainChartProps.marginTop + lockedCoords.y}px)`,
             }"
-            :flipped="lockedCoords?.x > dimensions.boundedWidth * 0.75"
+            :flipped="lockedCoords?.x > mainChartProps.boundedWidth * 0.75"
             ref="lockedTooltip"
         />
         <Tooltip
@@ -603,10 +603,10 @@
             :data="hoveredData"
             :style="{
                 transform: `translate(${
-                    dimensions.marginLeft + hoveredCoords.x
-                }px, ${dimensions.marginTop + hoveredCoords.y}px)`,
+                    mainChartProps.marginLeft + hoveredCoords.x
+                }px, ${mainChartProps.marginTop + hoveredCoords.y}px)`,
             }"
-            :flipped="hoveredCoords?.x > dimensions.boundedWidth * 0.75"
+            :flipped="hoveredCoords?.x > mainChartProps.boundedWidth * 0.75"
             ref="hoveredTooltip"
         />
 

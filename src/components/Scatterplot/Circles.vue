@@ -15,7 +15,7 @@
                 type: Object,
                 required: true,
             },
-            dimensions: {
+            mainChartProps: {
                 type: Object,
                 required: true,
             },
@@ -57,7 +57,7 @@
             v-for="d in totalData"
             :key="d"
             :cx="d.x"
-            :cy="animated ? d.y : dimensions.boundedHeight"
+            :cy="animated ? d.y : mainChartProps.boundedHeight"
             r="3"
             :opacity="
                 animated ? 0.15 : 0
@@ -68,7 +68,7 @@
             v-for="d in data"
             :key="d"
             :cx="d.x"
-            :cy="animated ? d.y : dimensions.boundedHeight"
+            :cy="animated ? d.y : mainChartProps.boundedHeight"
             :r="selection.chapter ? 4 : 3"
             :opacity="
                 animated ? 1 : 0
@@ -78,14 +78,14 @@
        
         <text
             :class="{
-                flip: d.x > dimensions.boundedWidth * 0.85,
+                flip: d.x > mainChartProps.boundedWidth * 0.85,
                 large: selection.chapter,
             }"
             class="dot-title"
             v-for="d in data"
             :key="d"
-            :x="d.x + (d.x > dimensions.boundedWidth * 0.85 ? -3 : 3)"
-            :y="d.y + (d.x > dimensions.boundedWidth * 0.85 ? 9 : -2)"
+            :x="d.x + (d.x > mainChartProps.boundedWidth * 0.85 ? -3 : 3)"
+            :y="d.y + (d.x > mainChartProps.boundedWidth * 0.85 ? 9 : -2)"
             :opacity="
                 selection.chapter && selection.chapter != d.section
                     ? 0

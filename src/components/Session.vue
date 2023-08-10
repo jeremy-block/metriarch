@@ -19,7 +19,7 @@
                 lockedData: state => state.lockedData,
                 sessions: state => state.sessions,
                 selection: state => state.selection,
-                dimensions: state => state.dimensions,
+                mainChartProps: state => state.mainChartProps,
                 chapterColors: state => state.chapterColors,
             }),
         },
@@ -223,7 +223,7 @@
                 <div
                     class="table-scroll"
                     ref="table-scroll"
-                    :style="{maxHeight: `${dimensions.boundedHeight + 20}px`}"
+                    :style="{maxHeight: `${mainChartProps.boundedHeight + 20}px`}"
                 >
                     <div class="table" v-if="sortedSessions[0]" ref="table">
                         <template

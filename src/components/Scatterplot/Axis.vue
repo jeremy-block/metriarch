@@ -6,7 +6,7 @@
         name: "Axis",
         components: {},
         props: {
-            dimensions: {
+            mainChartProps: {
                 type: Object,
                 required: true,
             },
@@ -92,13 +92,13 @@
     <g
         class="Axis AxisHorizontal"
         v-if="dimension == 'x' && isLoaded"
-        :style="{transform: `translate(0, ${dimensions.boundedHeight}px)`}"
+        :style="{transform: `translate(0, ${mainChartProps.boundedHeight}px)`}"
     >
         <g>
             {/* Horiz Arrow Top */}
             <line
-                :x1="`${dimensions.boundedWidth}`"
-                :x2="`${dimensions.boundedWidth - arrowSize - 3}`"
+                :x1="`${mainChartProps.boundedWidth}`"
+                :x2="`${mainChartProps.boundedWidth - arrowSize - 3}`"
                 :y1="2"
                 :y2="-arrowSize - 2"
                 class="Axis__arrow Axis__line Axis__line--left horiz"
@@ -106,8 +106,8 @@
 
             {/* Horiz Arrow Bottom */}
             <line
-                :x1="`${dimensions.boundedWidth}`"
-                :x2="`${dimensions.boundedWidth - arrowSize - 3}`"
+                :x1="`${mainChartProps.boundedWidth}`"
+                :x2="`${mainChartProps.boundedWidth - arrowSize - 3}`"
                 :y1="-2"
                 :y2="arrowSize + 1"
                 class="Axis__arrow Axis__line Axis__line--right horiz"
@@ -116,7 +116,7 @@
             <line
                 class="Axis__line"
                 :x1="-xRuleDistance - 1.5"
-                :x2="dimensions.boundedWidth"
+                :x2="mainChartProps.boundedWidth"
             />
         </g>
 
@@ -126,25 +126,25 @@
                 {/* Vert Arrow Left */}
                 <line
                     :x1="-xRuleDistance - 1"
-                    :y1="-dimensions.boundedHeight"
+                    :y1="-mainChartProps.boundedHeight"
                     :x2="-xRuleDistance* 1.7"
-                    :y2="-dimensions.boundedHeight + arrowSize * 2 - 2"
+                    :y2="-mainChartProps.boundedHeight + arrowSize * 2 - 2"
                     class="Axis__arrow Axis__line Axis__line--left vert"
                 />
 
                 {/* Vert Arrow Right */}
                 <line
                     :x1="-xRuleDistance - 3"
-                    :y1="-dimensions.boundedHeight"
+                    :y1="-mainChartProps.boundedHeight"
                     :x2="-arrowSize"
-                    :y2="-dimensions.boundedHeight + arrowSize * 2 -2"
+                    :y2="-mainChartProps.boundedHeight + arrowSize * 2 -2"
                     class="Axis__arrow Axis__line Axis__line--left vert"
                 />
             </g>
             <line
                 class="Axis__line"
                 :x1="-xRuleDistance - 2"
-                :y1="-dimensions.boundedHeight"
+                :y1="-mainChartProps.boundedHeight"
                 :x2="-xRuleDistance - 2"
                 :y2="2.5"
             />
@@ -155,52 +155,52 @@
             v-for="tick in minrules"
             :key="tick"
             class="Grid__rules"
-            :y1="-dimensions.boundedHeight"
+            :y1="-mainChartProps.boundedHeight"
             :x1="
                 tick < 60
                     ? xscales.mins55(tick)
                     : tick <= 240
-                    ? xscales.mins30(tick) + dimensions.sectionWidth
+                    ? xscales.mins30(tick) + mainChartProps.sectionWidth
                     : tick <= 360
-                    ? xscales.mins120(tick) + dimensions.sectionWidth * 7
-                    : xscales.mins360(tick) + dimensions.sectionWidth * 8
+                    ? xscales.mins120(tick) + mainChartProps.sectionWidth * 7
+                    : xscales.mins360(tick) + mainChartProps.sectionWidth * 8
             "
             :x2="
                 tick < 60
                     ? xscales.mins55(tick)
                     : tick <= 240
-                    ? xscales.mins30(tick) + dimensions.sectionWidth
+                    ? xscales.mins30(tick) + mainChartProps.sectionWidth
                     : tick <= 360
-                    ? xscales.mins120(tick) + dimensions.sectionWidth * 7
-                    : xscales.mins360(tick) + dimensions.sectionWidth * 8
+                    ? xscales.mins120(tick) + mainChartProps.sectionWidth * 7
+                    : xscales.mins360(tick) + mainChartProps.sectionWidth * 8
             "
         />
 
         <line
             v-if="isLoaded"
             v-for="(tick, i) in minuteSections"
-            :style="{opacity: dimensions.boundedWidth < 900 && i % 2 == 0 ? 0 : 1}"
+            :style="{opacity: mainChartProps.boundedWidth < 900 && i % 2 == 0 ? 0 : 1}"
             :key="tick"
             :class="tick == 5 ? `Grid__rules` : `Grid__section-delineator`"
-            :y1="-dimensions.boundedHeight"
+            :y1="-mainChartProps.boundedHeight"
             :y2="xTickOffset"
             :x1="
                 tick < 60
                     ? xscales.mins55(tick)
                     : tick <= 240
-                    ? xscales.mins30(tick) + dimensions.sectionWidth
+                    ? xscales.mins30(tick) + mainChartProps.sectionWidth
                     : tick <= 360
-                    ? xscales.mins120(tick) + dimensions.sectionWidth * 7
-                    : xscales.mins360(tick) + dimensions.sectionWidth * 8
+                    ? xscales.mins120(tick) + mainChartProps.sectionWidth * 7
+                    : xscales.mins360(tick) + mainChartProps.sectionWidth * 8
             "
             :x2="
                 tick < 60
                     ? xscales.mins55(tick)
                     : tick <= 240
-                    ? xscales.mins30(tick) + dimensions.sectionWidth
+                    ? xscales.mins30(tick) + mainChartProps.sectionWidth
                     : tick <= 360
-                    ? xscales.mins120(tick) + dimensions.sectionWidth * 7
-                    : xscales.mins360(tick) + dimensions.sectionWidth * 8
+                    ? xscales.mins120(tick) + mainChartProps.sectionWidth * 7
+                    : xscales.mins360(tick) + mainChartProps.sectionWidth * 8
             "
         />
 
@@ -212,12 +212,12 @@
                     tick < 60
                         ? xscales.mins55(tick)
                         : tick <= 240
-                        ? xscales.mins30(tick) + dimensions.sectionWidth
+                        ? xscales.mins30(tick) + mainChartProps.sectionWidth
                         : tick <= 360
-                        ? xscales.mins120(tick) + dimensions.sectionWidth * 7
-                        : xscales.mins360(tick) + dimensions.sectionWidth * 8
+                        ? xscales.mins120(tick) + mainChartProps.sectionWidth * 7
+                        : xscales.mins360(tick) + mainChartProps.sectionWidth * 8
                 }px, ${xTickOffset}px)`,
-                opacity: dimensions.boundedWidth < 900 && i % 2 == 0 ? 0 : 1
+                opacity: mainChartProps.boundedWidth < 900 && i % 2 == 0 ? 0 : 1
             }"
         >
             <text :style="{transform: `translate(5px, 0)`}" class="Axis__tick x-tick">
@@ -263,7 +263,7 @@
             :key="tick"
             class="Grid__rules"
             :x1="-xRuleDistance"
-            :x2="dimensions.boundedWidth"
+            :x2="mainChartProps.boundedWidth"
             :y1="scale(tick)"
             :y2="scale(tick)"
         />
@@ -272,7 +272,7 @@
             v-for="(tick, i) in ticks"
             :key="i"
             class="Grid__stripe"
-            :width="dimensions.boundedWidth + xRuleDistance"
+            :width="mainChartProps.boundedWidth + xRuleDistance"
             :height="scale(ticks[1]) - scale(ticks[0])"
             :y="scale(tick)"
             :x="-xRuleDistance"
@@ -282,8 +282,8 @@
             <line
                 v-if="tick != 1 && tick != 6"
                 class="Grid__section-delineator"
-                :x1="-dimensions.marginLeft"
-                :x2="dimensions.boundedWidth"
+                :x1="-mainChartProps.marginLeft"
+                :x2="mainChartProps.boundedWidth"
                 :y1="scale(tick)"
                 :y2="scale(tick)"
             />
@@ -295,7 +295,7 @@
             class="Axis__tick Axis__tick--difficulty"
             :style="{
                 transform: `translate(
-                        ${-xRuleDistance - dimensions.marginLeft / 2 + 5}px,
+                        ${-xRuleDistance - mainChartProps.marginLeft / 2 + 5}px,
                         ${
                             scale(tick) +
                             3 -
@@ -312,7 +312,7 @@
             class="Axis__label__wrapper"
             :style="{
                 transform: `translate(${-xscales.mins55(minrules[1])}px, ${
-                    dimensions.boundedHeight - yRuleDistance
+                    mainChartProps.boundedHeight - yRuleDistance
                 }px) rotate(-90deg)`,
             }"
         >

@@ -22,7 +22,7 @@ const store = createStore({
                 chapter: "",
                 other: [],
             },
-            dimensions: {},
+            mainChartProps: {},
             doShowChapterColors: false,
             doShowVoronoi: false,
 
@@ -41,7 +41,7 @@ const store = createStore({
             state.doShowVoronoi = !state.doShowVoronoi;
         },
         setDimensions(state, dimnsions) {
-            state.dimensions = dimnsions;
+            state.mainChartProps = dimnsions;
         },
         setLockedData(state, data) {
             state.lockedData = data;
