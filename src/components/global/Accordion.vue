@@ -38,11 +38,20 @@
 </template>
 
 <script>
+import { getCurrentInstance } from 'vue';
+
 export default {
   data() {
     return {
       isOpen: false,
+      _uid: null,
     };
+  },
+    mounted() {
+    const instance = getCurrentInstance();
+    if (instance) {
+      this._uid = instance.uid;
+    }
   },
 
   methods: {
