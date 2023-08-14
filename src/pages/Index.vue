@@ -2,7 +2,6 @@
     import {mapState} from "vuex";
     import Scatterplot from "@/components/Scatterplot/Scatterplot.vue";
     import SelectionPanel from '@/components/SelectionPanel.vue';
-    import {median} from "d3-array";
 
     export default {
         name: "Index",
@@ -23,8 +22,9 @@
                 sessions: state => state.sessions,
             }),
         },
-
         methods: {
+            DoXThing:() => d => d.minutes,
+            DoYThing: () => d => d.difficulty,
             toggleNote() {
                 this.$store.dispatch("setHasSeenNote", false);
             },
@@ -44,10 +44,12 @@
         <div class="metas">
             <div>
                 <DessertPersonTitle />
-                <div>
-                    Cookbook by Clare Saffitz / Book & Infographic designed by
-                    Mia Johnson
-                    / Original Interactive UI built by <a href="https://github.com/margueriteroth">@margueriteroth</a>
+                <div class="subtitle">
+                    <p>
+                        Cookbook by Clare Saffitz / Book & Infographic designed by
+                        Mia Johnson
+                        / Original Interactive UI built by <a href="https://github.com/margueriteroth">@margueriteroth</a>
+                    </p>
                 </div>
             </div>
             <div class="col">
@@ -57,7 +59,7 @@
         <SelectionPanel/>
         <FilterBar />
         <div class="flex">
-            <Scatterplot ref="plot" />
+            <Scatterplot title="Name of Chart" :xAccessor="DoXThing()" :yAccessor="DoYThing()" ref="plot" />
             <Session />
         </div>
         <Note v-if="!hasSeenNote.hasSeenNote" />
@@ -147,6 +149,9 @@
         .FilterBar {
             position: relative;
             z-index: 10;
+        }
+        .subtitle{
+            display: none;
         }
     }
 </style>
