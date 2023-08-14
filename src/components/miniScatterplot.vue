@@ -16,12 +16,14 @@ export default {
     y: {type: String, default: ""},
     r: { type: Number, default: 2},
     width: {type: Number, default: 50},
-    height: {type: Number, default: 50},
+    height: { type: Number, default: 50 },
+    edge: { type: Number, default: 5 }, //how many pixels from the edge of the scatter plot?
   },
   data() {
     return {
       plotName: this.x + "_x_" + this.y,
-      colIDname: this.x + "-col"
+      colIDname: this.x + "-col",
+      padding: { top: this.edge, right: this.edge, bottom: this.edge, left: this.edge },      
     }
   },
   mounted() {
@@ -38,8 +40,8 @@ export default {
     //     .scaleLinear()
     //     .domain(d3.extent(this.data, (d) => d[variable]))
     //     .range([
-    //       this.margin.left,
-    //       this.width - this.margin.right - this.margin.left,
+    //       this.padding.left,
+    //       this.width - this.padding.right - this.padding.left,
     //     ]);
     // },
     // yScale(variable) {
@@ -48,8 +50,8 @@ export default {
     //     .scaleLinear()
     //     .domain(d3.extent(this.data, (d) => d[variable]))
     //     .range([
-    //       this.height - this.margin.bottom - this.margin.top,
-    //       this.margin.top,
+    //       this.height - this.padding.bottom - this.padding.top,
+    //       this.padding.top,
     //     ]);
     // },
     renderScatterplot() {
@@ -60,12 +62,12 @@ export default {
       const xScale = d3
         .scaleLinear()
         .domain([d3.min(this.data, d => d[this.x]), d3.max(this.data, d => d[this.x])])
-        .range([0, this.width]);
+        .range([this.padding.left, this.width-this.padding.right]);
 
       const yScale = d3
         .scaleLinear()
         .domain([d3.min(this.data, d => d[this.y]), d3.max(this.data, d => d[this.y])])
-        .range([this.height, 0]);
+        .range([this.height - this.padding.bottom, this.padding.top]);
 
       // Create circles for each data point
       svg.selectAll('circle')
@@ -111,7 +113,6 @@ circle{
 }
 .miniScatterplot {
   background-color: var(--dusty-rose-200);
-  padding: 0px;
 }
 
 </style>

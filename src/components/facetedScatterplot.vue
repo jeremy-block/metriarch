@@ -1,5 +1,11 @@
 <template>
   <div id="splom">
+      <div class="scatterplot row" id="splomTopTitles">
+      <h6></h6>
+      <h6 v-for="xValue in this.numericVariables" :key="xValue">
+        {{xValue}}
+      </h6>
+    </div>
     <scatterplot-row v-for="yValue in numericVariables" :key="yValue" :yValue="yValue" />
   </div>
 </template>
