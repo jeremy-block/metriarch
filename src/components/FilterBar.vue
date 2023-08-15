@@ -79,7 +79,7 @@
                     class="FilterBar__toggle"
                     @click="shouldShowChapters = !shouldShowChapters"
                 >
-                    Chapters
+                    Behavior Types
                     <div class="FilterBar__toggle__icon">
                         {{ shouldShowChapters ? "—" : "+" }}
                     </div>

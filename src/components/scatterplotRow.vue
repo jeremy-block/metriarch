@@ -1,4 +1,5 @@
 <template>
+
   <div class="scatterplot row" :id="rowIDname" >
     <h6 class="splomTitle">
       {{ this.yValue }}
@@ -22,6 +23,7 @@ export default {
   components: {
     miniScatterplot
   },
+  // emits: ['handleFacetClick'],
   props: {
     yValue:""
   },

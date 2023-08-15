@@ -77,6 +77,7 @@ export default {
         .attr('cx', d => xScale(d[this.x])) //, (d) => d.x))
         .attr('cy', d => yScale(d[this.y]))
         .attr('r', this.r)
+        .attr('fill', '#794c89')
     },
     updateScatterplot() {
       const plotSelectorID = "#" + this.plotName
@@ -93,6 +94,7 @@ export default {
         .attr('cx', d => xScale(d[this.x])) //, (d) => d.x))
         .attr('cy', d => yScale(d[this.y]))
         .attr('r', this.r)
+        .attr('fill','#794c89')
     },
   },
   watch: {
@@ -109,7 +111,7 @@ export default {
 <style lang="scss" scoped>
 /* Add your component styles here */
 circle{
-  fill:var(--circles)
+  fill:#794c89; /*var(--circles)*/
 }
 .miniScatterplot {
   background-color: var(--dusty-rose-200);

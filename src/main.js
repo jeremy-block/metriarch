@@ -1,6 +1,6 @@
 import {createApp} from "vue";
 import {createRouter, createWebHistory} from "vue-router";
-import {createHead} from "@vueuse/head";
+import {createHead} from "@vueuse/head"; //being depreciated, will need to update
 import VuePapaParse from "vue-papa-parse";
 import App from "./App.vue";
 import routes from "./pages/urls.js";

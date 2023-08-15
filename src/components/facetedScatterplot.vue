@@ -12,7 +12,7 @@
 
 <script>
 import { mapState } from 'vuex';
-import scatterplotRow from './scatterplotRow.vue';
+import ScatterplotRow from './ScatterplotRow.vue';
 
 export default {
   data() {
@@ -20,7 +20,7 @@ export default {
     };
   },
   components: {
-    scatterplotRow,
+    ScatterplotRow,
   },
   computed: {
     ...mapState({

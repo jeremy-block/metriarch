@@ -71,13 +71,14 @@
 
     .Index {
         height: 100%;
-        padding-top: 0em;
+        padding: 0em 2em 6em 2em;
         position: relative;
-        background: url("/images/background-marble-03.jpg");
-        background-repeat: no-repeat;
-        background-size: cover;
-        height: 100vh;
-        max-height: 2000px;
+        background-color: rgb(193, 163, 158);
+        // background: url("/images/background-marble-04.jpg");
+        // background-repeat: no-repeat;
+        // background-size: cover;
+        // height: 100vh;
+        // max-height: 2000px;
 
         @media (max-width: 600px) {
             padding: 0 1em;
