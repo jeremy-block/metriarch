@@ -23,7 +23,7 @@ export default {
   components: {
     miniScatterplot
   },
-  emits: ['handleFacetClick'],
+  emits: ['dimensionChange'],
   props: {
     yValue:""
   },
@@ -47,6 +47,7 @@ export default {
       this.updateSelectedFacet(selectedFacet);
       this.$router.push({ query: { home } });
       this.$router.push({ query: { compare } });
+      this.$emit("dimensionChange",[x,y])
         
     },
   },
