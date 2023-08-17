@@ -2,7 +2,7 @@
   <div>
     <button
       @click="toggleAccordion()"
-      class="flex items-center space-x-3"
+      class="flex items-center space-x-3 FilterBar__button"
       :aria-expanded="isOpen"
       :aria-controls="`collapse${_uid}`"
     >
@@ -38,11 +38,20 @@
 </template>
 
 <script>
+import { getCurrentInstance } from 'vue';
+
 export default {
   data() {
     return {
       isOpen: false,
+      _uid: null,
     };
+  },
+    mounted() {
+    const instance = getCurrentInstance();
+    if (instance) {
+      this._uid = instance.uid;
+    }
   },
 
   methods: {
@@ -63,5 +72,6 @@ export default {
   .rotate-180 {
     transform: rotate(180deg);
   }
+  
 
 </style>

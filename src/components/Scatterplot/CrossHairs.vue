@@ -12,7 +12,7 @@
             lockedData: {
                 type: Object,
             },
-            dimensions: {
+            mainChartProps: {
                 type: Object,
             },
             xRuleDistance: {
@@ -54,7 +54,7 @@
                     ScatterPlot__locked-line ScatterPlot__locked-line--vertical
                 "
                 width="1"
-                :height="dimensions.boundedHeight"
+                :height="mainChartProps.boundedHeight"
                 :x="lockedData.lockedCoords.x"
             />
             <rect
@@ -62,7 +62,7 @@
                     ScatterPlot__locked-line
                     ScatterPlot__locked-line--horizontal
                 "
-                :width="dimensions.boundedWidth + xRuleDistance"
+                :width="mainChartProps.boundedWidth + xRuleDistance"
                 height="1"
                 :x="-xRuleDistance"
                 :y="lockedData.lockedCoords.y"
@@ -86,7 +86,7 @@
                     ScatterPlot__hovered-line--vertical
                 "
                 width="1"
-                :height="dimensions.boundedHeight"
+                :height="mainChartProps.boundedHeight"
                 :x="hoveredData.hoveredCoords.x"
             />
             <rect
@@ -94,7 +94,7 @@
                     ScatterPlot__hovered-line
                     ScatterPlot__hovered-line--horizontal
                 "
-                :width="dimensions.boundedWidth + xRuleDistance"
+                :width="mainChartProps.boundedWidth + xRuleDistance"
                 height="1"
                 :x="-xRuleDistance"
                 :y="hoveredData.hoveredCoords.y"

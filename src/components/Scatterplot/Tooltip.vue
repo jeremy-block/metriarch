@@ -10,7 +10,7 @@
             data: {
                 type: Object,
             },
-            dimensions: {
+            mainChartProps: {
                 type: Object,
             },
             xRuleDistance: {

@@ -17,7 +17,7 @@
 
 <template>
     <div class="DessertPersonTitle">
-        <h1>D<span>essert</span> P<span>erson</span></h1>
+        <h1>M<span>etriarch</span></h1>
     </div>
 </template>
 

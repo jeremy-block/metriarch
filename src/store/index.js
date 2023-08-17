@@ -11,6 +11,13 @@ const store = createStore({
                     ? JSON.parse(localStorage.getItem("dessertperson_"))
                     : {hasSeenNote: false, expire: ""},
             mode: "dev",
+            columnNames: [],
+            numericColumnNames: [],
+            lockedDimension: {
+                x: "",
+                y: "",
+                index: "", //Not sure if this is needed.
+            },
             lockedData: {
                 data: {},
                 index: "",
@@ -22,7 +29,7 @@ const store = createStore({
                 chapter: "",
                 other: [],
             },
-            dimensions: {},
+            mainChartProps: {}, //todo: modify to accept the new tuple: lockedDimension
             doShowChapterColors: false,
             doShowVoronoi: false,
 
@@ -41,7 +48,7 @@ const store = createStore({
             state.doShowVoronoi = !state.doShowVoronoi;
         },
         setDimensions(state, dimnsions) {
-            state.dimensions = dimnsions;
+            state.mainChartProps = dimnsions;
         },
         setLockedData(state, data) {
             state.lockedData = data;
@@ -80,8 +87,22 @@ const store = createStore({
                 chapterColors[chapter] = colors[i];
             })
 
+            // Defines the set of columns in the dataset.
+            state.columnNames = Object.keys(state.data[0]);
+            // Filter and return only the numeric variables from your data object
+            const numericVars = state.columnNames.filter(key => {
+                // console.log(
+                    // parseFloat(state.data[0][key]),
+                    // isNaN(parseFloat(state.data[0][key]))
+                // );
+                return !isNaN(parseFloat(state.data[0][key])); //If the float parser identifies NaN - then remove from numeric list.
+            });
+            // console.log(numericVars);
+
+
             state.sessions = sessions;
             state.chapterColors = chapterColors;
+            state.numericColumnNames = numericVars; // The set of dimentions that are numeric
         },
         setHasSeenNote(state, hasSeenNote) {
             if (!hasSeenNote) {

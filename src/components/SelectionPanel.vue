@@ -1,11 +1,11 @@
 <script>
 import Accordion from "./global/Accordion.vue";
-import ControlContent from './ControlContent.vue';
+import facetedScatterplot from "./facetedScatterplot.vue";
 export default {
   name: "SelectionPanel",
   components: {
     Accordion,
-    ControlContent
+    facetedScatterplot
   },
   props: {},
   data() {
@@ -24,7 +24,7 @@ export default {
           <span class="font-semibold text-xl no-wrap">DataTable</span>
         </template>
         <template v-slot:content>
-          <ControlContent />
+          <faceted-scatterplot />
         </template>
       </accordion>
 </template>
