@@ -9,11 +9,17 @@ import utils from "./scripts/utils.js";
 
 const app = createApp(App);
 
+//Adds components to the app
 const widgets = import.meta.globEager("./components/**/*.vue");
 for (const path in widgets) {
     let componentConfig = widgets[path];
     const componentName = componentConfig.default.name;
-    app.component(componentName, componentConfig.default || componentConfig);
+    
+    //catch the cases where there are folders used to store collections of components.
+    //WARN: no components with duplicate names.
+    if (componentName !== undefined) {
+        app.component(componentName, componentConfig.default || componentConfig);
+    }
 }
 
 app.mixin({
