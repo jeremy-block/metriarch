@@ -23,7 +23,7 @@ export default {
   components: {
     miniScatterplot
   },
-  // emits: ['handleFacetClick'],
+  emits: ['handleFacetClick'],
   props: {
     yValue:""
   },
@@ -42,8 +42,12 @@ export default {
     ...mapMutations(['updateSelectedFacet']),
     handleFacetClick(selectedFacet) {
       console.log(selectedFacet)
-        this.updateSelectedFacet(selectedFacet);
-        this.$router.push({ query: { selectedFacet } });
+      let home = selectedFacet[0]
+      let compare = selectedFacet[1]
+      this.updateSelectedFacet(selectedFacet);
+      this.$router.push({ query: { home } });
+      this.$router.push({ query: { compare } });
+        
     },
   },
   watch: {
