@@ -25,7 +25,7 @@ export default {
   components: {
     miniScatterplot
   },
-  emits: ['dimensionChange'],
+  emits: ['metricChange'],
   props: {
     yValue:""
   },
@@ -55,7 +55,7 @@ export default {
       // this.updateSelectedFacet(selectedFacet);
       //todo: may need to keep other elements of the query selected before pushing new things or changing. Not sure if this feature is better or not
       this.$router.push({ query: { xDomain, yRange } });
-      this.$emit("dimensionChange", [xDomain, yRange])
+      this.$emit("metricChange", [xDomain, yRange])
 
     },
   },
