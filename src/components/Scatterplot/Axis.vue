@@ -52,6 +52,7 @@
                 hourLabels: [5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 6, 12],
                 minuteSections: [5, 60, 90, 120, 150, 180, 210, 240, 360, 720],
                 arrowSize: 10,
+                labelPlateMultiplier: 9.5, //For dertermining the width of the box behind the axis label
             };
         },
         computed: {
@@ -94,6 +95,7 @@
         v-if="dimension == 'x' && isLoaded"
         :style="{transform: `translate(0, ${mainChartProps.boundedHeight}px)`}"
     >
+        <!-- Horizontal Axis line -->
         <g>
             {/* Horiz Arrow Top */}
             <line
@@ -150,6 +152,7 @@
             />
         </g>
 
+        <!--  minor ticks - vertical lines along x axis -->
         <line
             v-if="isLoaded"
             v-for="tick in minrules"
@@ -176,6 +179,7 @@
             "
         />
 
+        <!-- Major ticks - vertical lines along x axis -->
         <line
             v-if="isLoaded"
             v-for="(tick, i) in minuteSections"
@@ -204,6 +208,7 @@
             "
         />
 
+        <!-- Labels for horizontal axis -->
         <g
             v-for="(tick, i) in minuteSections"
             :key="tick"
@@ -233,13 +238,14 @@
             </text>
         </g>
 
+        <!-- Hoizontal Axis label -->
         <g
             class="Axis__label__wrapper"
             :style="{transform: `translate(0px, 4px)`}"
         >
             <rect
                 class="label-plate"
-                :width="125"
+                :width="labelPlateMultiplier * label.length"
                 :height="xRuleDistance + 10"
                 :style="{
                     transform: `translate(0px, -15px)`,
@@ -268,6 +274,7 @@
             :y2="scale(tick)"
         />
 
+        <!-- Horizontal background colors -->
         <rect
             v-for="(tick, i) in ticks"
             :key="i"
@@ -278,6 +285,7 @@
             :x="-xRuleDistance"
         />
 
+        <!-- Hoizontal lines that expand beyond the y axis - major ticks -->
         <template v-for="tick in ticks" :key="tick">
             <line
                 v-if="tick != 1 && tick != 6"
@@ -318,7 +326,7 @@
         >
             <rect
                 class="label-plate"
-                :width="92"
+                :width="labelPlateMultiplier*label.length"
                 :height="xRuleDistance"
                 :style="{
                     transform: `translate(1px, ${-xRuleDistance / 2 - 4}px)`,

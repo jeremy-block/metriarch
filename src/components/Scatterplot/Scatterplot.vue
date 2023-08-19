@@ -123,13 +123,18 @@
                         }
                     }
                 });
+                //keep only items less than the ymaximum
                 horizIntervals = horizIntervals.filter(
                     interval => interval < this.yMax
                 );
+                //remove duplicates
                 horizIntervals = [...new Set(horizIntervals)];
+                //If the first interval is 1, remove it, 
                 if (horizIntervals[0] == 1) {
                     horizIntervals.splice(0, 1);
                 }
+                //return array of numbers.
+                // console.log(horizIntervals)
                 return horizIntervals;
             },
         },
