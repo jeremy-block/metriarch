@@ -2,7 +2,10 @@
   <div id="splom">
       <div class="scatterplot row" id="splomTopTitles">
       <h6></h6>
-      <h6 v-for="xValue in this.numericVariables" :key="xValue">
+      <!-- :class="this.computedClasses[xValue]" -->
+      <h6 v-for="xValue in this.numericVariables" 
+      
+       :key="xValue">
         {{xValue}}
       </h6>
     </div>
@@ -25,9 +28,23 @@ export default {
   computed: {
     ...mapState({
       numericVariables: (state) => state.numericColumnNames,  
-        // selectedFacet: (state) = state.selectedFacet,
-    }    
-    )
+      // selColName: (state) => state.lockedDimension.x,
+    }),
+    // computedClasses() {
+    //   const output = []
+    //   for (const colName in this.numericVariables) {
+    //     // console.log(this.numericVariables[colName])
+    //     if (this.numericVariables[colName] === this.selColName) {
+    //       output.push("selectedCol")
+    //     } else {
+    //       output.push("not")
+    //     }
+    //   }
+    //   return output
+      // return {
+        // "selectedCol": colName === this.selColName
+      // }
+    // }
   },
   methods: {
     
@@ -40,5 +57,8 @@ export default {
     border-radius: var(--border-radius);
     background-color: var(--background-color);
     width: 26%; /* temporary value*/
+}
+.selectedCol{
+  background-color: thistle;
 }
 </style>

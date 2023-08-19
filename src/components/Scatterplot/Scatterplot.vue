@@ -135,6 +135,7 @@
         },
         methods: {
             setDimensions() {
+                // console.log("setting dimensions");
                 let box = this.$refs.container?.getBoundingClientRect();
                 this.mainChartProps.width = box.width;
                 this.mainChartProps.height = box.height;
@@ -339,12 +340,14 @@
             },
             changeRoute() {
                 let query = {...this.$route.query};
+                //if the hovered data is different than the locked data or there is nothing under the cursor, set it to a new query
                 if (
                     !query["session"] ||
                     query["session"] != this.hoveredData.slug
                 ) {
                     query["session"] = this.hoveredData.slug;
                     this.$router.push({query});
+                //otherwise, deselect the session.
                 } else {
                     query["session"] = undefined;
                     this.$router.push({query});
@@ -363,6 +366,7 @@
                     this.isLoaded = true;
                 }
             },
+            //Detect changes in the vueRouter
             "$route.query": {
                 immediate: true,
                 deep: true,
@@ -393,6 +397,11 @@
                         // clear
                         this.lockedIndex = "";
                         this.lockedCoords = {x: 0, y: 0};
+                    }
+
+                    if (query.xDomain || query.yRange) {
+                        console.log("scatterplot heard that there was a route change:", query.xDomain, query.yRange, "\tDispatching setDimensions")
+                        this.$store.dispatch("setDimensions", [query.xDomain, query.yRange])
                     }
 
                     if (query.chapter) {

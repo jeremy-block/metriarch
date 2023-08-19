@@ -1,6 +1,8 @@
 <template>
 
-  <div class="scatterplot row" :id="rowIDname" >
+  <div class="scatterplot row"
+        :class="computedClasses"
+        :id="rowIDname" >
     <h6 class="splomTitle">
       {{ this.yValue }}
     </h6>
@@ -35,20 +37,26 @@ export default {
   computed: {
     ...mapState({
       data: state => state.data,
-      numericVariables: state => state.numericColumnNames
+      numericVariables: state => state.numericColumnNames,
+      selRowName: state => state.lockedDimension.y,
     }),
+    computedClasses() {
+      return {
+        "selectedRow": this.yValue === this.selRowName
+      }
+    }
   },
   methods: {
-    ...mapMutations(['updateSelectedFacet']),
+        // ...mapMutations(['updateSelectedFacet']),
     handleFacetClick(selectedFacet) {
       console.log(selectedFacet)
-      let home = selectedFacet[0]
-      let compare = selectedFacet[1]
-      this.updateSelectedFacet(selectedFacet);
-      this.$router.push({ query: { home } });
-      this.$router.push({ query: { compare } });
-      this.$emit("dimensionChange",[x,y])
-        
+      let xDomain = selectedFacet[0]
+      let yRange = selectedFacet[1]
+      // this.updateSelectedFacet(selectedFacet);
+      //todo: may need to keep other elements of the query selected before pushing new things or changing. Not sure if this feature is better or not
+      this.$router.push({ query: { xDomain, yRange } });
+      this.$emit("dimensionChange", [xDomain, yRange])
+
     },
   },
   watch: {
@@ -69,5 +77,8 @@ export default {
 }
 .scatterplot{
   width: 100%; /* temporary value*/
+}
+.selectedRow{
+  background-color: thistle;
 }
 </style>

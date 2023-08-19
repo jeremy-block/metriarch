@@ -16,7 +16,6 @@ const store = createStore({
             lockedDimension: {
                 x: "",
                 y: "",
-                index: "", //Not sure if this is needed.
             },
             lockedData: {
                 data: {},
@@ -48,7 +47,8 @@ const store = createStore({
             state.doShowVoronoi = !state.doShowVoronoi;
         },
         setDimensions(state, dimnsions) {
-            state.mainChartProps = dimnsions;
+            state.lockedDimension.x = dimnsions[0];
+            state.lockedDimension.y = dimnsions[1];
         },
         setLockedData(state, data) {
             state.lockedData = data;
@@ -92,13 +92,12 @@ const store = createStore({
             // Filter and return only the numeric variables from your data object
             const numericVars = state.columnNames.filter(key => {
                 // console.log(
-                    // parseFloat(state.data[0][key]),
-                    // isNaN(parseFloat(state.data[0][key]))
+                // parseFloat(state.data[0][key]),
+                // isNaN(parseFloat(state.data[0][key]))
                 // );
                 return !isNaN(parseFloat(state.data[0][key])); //If the float parser identifies NaN - then remove from numeric list.
             });
             // console.log(numericVars);
-
 
             state.sessions = sessions;
             state.chapterColors = chapterColors;
@@ -134,6 +133,9 @@ const store = createStore({
     actions: {
         setMode({commit}, mode) {
             commit("setMode", mode);
+        },
+        setDimensions({commit}, data) {
+            commit("setDimensions", data);
         },
         setLockedData({commit}, data) {
             commit("setLockedData", data);
