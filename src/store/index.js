@@ -46,9 +46,13 @@ const store = createStore({
         toggleVoronoi(state) {
             state.doShowVoronoi = !state.doShowVoronoi;
         },
+        setMetrics(state, metricSet) {
+            state.lockedDimension.x = metricSet[0];
+            state.lockedDimension.y = metricSet[1];
+        },
         setDimensions(state, dimnsions) {
-            state.lockedDimension.x = dimnsions[0];
-            state.lockedDimension.y = dimnsions[1];
+            // console.log("Dimnsions are:", dimnsions);
+            state.mainChartProps = dimnsions;
         },
         setLockedData(state, data) {
             state.lockedData = data;
@@ -85,7 +89,7 @@ const store = createStore({
             let chapterColors = {};
             chapters.forEach((chapter, i) => {
                 chapterColors[chapter] = colors[i];
-            })
+            });
 
             // Defines the set of columns in the dataset.
             state.columnNames = Object.keys(state.data[0]);
@@ -133,6 +137,9 @@ const store = createStore({
     actions: {
         setMode({commit}, mode) {
             commit("setMode", mode);
+        },
+        setMetrics({commit}, data) {
+            commit("setMetrics", data);
         },
         setDimensions({commit}, data) {
             commit("setDimensions", data);

@@ -400,8 +400,8 @@
                     }
 
                     if (query.xDomain || query.yRange) {
-                        console.log("scatterplot heard that there was a route change:", query.xDomain, query.yRange, "\tDispatching setDimensions")
-                        this.$store.dispatch("setDimensions", [query.xDomain, query.yRange])
+                        console.log("scatterplot heard that there was a route change:", query.xDomain, query.yRange, "\tDispatching setMetrics")
+                        this.$store.dispatch("setMetrics", [query.xDomain, query.yRange])
                     }
 
                     if (query.chapter) {
