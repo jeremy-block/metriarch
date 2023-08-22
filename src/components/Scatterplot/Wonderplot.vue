@@ -4,8 +4,7 @@ import utils from "@/scripts/utils.js";
 
 import { scaleLinear } from "d3";
 import { Delaunay } from "d3-delaunay";
-import WonderAxis from "./WonderAxis.vue";
-import ultaAxis from "./UltraAxis.vue"
+import ScatterAxis from "./ScatterAxis.vue"
 import Circles from "./Circles.vue";
 import CrossHairs from "./CrossHairs.vue";
 import Tooltip from "./Tooltip.vue";
@@ -13,7 +12,7 @@ import { trigger } from "@vue/reactivity";
 
 export default {
     name: "Wonderplot",
-    components: [WonderAxis, Circles, CrossHairs, Tooltip],
+    components: [ScatterAxis, Circles, CrossHairs, Tooltip],
     props: {
         yAccessor: {
             type: Function,
@@ -524,16 +523,16 @@ export default {
             }">
 
                         <!-- label="total minutes" -->
-                <ultra-axis 
+                <scatter-axis 
                     orientation="x" 
                     :mainChartProps="mainChartProps" 
-                    :numberOfTicks="6"
+                    :numberOfTicks="10"
                     :minorsPerTick="5"
                     :label="this.$route.query.xDomain"
                     :property-name="this.$route.query.xDomain"
 
                 />
-                <ultra-axis
+                <scatter-axis
                         orientation="y" 
                         :mainChartProps="mainChartProps" 
                         :numberOfTicks="5"
@@ -541,19 +540,6 @@ export default {
                         :label="this.$route.query.yRange"
                         :property-name="this.$route.query.yRange"
                     />
-                <!-- <wonder-axis 
-                    dimension="y" 
-                    :scale="yScale" 
-                    :mainChartProps="mainChartProps" 
-                    :y-scale="yScale"
-                    :minrules="minVertRules"
-                    :xscales="xScales" 
-                    :numberOfTicks="5" 
-                    label="difficulty"
-                    :x-rule-distance="xRuleDistance" 
-                    :y-rule-distance="yRuleDistance"
-                    :y-ryle-distanceThrees="yRyleDistanceThrees" 
-                /> -->
                 <Circles v-if="isLoaded" :data="dataDots" :total-data="totalDots" :mainChartProps="mainChartProps" />
                 <g v-if="doShowVoronoi">
                     <path v-for="(path, i) in voronoiPaths" :key="path" :d="path.d"
@@ -562,7 +548,6 @@ export default {
                                 : 'transparent'
                             " stroke="#da79ae" :strokeWidth="1" />
                 </g>
-
                 <CrossHairs :hovered-data="{
                     hoveredCoords,
                     hoveredData,
