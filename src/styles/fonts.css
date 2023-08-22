@@ -1,0 +1,57 @@
+@font-face {
+  font-family: "Jaune";
+  font-weight: 300;
+  font-style: normal;
+  font-display: auto;
+  unicode-range: U+000-5FF;
+  src: local("Juane"), url("/fonts/NaNJauneTRIAL-MidiLight.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Jaune";
+  font-weight: 400;
+  font-style: normal;
+  font-display: auto;
+  unicode-range: U+000-5FF;
+  src: local("Juane"), url("/fonts/NaNJauneTRIAL-MidiBlond.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Jaune";
+  font-weight: 500;
+  font-style: normal;
+  font-display: auto;
+  unicode-range: U+000-5FF;
+  src: local("Juane"), url("/fonts/NaNJauneTRIAL-MidiRegular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Jaune";
+  font-weight: 600;
+  font-style: normal;
+  font-display: auto;
+  unicode-range: U+000-5FF;
+  src: local("Jaune"), url("/fonts/NaNJauneTRIAL-MidiMedium.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Jaune";
+  font-weight: 700;
+  font-style: normal;
+  font-display: auto;
+  unicode-range: U+000-5FF;
+  src: local("Juane"), url("/fonts/NaNJauneTRIAL-MidiBold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Jaune";
+  font-weight: 800;
+  font-style: normal;
+  font-display: auto;
+  unicode-range: U+000-5FF;
+  src: local("Juane"), url("/fonts/NaNJauneTRIAL-MidiBlack.woff2") format("woff2");
+}
+@font-face {
+  src: url("/fonts/MolitorVariableItalic-Trial.woff2") format("woff2-variations");
+  font-family: "Molitor Variable";
+  font-style: italic;
+}
+:root {
+  --juane: Juane, "Inter", sans-serif;
+  --molitor: Molitor Variable, "Inter", sans-serif;
+}/*# sourceMappingURL=fonts.css.map */
