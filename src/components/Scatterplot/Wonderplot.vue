@@ -5,6 +5,7 @@ import utils from "@/scripts/utils.js";
 import { scaleLinear } from "d3";
 import { Delaunay } from "d3-delaunay";
 import WonderAxis from "./WonderAxis.vue";
+import ultaAxis from "./UltraAxis.vue"
 import Circles from "./Circles.vue";
 import CrossHairs from "./CrossHairs.vue";
 import Tooltip from "./Tooltip.vue";
@@ -21,6 +22,10 @@ export default {
         xAccessor: {
             type: Function,
             default: d => d.minutes,
+        },
+        propToCareAbout: {
+            type: String,
+            default: 'minutes',
         },
         title: {
             type: String,
@@ -59,12 +64,12 @@ export default {
             yRuleDistance: 0,
             yRyleDistanceThrees: 0,
             yArrowOffset: 0,
-            colsPerSection: {
-                mins55: 1,
-                mins30: 6,
-                mins120: 1,
-                mins360: 2,
-            },
+            // colsPerSection: {
+            //     mins55: 1,
+            //     mins30: 6,
+            //     mins120: 1,
+            //     mins360: 2,
+            // },
             mainChartProps: {
                 marginTop: 10,
                 marginRight: 40,
@@ -78,11 +83,15 @@ export default {
                 axisOffset: 35,
             },
             yScale: scaleLinear(),
+            xScale: scaleLinear(),
             xScales: {},
             xScale55mins: scaleLinear(),
             xScale30mins: scaleLinear(),
             xScale120mins: scaleLinear(),
             xScale360mins: scaleLinear(),
+            axisAccessor: (dataArray, accessorFunction, property) => {
+                return dataArray.map(obj => accessorFunction(obj, property));
+            },
         };
     },
     computed: {
@@ -96,6 +105,9 @@ export default {
         }),
         yMax() {
             return 6;
+        },
+        xMax() {
+            return 200;
         },
         minVertRules() {
             let verticalRuleMinutes = [];
@@ -153,11 +165,12 @@ export default {
                 this.mainChartProps.marginLeft -
                 this.mainChartProps.marginRight;
             this.mainChartProps.sectionWidth =
-                this.mainChartProps.boundedWidth /
-                Object.values(this.colsPerSection).reduce(
-                    (a, b) => a + b,
-                    0
-                );
+                this.mainChartProps.boundedWidth
+                // this.mainChartProps.boundedWidth /
+                // Object.values(this.colsPerSection).reduce(
+                //     (a, b) => a + b,
+                //     0
+                // );
 
             if (window.screen.width < 601) {
                 this.mainChartProps.marginLeft = 20;
@@ -181,27 +194,33 @@ export default {
                 this.yScale(this.levelRules[16]) -
                 this.yScale(this.levelRules[17])
             );
-            let xScales = {};
-            let xDomains = [
-                [5, 60],
-                [60, 240],
-                [240, 360],
-                [360, 1080],
-            ];
-            Object.keys(this.colsPerSection).forEach((mins, i) => {
-                xScales[mins] = scaleLinear()
-                    .domain(xDomains[i])
-                    .range([
-                        0,
-                        this.mainChartProps.sectionWidth *
-                        this.colsPerSection[mins],
-                    ]);
-            });
-            this.xScales = xScales;
-            this.xRuleDistance = Math.abs(
-                this.xScales["mins55"](this.minVertRules[1]) -
-                this.xScales["mins55"](this.minVertRules[2])
-            );
+            console.log(this.yRuleDistance)
+            this.xScales =
+                scaleLinear()
+                    .domain([this.xMax, 0])
+                    .range([0,this.mainChartProps.boundedWidth]); 
+            // let xScales = {}
+            // let xDomains = [
+            //     [5, 60],
+            //     [60, 240],
+            //     [240, 360],
+            //     [360, 1080],
+            // ];
+            // Object.keys(this.colsPerSection).forEach((mins, i) => {
+            //     xScales[mins] = scaleLinear()
+            //         .domain(xDomains[i])
+            //         .range([
+            //             0,
+            //             this.mainChartProps.sectionWidth *
+            //             this.colsPerSection[mins],
+            //         ]);
+            // });
+            // this.xScales = xScales;
+            this.xRuleDistance = 0;
+            // this.xRuleDistance = Math.abs(
+            //     this.xScales["mins55"](this.minVertRules[1]) -
+            //     this.xScales["mins55"](this.minVertRules[2])
+            // );
             this.yArrowOffset = this.xRuleDistance * 3;
 
             let data;
@@ -238,33 +257,35 @@ export default {
             this.voronoiData = { dots, voronoiPaths, voronoi };
             this.voronoiPaths = voronoiPaths;
         },
-        getXScale(val) {
-            let scale;
-            // # Invert Formula
-            // scale.invert - (sectionWidth * [sections before scale])
-            // maybe make something that getsScale AND shifts sections? ToDo
-            if (this.currentHoveredCol == 1) {
-                scale = this.xScales.mins55;
-            } else if (this.currentHoveredCol <= 7) {
-                scale = this.xScales.mins30;
-            } else if (this.currentHoveredCol == 8) {
-                scale = this.xScale120mins;
-            } else {
-                scale = this.xScale360mins;
-            }
-            return scale;
-        },
+        // getXScale(val) {
+        //     let scale;
+        //     // # Invert Formula
+        //     // scale.invert - (sectionWidth * [sections before scale])
+        //     // maybe make something that getsScale AND shifts sections? ToDo
+        //     if (this.currentHoveredCol == 1) {
+        //         scale = this.xScales.mins55;
+        //     } else if (this.currentHoveredCol <= 7) {
+        //         scale = this.xScales.mins30;
+        //     } else if (this.currentHoveredCol == 8) {
+        //         scale = this.xScale120mins;
+        //     } else {
+        //         scale = this.xScale360mins;
+        //     }
+        //     return scale;
+        // },
         xAccessorScaled(d) {
-            return this.xAccessor(d) <= 60
-                ? this.xScales.mins55(this.xAccessor(d))
-                : this.xAccessor(d) <= 240
-                    ? this.xScales.mins30(this.xAccessor(d)) +
-                    this.mainChartProps.sectionWidth
-                    : this.xAccessor(d) <= 360
-                        ? this.xScales.mins120(this.xAccessor(d)) +
-                        this.mainChartProps.sectionWidth * 7
-                        : this.xScales.mins360(this.xAccessor(d)) +
-                        this.mainChartProps.sectionWidth * 8;
+            return this.xScale(this.xAccessor(d));
+
+            // return this.xAccessor(d) <= 60
+            //     ? this.xScales.mins55(this.xAccessor(d))
+            //     : this.xAccessor(d) <= 240
+            //         ? this.xScales.mins30(this.xAccessor(d)) +
+            //         this.mainChartProps.sectionWidth
+            //         : this.xAccessor(d) <= 360
+            //             ? this.xScales.mins120(this.xAccessor(d)) +
+            //             this.mainChartProps.sectionWidth * 7
+            //             : this.xScales.mins360(this.xAccessor(d)) +
+            //             this.mainChartProps.sectionWidth * 8;
         },
         yAccessorScaled(d) {
             return this.yScale(this.yAccessor(d));
@@ -309,16 +330,17 @@ export default {
             let y =
                 $event.clientY -
                 $event.currentTarget.getBoundingClientRect().y;
-            let totalCols = Object.values(this.colsPerSection).reduce(
-                function (a, b) {
-                    return a + b;
-                }
-            );
+            let totalCols = 1
+            // let totalCols = Object.values(this.colsPerSection).reduce(
+            //     function (a, b) {
+            //         return a + b;
+            //     }
+            // );
             let currentCol = Math.ceil(
                 x / (this.mainChartProps.boundedWidth / totalCols)
             );
             this.currentHoveredCol = currentCol;
-            let correctXScale = this.getXScale(x);
+            // let correctXScale = this.getXScale(x);
             let closestIndex = this.voronoiData.voronoi.delaunay.find(x, y);
 
             let data = this.data;
@@ -500,31 +522,38 @@ export default {
             <g class="x-rules" :style="{
                 transform: `translate(${mainChartProps.marginLeft}px, ${mainChartProps.marginTop}px)`,
             }">
-                <wonder-axis 
-                    dimension="x" 
+
+                        <!-- label="total minutes" -->
+                <ultra-axis 
+                    orientation="x" 
                     :mainChartProps="mainChartProps" 
-                    :y-scale="yScale" 
-                    :minrules="minVertRules"
-                    :xscales="xScales"
-                    :number-of-ticks="10"
-                    label="total minutes"
-                    :x-rule-distance="xRuleDistance"
-                    :y-rule-distance="yRuleDistance"
-                    :y-ryle-distanceThrees="yRyleDistanceThrees" 
+                    :numberOfTicks="6"
+                    :minorsPerTick="5"
+                    :label="this.$route.query.xDomain"
+                    :property-name="this.$route.query.xDomain"
+
                 />
-                <wonder-axis 
+                <ultra-axis
+                        orientation="y" 
+                        :mainChartProps="mainChartProps" 
+                        :numberOfTicks="5"
+                        :minorsPerTick="7"
+                        :label="this.$route.query.yRange"
+                        :property-name="this.$route.query.yRange"
+                    />
+                <!-- <wonder-axis 
                     dimension="y" 
                     :scale="yScale" 
                     :mainChartProps="mainChartProps" 
                     :y-scale="yScale"
                     :minrules="minVertRules"
                     :xscales="xScales" 
-                    :number-of-ticks="5" 
+                    :numberOfTicks="5" 
                     label="difficulty"
                     :x-rule-distance="xRuleDistance" 
                     :y-rule-distance="yRuleDistance"
                     :y-ryle-distanceThrees="yRyleDistanceThrees" 
-                />
+                /> -->
                 <Circles v-if="isLoaded" :data="dataDots" :total-data="totalDots" :mainChartProps="mainChartProps" />
                 <g v-if="doShowVoronoi">
                     <path v-for="(path, i) in voronoiPaths" :key="path" :d="path.d"
@@ -687,7 +716,7 @@ export default {
         letter-spacing: 0.08em;
         fill: $dp-dark;
 
-        &__wrapper {}
+        // &__wrapper {}
     }
 
     .y-axis-label {
@@ -795,7 +824,7 @@ export default {
             transition: 600ms linear all;
 
             &--hovered {
-                //fill: rgba($dp-dark, 0.85);
+                fill: rgba($dp-dark, 0.85);
             }
         }
     }

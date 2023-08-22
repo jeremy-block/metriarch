@@ -1,5 +1,5 @@
 <script>
-    import {extent, min, max, timeFormat, format} from "d3";
+    import {extent, min, max, timeFormat, format, schemeDark2, scaleLinear } from "d3";
     import utils from "@/scripts/utils.js";
 
     export default {
@@ -43,7 +43,7 @@
                 type: Array,
             },
             xscales: {
-                type: Object,
+                type: Function,
             },
         },
         data() {
@@ -55,9 +55,33 @@
                 labelPlateMultiplier: 9.5, //For dertermining the width of the box behind the axis label
             };
         },
-        computed: {
-            ticks() {
-                return this.scale.ticks(this.numberOfTicks);
+    computed: {
+        yMax() {
+            return 8
+        },
+        minorTicks() {
+            let helpervalue = 1
+            const output = [];
+            for (let cntr = 1; helpervalue < this.numberOfTicks; helpervalue++){
+                output.push(cntr)
+                cntr++
+                output.push(cntr)
+                cntr++
+                output.push(cntr)
+                cntr++
+
+            }
+            console.log(output)
+            return output
+
+        },
+        ticks() {
+                console.log(scaleLinear().domain([this.yMax, 1])
+                .range([0, this.mainChartProps.boundedHeight]))
+                // console.log(this.scale.ticks(12))
+                return scaleLinear().domain([this.yMax, 1])
+                .range([0, this.mainChartProps.boundedHeight]).ticks(this.numberOfTicks)
+                // return this.scale.ticks(this.numberOfTicks);
             },
             yArrowOffset() {
                 return this.yRuleDistance * 3;
@@ -69,18 +93,10 @@
             },
         },
         methods: {
-            formatYears() {
-                return timeFormat("%Y");
-            },
-            formatTick() {
-                if (this.dimension == "x") {
-                    return this.format(",");
-                }
-            },
         },
         watch: {
             xscales() {
-                if (this.xscales["mins55"]) {
+                if (this.yMax) {
                     this.isLoaded = true;
                 }
             },
@@ -155,72 +171,32 @@
         <!--  minor ticks - vertical lines along x axis -->
         <line
             v-if="isLoaded"
-            v-for="tick in minrules"
+            v-for="tick in minorTicks"
             :key="tick"
             class="Grid__rules"
             :y1="-mainChartProps.boundedHeight"
-            :x1="
-                tick < 60
-                    ? xscales.mins55(tick)
-                    : tick <= 240
-                    ? xscales.mins30(tick) + mainChartProps.sectionWidth
-                    : tick <= 360
-                    ? xscales.mins120(tick) + mainChartProps.sectionWidth * 7
-                    : xscales.mins360(tick) + mainChartProps.sectionWidth * 8
-            "
-            :x2="
-                tick < 60
-                    ? xscales.mins55(tick)
-                    : tick <= 240
-                    ? xscales.mins30(tick) + mainChartProps.sectionWidth
-                    : tick <= 360
-                    ? xscales.mins120(tick) + mainChartProps.sectionWidth * 7
-                    : xscales.mins360(tick) + mainChartProps.sectionWidth * 8
-            "
+            :x1="xscales(tick)"
+            :x2="xscales(tick)"
         /> 
         <!-- Major ticks - vertical lines along x axis -->
         <line
             v-if="isLoaded"
-            v-for="(tick, i) in minuteSections"
+            v-for="(tick, i) in ticks"
             :style="{opacity: mainChartProps.boundedWidth < 900 && i % 2 == 0 ? 0 : 1}"
             :key="tick"
             :class="tick == 5 ? `Grid__rules` : `Grid__section-delineator`"
             :y1="-mainChartProps.boundedHeight"
             :y2="xTickOffset"
-            :x1="
-                tick < 60
-                    ? xscales.mins55(tick)
-                    : tick <= 240
-                    ? xscales.mins30(tick) + mainChartProps.sectionWidth
-                    : tick <= 360
-                    ? xscales.mins120(tick) + mainChartProps.sectionWidth * 7
-                    : xscales.mins360(tick) + mainChartProps.sectionWidth * 8
-            "
-            :x2="
-                tick < 60
-                    ? xscales.mins55(tick)
-                    : tick <= 240
-                    ? xscales.mins30(tick) + mainChartProps.sectionWidth
-                    : tick <= 360
-                    ? xscales.mins120(tick) + mainChartProps.sectionWidth * 7
-                    : xscales.mins360(tick) + mainChartProps.sectionWidth * 8
-            "
+            :x1="xscales(tick)"
+            :x2="xscales(tick)"
         />
 
         <!-- Labels for horizontal axis -->
         <g
-            v-for="(tick, i) in minuteSections"
+            v-for="(tick, i) in ticks"
             :key="tick"
             :style="{
-                transform: `translate(${
-                    tick < 60
-                        ? xscales.mins55(tick)
-                        : tick <= 240
-                        ? xscales.mins30(tick) + mainChartProps.sectionWidth
-                        : tick <= 360
-                        ? xscales.mins120(tick) + mainChartProps.sectionWidth * 7
-                        : xscales.mins360(tick) + mainChartProps.sectionWidth * 8
-                }px, ${xTickOffset}px)`,
+                transform: `translate(${xscales(tick)}px, ${xTickOffset}px)`,
                 opacity: mainChartProps.boundedWidth < 900 && i % 2 == 0 ? 0 : 1
             }"
         >
@@ -318,7 +294,7 @@
         <g
             class="Axis__label__wrapper"
             :style="{
-                transform: `translate(${-xscales.mins55(minrules[1])}px, ${
+                transform: `translate(${-xscales(minrules[1])}px, ${
                     mainChartProps.boundedHeight - yRuleDistance
                 }px) rotate(-90deg)`,
             }"
