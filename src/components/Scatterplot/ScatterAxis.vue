@@ -1,5 +1,3 @@
-
-
 <script>
 import { mapState } from "vuex";
 import { max, scaleLinear } from "d3";
