@@ -60,7 +60,7 @@
         <FilterBar />
         <div class="flex">
             <wonderplot ref="wonderful"/>
-            <Scatterplot title="Name of Chart" :xAccessor="DoXThing()" :yAccessor="DoYThing()" ref="plot" />
+            <!-- <Scatterplot title="Name of Chart" :xAccessor="DoXThing()" :yAccessor="DoYThing()" ref="plot" /> -->
             <Session />
         </div>
         <Note v-if="!hasSeenNote.hasSeenNote" />
