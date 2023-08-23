@@ -2,7 +2,7 @@
 import { mapState } from "vuex";
 import utils from "@/scripts/utils.js";
 
-import { scaleLinear } from "d3";
+import { scaleLinear, max } from "d3";
 import { Delaunay } from "d3-delaunay";
 import ScatterAxis from "./ScatterAxis.vue"
 import Circles from "./Circles.vue";
@@ -14,14 +14,6 @@ export default {
     name: "Wonderplot",
     components: [ScatterAxis, Circles, CrossHairs, Tooltip],
     props: {
-        yAccessor: {
-            type: Function,
-            default: d => d.difficulty,
-        },
-        xAccessor: {
-            type: Function,
-            default: d => d.minutes,
-        },
         propToCareAbout: {
             type: String,
             default: 'minutes',
@@ -88,7 +80,11 @@ export default {
             xScale30mins: scaleLinear(),
             xScale120mins: scaleLinear(),
             xScale360mins: scaleLinear(),
-            axisAccessor: (dataArray, accessorFunction, property) => {
+                        //helper function to select for a particular property in an object.
+            //get floats for the value so they are interpreted as numbers and not just strings.
+            getObjValue: (obj, property) => parseFloat(obj[property]),
+            // function to get a list of values associated with a dataArray's property - "Get a column" function
+            accessor: (dataArray, accessorFunction, property) => {
                 return dataArray.map(obj => accessorFunction(obj, property));
             },
         };
@@ -103,10 +99,12 @@ export default {
             doShowVoronoi: state => state.doShowVoronoi,
         }),
         yMax() {
-            return 6;
+            const maximumValue = max(this.accessor(this.data, this.getObjValue, this.$route.query.yRange))
+            return maximumValue
         },
         xMax() {
-            return 200;
+            const maximumValue = max(this.accessor(this.data, this.getObjValue, this.$route.query.xDomain))
+            return maximumValue
         },
         minVertRules() {
             let verticalRuleMinutes = [];
@@ -194,9 +192,9 @@ export default {
                 this.yScale(this.levelRules[17])
             );
             console.log(this.yRuleDistance)
-            this.xScales =
+            this.xScale =
                 scaleLinear()
-                    .domain([this.xMax, 0])
+                    .domain([0, this.xMax])
                     .range([0,this.mainChartProps.boundedWidth]); 
             // let xScales = {}
             // let xDomains = [
@@ -273,7 +271,7 @@ export default {
         //     return scale;
         // },
         xAccessorScaled(d) {
-            return this.xScale(this.xAccessor(d));
+            return this.xScale(this.getObjValue(d, this.$route.query.xDomain));
 
             // return this.xAccessor(d) <= 60
             //     ? this.xScales.mins55(this.xAccessor(d))
@@ -287,7 +285,7 @@ export default {
             //             this.mainChartProps.sectionWidth * 8;
         },
         yAccessorScaled(d) {
-            return this.yScale(this.yAccessor(d));
+            return this.yScale(this.getObjValue(d,this.$route.query.yRange));
         },
         processTitle(title) {
             let slug = title
