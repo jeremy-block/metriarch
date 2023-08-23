@@ -127,7 +127,7 @@ export default {
         <line v-for="tick in minorTicks" :key="tick" class="Grid__rules" :y1="-mainChartProps.boundedHeight"
             :x1="xScale(tick)" :x2="xScale(tick)" />
         <!-- Major ticks - vertical lines along x axis -->
-        <line v-for="(tick, i) in ticks"
+        <line v-for="(tick) in ticks"
             :style="{
                 //  opacity: mainChartProps.boundedWidth < 900 && i % 2 == 0 ? 0 : 1 
             }" :key="tick"
