@@ -84,8 +84,8 @@
             class="dot-title"
             v-for="d in data"
             :key="d"
-            :x="d.x + (d.x > mainChartProps.boundedWidth * 0.85 ? -3 : 3)"
-            :y="d.y + (d.x > mainChartProps.boundedWidth * 0.85 ? 9 : -2)"
+            :x="parseInt(d.x) + (d.x > mainChartProps.boundedWidth * 0.85 ? -3 : 3)"
+            :y="d.y + (parseInt(d.x) > mainChartProps.boundedWidth * 0.85 ? 9 : -2)"
             :opacity="
                 selection.chapter && selection.chapter != d.section
                     ? 0

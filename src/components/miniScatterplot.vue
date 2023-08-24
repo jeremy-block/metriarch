@@ -1,5 +1,7 @@
 <template>
-    <svg class="miniScatterplot" :style="{  width: width + 'px', height: height+ 'px' }" :id="plotName" ref="scatterplotSvg"></svg>
+    <svg :class="this.x == this.$route.query.xDomain && this.y == this.$route.query.yRange ? 'theSelectedMiniPlot': ''"
+
+    class="miniScatterplot" :style="{  width: width + 'px', height: height+ 'px' }" :id="plotName" ref="scatterplotSvg"></svg>
 </template>
 
 <script>
@@ -23,7 +25,7 @@ export default {
     return {
       plotName: this.x + "_x_" + this.y,
       colIDname: this.x + "-col",
-      padding: { top: this.edge, right: this.edge, bottom: this.edge, left: this.edge },      
+      padding: { top: parseFloat(this.edge), right: parseFloat(this.edge), bottom: parseFloat(this.edge), left: parseFloat(this.edge) },      
     }
   },
   mounted() {
@@ -61,12 +63,12 @@ export default {
       // Create scales based on provided dimensions
       const xScale = d3
         .scaleLinear()
-        .domain([d3.min(this.data, d => d[this.x]), d3.max(this.data, d => d[this.x])])
+        .domain([d3.min(this.data, d => parseFloat(d[this.x])), d3.max(this.data, d => parseFloat(d[this.x]))])
         .range([this.padding.left, this.width-this.padding.right]);
 
       const yScale = d3
         .scaleLinear()
-        .domain([d3.min(this.data, d => d[this.y]), d3.max(this.data, d => d[this.y])])
+        .domain([d3.min(this.data, d => parseFloat(d[this.y])), d3.max(this.data, d => parseFloat(d[this.y]))])
         .range([this.height - this.padding.bottom, this.padding.top]);
 
       // Create circles for each data point
@@ -79,7 +81,7 @@ export default {
         .attr('r', this.r)
         .attr('fill', '#794c89')
     },
-    updateScatterplot() {
+    updateScatterplot() { //I don't think we ever hit the update function.
       const plotSelectorID = "#" + this.plotName
       const svg = d3.select(plotSelectorID);  //this.$refs.scatterplot);
 
@@ -109,12 +111,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/* Add your component styles here */
-circle{
-  fill:#794c89; /*var(--circles)*/
-}
-.miniScatterplot {
-  background-color: var(--dusty-rose-200);
+/* Can not seem to access circles from here... so just going to select the whole plot.*/
+.theSelectedMiniPlot{
+  background-color:rgb(243, 114, 234);
 }
 
 </style>

@@ -1,0 +1,9 @@
+8/21/2023 - Tried adding data from the metrics tool. Beyond changing the data source, there are additional modifications to combined data file to make it work with code:
+
+1. Rename Columns:
+Filename -> session
+
+2. Fill all empty cells with 0 value
+
+3. Make column "section" for classifications (grouping/filtering in the chart.) each row should be assigned a grouping string.
+
