@@ -61,6 +61,31 @@ export default {
   },
   methods: {
         // ...mapMutations(['updateSelectedFacet']),
+    /* 
+    //Alternative Facet select function that maintains other URL Parameters.
+    handleFacetClick(selectedFacet) {
+  // console.log(selectedFacet)
+  let xDomain = selectedFacet[0]
+  let yRange = selectedFacet[1]
+  let query = { ...this.$route.query };
+  //if already selected, then deselect
+  if (
+    query["xDomain"] == xDomain &&
+    query["yRange"] == yRange
+  ) {
+    query["xDomain"] = undefined;
+    query["yRange"] = undefined;
+    this.$router.push({ query });        
+    //otherwise, select new axies.
+  } else {
+    query["xDomain"] = xDomain
+    query["yRange"] = yRange
+    this.$router.push({ query });
+  }
+  this.$emit("metricChange", [xDomain, yRange])
+
+},
+*/
     handleFacetClick(selectedFacet) {
       console.log(selectedFacet)
       let xDomain = selectedFacet[0]
@@ -69,7 +94,6 @@ export default {
       //todo: may need to keep other elements of the query selected before pushing new things or changing. Not sure if this feature is better or not
       this.$router.push({ query: { xDomain, yRange } });
       this.$emit("metricChange", [xDomain, yRange])
-
     },
   },
   watch: {
