@@ -24,14 +24,8 @@ export default {
             default: "Selected Dimention",
         },
         units: {
-            type: Function,
-            default: (d) => { 
-                if (d == 1) {
-                    return "unit"
-                } else {
-                    return "units"
-                }
-            }
+            type: String,
+            default: "Unit"
         },
         numberOfTicks: {
             type: Number,
@@ -49,6 +43,13 @@ export default {
             labelPlateMultiplier: 11,
             xTickOffset: 50,
             xRuleDistance: 12,
+            unitPluralMakerFunction: (d) => {
+                if (d == 1) {
+                    return this.units
+                } else {
+                    return (this.units+"s")
+                }
+            },
             //helper function to select for a particular property in an object.
             //get floats for the value so they are interpreted as numbers and not just strings.
             getObjValue: (obj, property) => parseFloat(obj[property]),
@@ -124,24 +125,20 @@ export default {
         </g>
 
         <!--  minor ticks - vertical lines along x axis -->
-        <line v-for="tick in minorTicks" :key="tick" class="Grid__rules" :y1="-mainChartProps.boundedHeight"
+        <line v-for="tick in minorTicks" :key="'x-major-'+tick" class="Grid__rules" :y1="-mainChartProps.boundedHeight"
             :x1="xScale(tick)" :x2="xScale(tick)" />
         <!-- Major ticks - vertical lines along x axis -->
-        <line v-for="(tick) in ticks"
-            :style="{
-                //  opacity: mainChartProps.boundedWidth < 900 && i % 2 == 0 ? 0 : 1 
-            }" :key="tick"
-            :class="tick == 5 ? `Grid__rules` : `Grid__section-delineator`" :y1="-mainChartProps.boundedHeight"
+        <line v-for="(tick) in ticks" :key="'x-minor-'+tick" :class="`Grid__section-delineator`" :y1="-mainChartProps.boundedHeight" 
             :y2="xTickOffset" :x1="xScale(tick)" :x2="xScale(tick)" />
 
         <!-- Labels for horizontal axis -->
-        <g v-for="(tick, i) in ticks" :key="tick" :style="{
+        <g v-for="(tick, i) in ticks" :key="'x-label-'+tick" :style="{
             transform: `translate(${xScale(tick)}px, ${xTickOffset}px)`,
             // opacity: mainChartProps.boundedWidth < 900 && i % 2 == 0 ? 0 : 1
         }">
             <text :style="{ transform: `translate(5px, 0)` }" class="Axis__tick x-tick">
                 {{ ticks[i].toFixed(3) }}
-                {{ units(ticks[i]) }}
+                {{ unitPluralMakerFunction(ticks[i]) }}
                 <!-- <template v-if="ticks[i] == 5">
                     {{ ` min` }}
                 </template>
@@ -182,20 +179,20 @@ export default {
         </g>
         {/* Horizontal lines */}
 
-        <line v-for="tick in minorTicks" :key="tick" class="Grid__rules" :x1="-xRuleDistance"
+        <line v-for="tick in minorTicks" :key="'y-minor-'+tick" class="Grid__rules" :x1="-xRuleDistance"
             :x2="mainChartProps.boundedWidth" :y1="yScale(tick)" :y2="yScale(tick)" /> 
 
         <!-- Horizontal background colors -->
-        <rect v-for="(tick, i) in ticks" :key="i" class="Grid__stripe" :width="mainChartProps.boundedWidth + xRuleDistance"
+        <rect v-for="(tick, i) in ticks" :key="'y-stripe-'+tick" class="Grid__stripe" :width="mainChartProps.boundedWidth + xRuleDistance"
             :height="yScale(valueMax - valueMax/numberOfTicks)" :y="yScale(ticks[i+1])" :x="-xRuleDistance" />
 
         <!-- Hoizontal lines that expand beyond the y axis - major ticks -->
-        <template v-for="tick in ticks" :key="tick">
+        <template v-for="tick in ticks" :key="'y-major-'+tick">
             <line v-if="tick != 1 && tick != 6" class="Grid__section-delineator" :x1="-mainChartProps.marginLeft"
                 :x2="mainChartProps.boundedWidth" :y1="yScale(tick)" :y2="yScale(tick)" />
         </template>
 
-        <text v-for="(tick, i) in ticks" :key="i" class="Axis__tick Axis__tick--difficulty" :style="{
+        <text v-for="(tick, i) in ticks" :key="'y-scale-label-'+i" class="Axis__tick Axis__tick--difficulty" :style="{
             transform: `translate(
                         ${-xRuleDistance - mainChartProps.marginLeft/4*3 }px,
                         ${yScale(tick) + 3 - (yScale(ticks[0]) - yScale(ticks[1])) / 6 }px)`,
@@ -204,12 +201,12 @@ export default {
          </text>
          
          {*/ units for the axis */}
-         <text v-for="(tick, i) in ticks" :key="i" class="Axis__tick Axis__tick--difficulty" :style="{
+         <text v-for="(tick, i) in ticks" :key="'y-units'+tick" class="Axis__tick Axis__tick--difficulty" :style="{
             transform: `translate(
                         ${-xRuleDistance - mainChartProps.marginLeft / 4 * 3 }px,
                         ${yScale(tick) + 3 -(yScale(ticks[0]) - yScale(ticks[1])) / 11 }px)`,
          }">
-         {{ units(ticks[i]) }}
+         {{ unitPluralMakerFunction(ticks[i]) }}
          </text>
             <!-- {{ tick == 1 ? "" : tick - 1 }} -->
 

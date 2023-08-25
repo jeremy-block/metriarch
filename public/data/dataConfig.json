@@ -1,0 +1,226 @@
+{
+  "session": {
+    "name": "xyz",
+    "units": "point",
+    "description": "stuff",
+    "majorTicks": 4,
+    "minorTicks": 1,
+    "places": -2
+  },
+  "section": {
+    "name": "xyz",
+    "units": "point",
+    "description": "stuff",
+    "majorTicks": 4,
+    "minorTicks": 1,
+    "places": -2
+  },
+  "total_mouseleave-doc_count": {
+    "name": "xyz",
+    "units": "point",
+    "description": "stuff",
+    "majorTicks": 4,
+    "minorTicks": 1,
+    "places": -2
+  },
+  "total_search_count": {
+    "name": "xyz",
+    "units": "point",
+    "description": "stuff",
+    "majorTicks": 8,
+    "minorTicks": 2,
+    "places": -2
+  },
+  "total_mouseenter-doc_count": {
+    "name": "xyz",
+    "units": "point",
+    "description": "stuff",
+    "majorTicks": 4,
+    "minorTicks": 1,
+    "places": -2
+  },
+  "total_drag-start_count": {
+    "name": "xyz",
+    "units": "point",
+    "description": "stuff",
+    "majorTicks": 4,
+    "minorTicks": 1,
+    "places": -2
+  },
+  "total_drag-end_count": {
+    "name": "xyz",
+    "units": "point",
+    "description": "stuff",
+    "majorTicks": 4,
+    "minorTicks": 1,
+    "places": -2
+  },
+  "total_open-doc_count": {
+    "name": "xyz",
+    "units": "point",
+    "description": "stuff",
+    "majorTicks": 4,
+    "minorTicks": 1,
+    "places": -2
+  },
+  "total_collapse-doc_count": {
+    "name": "xyz",
+    "units": "point",
+    "description": "stuff",
+    "majorTicks": 4,
+    "minorTicks": 1,
+    "places": -2
+  },
+  "total_end-study_count": {
+    "name": "xyz",
+    "units": "point",
+    "description": "stuff",
+    "majorTicks": 4,
+    "minorTicks": 1,
+    "places": -2
+  },
+  "total_end-notes_count": {
+    "name": "xyz",
+    "units": "point",
+    "description": "stuff",
+    "majorTicks": 4,
+    "minorTicks": 1,
+    "places": -2
+  },
+  "mouseleave-doc_ratio": {
+    "name": "xyz",
+    "units": "point",
+    "description": "stuff",
+    "majorTicks": 4,
+    "minorTicks": 1,
+    "places": -2
+  },
+  "search_ratio": {
+    "name": "xyz",
+    "units": "point",
+    "description": "stuff",
+    "majorTicks": 4,
+    "minorTicks": 1,
+    "places": -2
+  },
+  "mouseenter-doc_ratio": {
+    "name": "xyz",
+    "units": "point",
+    "description": "stuff",
+    "majorTicks": 4,
+    "minorTicks": 1,
+    "places": -2
+  },
+  "drag-start_ratio": {
+    "name": "xyz",
+    "units": "point",
+    "description": "stuff",
+    "majorTicks": 4,
+    "minorTicks": 1,
+    "places": -2
+  },
+  "drag-end_ratio": {
+    "name": "xyz",
+    "units": "point",
+    "description": "stuff",
+    "majorTicks": 4,
+    "minorTicks": 1,
+    "places": -2
+  },
+  "open-doc_ratio": {
+    "name": "xyz",
+    "units": "point",
+    "description": "stuff",
+    "majorTicks": 4,
+    "minorTicks": 1,
+    "places": -2
+  },
+  "collapse-doc_ratio": {
+    "name": "xyz",
+    "units": "point",
+    "description": "stuff",
+    "majorTicks": 4,
+    "minorTicks": 1,
+    "places": -2
+  },
+  "end-study_ratio": {
+    "name": "xyz",
+    "units": "point",
+    "description": "stuff",
+    "majorTicks": 4,
+    "minorTicks": 1,
+    "places": -2
+  },
+  "end-notes_ratio": {
+    "name": "xyz",
+    "units": "point",
+    "description": "stuff",
+    "majorTicks": 4,
+    "minorTicks": 1,
+    "places": -2
+  },
+  "total_interaction_count": {
+    "name": "xyz",
+    "units": "point",
+    "description": "stuff",
+    "majorTicks": 4,
+    "minorTicks": 1,
+    "places": -2
+  },
+  "total_duration": {
+    "name": "xyz",
+    "units": "point",
+    "description": "stuff",
+    "majorTicks": 4,
+    "minorTicks": 1,
+    "places": -2
+  },
+  "repeat_searches": {
+    "name": "xyz",
+    "units": "point",
+    "description": "stuff",
+    "majorTicks": 4,
+    "minorTicks": 1,
+    "places": -2
+  },
+  "prop_repeat_searches": {
+    "name": "xyz",
+    "units": "point",
+    "description": "stuff",
+    "majorTicks": 4,
+    "minorTicks": 1,
+    "places": -2
+  },
+  "search_term_similarity": {
+    "name": "xyz",
+    "units": "point",
+    "description": "stuff",
+    "majorTicks": 4,
+    "minorTicks": 1,
+    "places": -2
+  },
+  "search_time_std_dev": {
+    "name": "xyz",
+    "units": "point",
+    "description": "stuff",
+    "majorTicks": 4,
+    "minorTicks": 1,
+    "places": -2
+  },
+  "search_open_overlap": {
+    "name": "xyz",
+    "units": "point",
+    "description": "stuff",
+    "majorTicks": 4,
+    "minorTicks": 1,
+    "places": -2
+  },
+  "search_term_efficiency": {
+    "name": "xyz",
+    "units": "point",
+    "description": "stuff",
+    "majorTicks": 4,
+    "minorTicks": 1,
+    "places": -2
+  }
+}

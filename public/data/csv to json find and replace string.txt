@@ -1,0 +1,16 @@
+Find ,
+
+and replace with the following:
+
+" : { 
+"name":  "xyz",
+"units": "points",
+"description": "stuff",
+"majorTicks": 4,
+"minorTicks": 1,
+"places":-2
+},
+"
+
+
+Now run beautifier and and see result.

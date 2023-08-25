@@ -87,11 +87,21 @@ export default {
             accessor: (dataArray, accessorFunction, property) => {
                 return dataArray.map(obj => accessorFunction(obj, property));
             },
+            defaultUnitFunction : (d) => d + "" ,
+            defaultConfig: {
+                name: "",
+                description: "",
+                majorTicks: 0,
+                minorTicks: 0,
+                places: 0,
+                units: this.defaultUnitFunction
+            },
         };
     },
     computed: {
         ...mapState({
             data: state => state.data,
+            config: state => state.config,
             lockedData: state => state.lockedData,
             selection: state => state.selection,
             sessions: state => state.sessions,
@@ -117,6 +127,43 @@ export default {
                 }
             });
             return verticalRuleMinutes;
+        },
+        configX() {
+            try {
+                const key = this.$route.query.xDomain;
+                const newConfig = this.config;
+                let configForX = {}
+                // if (newConfig[key] == undefined) {
+                //     // console.log("assigning default")
+                //     configForX = this.defaultConfig
+                //     // console.log(configForX.majorTicks)
+                // } else {
+                    // console.log(newConfig[key]) //this.$route.query.xDomain)
+                    configForX = newConfig[key]
+                    // console.log(configForX.majorTicks)
+                    
+                // }
+                // console.log(this.data[0])
+                // console.log(this.allConfig[this.$route.query.xDomain])
+                // const configForX = this.allConfig[this.$route.query.xDomain]
+                return configForX
+            } catch (e) {
+                // console.log(e )
+                return this.defaultConfig
+            }
+            
+        },
+        configY() {
+            try {
+                const key = this.$route.query.yRange;
+                const newConfig = this.config;
+                let configForY = newConfig[key]
+                return configForY
+            } catch (e) {
+                // console.log(e )
+                return this.defaultConfig
+            }
+            
         },
         levelRules() {
             let horizIntervals = [];
@@ -191,7 +238,6 @@ export default {
                 this.yScale(this.levelRules[16]) -
                 this.yScale(this.levelRules[17])
             );
-            console.log(this.yRuleDistance)
             this.xScale =
                 scaleLinear()
                     .domain([0, this.xMax])
@@ -524,18 +570,20 @@ export default {
                 <scatter-axis 
                     orientation="x" 
                     :mainChartProps="mainChartProps" 
-                    :numberOfTicks="10"
-                    :minorsPerTick="5"
-                    :label="this.$route.query.xDomain"
+                    :numberOfTicks="configX.majorTicks"
+                    :minorsPerTick="configX.minorTicks"
+                    :units = "configX.units"
+                    :label="configX.name"
                     :property-name="this.$route.query.xDomain"
 
                 />
                 <scatter-axis
                         orientation="y" 
                         :mainChartProps="mainChartProps" 
-                        :numberOfTicks="5"
-                        :minorsPerTick="7"
-                        :label="this.$route.query.yRange"
+                        :numberOfTicks="configY.majorTicks"
+                        :minorsPerTick="configY.minorTicks"
+                        :units = "configY.units"
+                        :label="configY.name"
                         :property-name="this.$route.query.yRange"
                     />
                 <Circles v-if="isLoaded" :data="dataDots" :total-data="totalDots" :mainChartProps="mainChartProps" />

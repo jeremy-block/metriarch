@@ -107,6 +107,10 @@ const store = createStore({
             state.chapterColors = chapterColors;
             state.numericColumnNames = numericVars; // The set of dimentions that are numeric
         },
+        setConfig(state, configData) {
+            // console.log(configData);
+            state.config = configData ;
+        },
         setHasSeenNote(state, hasSeenNote) {
             if (!hasSeenNote) {
                 localStorage.removeItem(state.localStorageKey);
@@ -149,6 +153,9 @@ const store = createStore({
         },
         setData({commit}, data) {
             commit("setData", data);
+        },
+        setConfig({ commit }, data) {
+            commit("setConfig", data);
         },
         setHasSeenNote({commit}, hasSeenNote) {
             commit("setHasSeenNote", hasSeenNote);

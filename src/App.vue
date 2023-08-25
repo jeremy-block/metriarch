@@ -10,7 +10,8 @@
         data() {
             return {
                 loading: false,
-                localDataUrl: "./data/dessert-person-sessions.csv",
+                localDataUrl: "./data/combined.csv",
+                configDataURL: "./data/dataConfig.json"
             };
         },
         computed: {
@@ -35,6 +36,30 @@
                     },
                 });
             },
+            async initConfig() {
+                // this.$papa.parse(this.configDataURL, {
+                //     download: true,
+                //     header: true,
+                //     error: (err, file, inputElem, reason) => {
+                //         console.log(reason);
+                //     },
+                //     complete: fileContent => {
+                //         this.$store.dispatch("setConfig", fileContent.data);
+                //     },
+                // });
+                fetch(this.configDataURL)
+                .then(response => response.json())
+                .then(data => {
+                    // Use the 'data' object (parsed JSON) here
+                    // console.log(data);
+                    this.$store.dispatch("setConfig", data)
+                })
+                .catch(error => {
+                    console.error('Error loading JSON:', error);
+                });
+
+
+            },
             checkNoteDate() {
                 if (this.hasSeenNote.hasSeenNote) {
                     let shouldExpire = timeDay.count(new Date(this.hasSeenNote.expire), new Date());
@@ -47,6 +72,7 @@
         },
         async beforeMount() {
             this.initData();           
+            this.initConfig();           
         },
         mounted() {
             this.checkNoteDate();
