@@ -102,6 +102,7 @@ export default {
         ...mapState({
             data: state => state.data,
             config: state => state.config,
+            lockedDimension: state => state.lockedDimension,
             lockedData: state => state.lockedData,
             selection: state => state.selection,
             sessions: state => state.sessions,
@@ -109,11 +110,11 @@ export default {
             doShowVoronoi: state => state.doShowVoronoi,
         }),
         yMax() {
-            const maximumValue = max(this.accessor(this.data, this.getObjValue, this.$route.query.yRange))
+            const maximumValue = max(this.accessor(this.data, this.getObjValue, this.lockedDimension.y))
             return maximumValue
         },
         xMax() {
-            const maximumValue = max(this.accessor(this.data, this.getObjValue, this.$route.query.xDomain))
+            const maximumValue = max(this.accessor(this.data, this.getObjValue, this.lockedDimension.x))
             return maximumValue
         },
         minVertRules() {
@@ -130,7 +131,7 @@ export default {
         },
         configX() {
             try {
-                const key = this.$route.query.xDomain;
+                const key = this.lockedDimension.x;
                 const newConfig = this.config;
                 let configForX = {}
                 // if (newConfig[key] == undefined) {
@@ -155,7 +156,7 @@ export default {
         },
         configY() {
             try {
-                const key = this.$route.query.yRange;
+                const key = this.lockedDimension.y;
                 const newConfig = this.config;
                 let configForY = newConfig[key]
                 return configForY
@@ -317,7 +318,7 @@ export default {
         //     return scale;
         // },
         xAccessorScaled(d) {
-            return this.xScale(this.getObjValue(d, this.$route.query.xDomain));
+            return this.xScale(this.getObjValue(d, this.lockedDimension.x));
 
             // return this.xAccessor(d) <= 60
             //     ? this.xScales.mins55(this.xAccessor(d))
@@ -331,7 +332,7 @@ export default {
             //             this.mainChartProps.sectionWidth * 8;
         },
         yAccessorScaled(d) {
-            return this.yScale(this.getObjValue(d,this.$route.query.yRange));
+            return this.yScale(this.getObjValue(d,this.lockedDimension.y));
         },
         processTitle(title) {
             let slug = title
@@ -470,7 +471,7 @@ export default {
                 }
 
                 if (query.xDomain || query.yRange) {
-                    console.log("wonderplot heard that there was a route change:", query.xDomain, query.yRange, "\tDispatching setMetrics")
+                    // console.log("wonderplot heard that there was a route change:", query.xDomain, query.yRange, "\tDispatching setMetrics")
                     this.$store.dispatch("setMetrics", [query.xDomain, query.yRange])
                 }
 
@@ -523,13 +524,13 @@ export default {
             <h2>{{ title }}</h2>
             <div class="actions">
                 <div class="FilterBar__switch__container">
-                    Chapter colors
+                    Dataset Group Colors
                     <label class="FilterBar__switch">
                         <input type="checkbox" :value="doShowChapterColors" @change="toggleChapterColors" />
                         <div class="FilterBar__slider round"></div>
                     </label>
                 </div>
-                <div class="FilterBar__switch__container">
+                <!-- <div class="FilterBar__switch__container">
                     <div>
                         <UiTooltip neon position="bottom">
                             <template #toggle>Voronoi </template>
@@ -557,7 +558,7 @@ export default {
                         <input type="checkbox" :value="doShowVoronoi" @change="toggleVoronoi" />
                         <div class="FilterBar__slider round"></div>
                     </label>
-                </div>
+                </div> -->
             </div>
         </div>
 
@@ -565,7 +566,6 @@ export default {
             <g class="x-rules" :style="{
                 transform: `translate(${mainChartProps.marginLeft}px, ${mainChartProps.marginTop}px)`,
             }">
-
                         <!-- label="total minutes" -->
                 <scatter-axis 
                     orientation="x" 
@@ -574,7 +574,7 @@ export default {
                     :minorsPerTick="configX.minorTicks"
                     :units = "configX.units"
                     :label="configX.name"
-                    :property-name="this.$route.query.xDomain"
+                    :property-name="lockedDimension.x"
 
                 />
                 <scatter-axis
@@ -584,7 +584,7 @@ export default {
                         :minorsPerTick="configY.minorTicks"
                         :units = "configY.units"
                         :label="configY.name"
-                        :property-name="this.$route.query.yRange"
+                        :property-name="lockedDimension.y"
                     />
                 <Circles v-if="isLoaded" :data="dataDots" :total-data="totalDots" :mainChartProps="mainChartProps" />
                 <g v-if="doShowVoronoi">

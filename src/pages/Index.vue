@@ -59,7 +59,7 @@
         <SelectionPanel/>
         <FilterBar />
         <div class="flex">
-            <wonderplot ref="wonderful"/>
+            <wonderplot title="Metric Comparison" ref="wonderful"/>
             <!-- <Scatterplot title="Name of Chart" :xAccessor="DoXThing()" :yAccessor="DoYThing()" ref="plot" /> -->
             <Session />
         </div>

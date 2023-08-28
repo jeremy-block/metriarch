@@ -87,7 +87,7 @@ export default {
 },
 */
     handleFacetClick(selectedFacet) {
-      console.log(selectedFacet)
+      // console.log(selectedFacet)
       let xDomain = selectedFacet[0]
       let yRange = selectedFacet[1]
       // this.updateSelectedFacet(selectedFacet);
