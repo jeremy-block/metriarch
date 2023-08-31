@@ -134,23 +134,18 @@ export default {
                 const key = this.lockedDimension.x;
                 const newConfig = this.config;
                 let configForX = {}
-                // if (newConfig[key] == undefined) {
-                //     // console.log("assigning default")
-                //     configForX = this.defaultConfig
-                //     // console.log(configForX.majorTicks)
-                // } else {
-                    // console.log(newConfig[key]) //this.$route.query.xDomain)
+                if (key == "") {
+                    configForX = this.defaultConfig;
+                } else if (newConfig[key] == undefined) {
+                    configForX = this.defaultConfig;
+                }else{
                     configForX = newConfig[key]
-                    // console.log(configForX.majorTicks)
-                    
-                // }
-                // console.log(this.data[0])
-                // console.log(this.allConfig[this.$route.query.xDomain])
-                // const configForX = this.allConfig[this.$route.query.xDomain]
+                }
                 return configForX
             } catch (e) {
-                // console.log(e )
-                return this.defaultConfig
+                console.log("x axis error,", e )
+                const out = this.defaultConfig;
+                return out;
             }
             
         },
@@ -158,11 +153,17 @@ export default {
             try {
                 const key = this.lockedDimension.y;
                 const newConfig = this.config;
-                let configForY = newConfig[key]
+                let configForY = {}
+                if (key == "") {
+                    configForY = this.defaultConfig
+                } else {
+                     configForY = newConfig[key]
+                }
                 return configForY
             } catch (e) {
-                // console.log(e )
-                return this.defaultConfig
+                console.log("y axis error", e )
+                const out = this.defaultConfig;
+                return out
             }
             
         },
@@ -572,7 +573,8 @@ export default {
                     :mainChartProps="mainChartProps" 
                     :numberOfTicks="configX.majorTicks"
                     :minorsPerTick="configX.minorTicks"
-                    :units = "configX.units"
+                    :unit = "configX.unit"
+                    :places = "configX.places"
                     :label="configX.name"
                     :property-name="lockedDimension.x"
 
@@ -582,7 +584,8 @@ export default {
                         :mainChartProps="mainChartProps" 
                         :numberOfTicks="configY.majorTicks"
                         :minorsPerTick="configY.minorTicks"
-                        :units = "configY.units"
+                        :unit = "configY.unit"
+                        :places = "configY.places"
                         :label="configY.name"
                         :property-name="lockedDimension.y"
                     />

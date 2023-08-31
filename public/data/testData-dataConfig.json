@@ -15,23 +15,23 @@
     "minorTicks": 1,
     "places": 2
   },
-  "total_think_aloud_count": {
-    "name": "Total Think Aloud Events",
-    "unit": "event",
+  "total_mouseleave-doc_count": {
+    "name": "xyz",
+    "unit": "point",
     "description": "stuff",
-    "majorTicks": 5,
+    "majorTicks": 4,
     "minorTicks": 1,
     "places": 2
   },
   "total_search_count": {
-    "name": "Total Search Events",
-    "unit": "event",
+    "name": "xyz",
+    "unit": "point",
     "description": "stuff",
-    "majorTicks": 4,
-    "minorTicks": 1,
+    "majorTicks": 8,
+    "minorTicks": 2,
     "places": 2
   },
-  "total_topic_change_count": {
+  "total_mouseenter-doc_count": {
     "name": "xyz",
     "unit": "point",
     "description": "stuff",
@@ -39,7 +39,7 @@
     "minorTicks": 1,
     "places": 2
   },
-  "total_mouse_hover_count": {
+  "total_drag-start_count": {
     "name": "xyz",
     "unit": "point",
     "description": "stuff",
@@ -47,7 +47,7 @@
     "minorTicks": 1,
     "places": 2
   },
-  "total_draging_count": {
+  "total_drag-end_count": {
     "name": "xyz",
     "unit": "point",
     "description": "stuff",
@@ -63,7 +63,7 @@
     "minorTicks": 1,
     "places": 2
   },
-  "total_reading_count": {
+  "total_collapse-doc_count": {
     "name": "xyz",
     "unit": "point",
     "description": "stuff",
@@ -71,7 +71,7 @@
     "minorTicks": 1,
     "places": 2
   },
-  "total_highlight_count": {
+  "total_end-study_count": {
     "name": "xyz",
     "unit": "point",
     "description": "stuff",
@@ -79,7 +79,7 @@
     "minorTicks": 1,
     "places": 2
   },
-  "total_connection_count": {
+  "total_end-notes_count": {
     "name": "xyz",
     "unit": "point",
     "description": "stuff",
@@ -87,23 +87,7 @@
     "minorTicks": 1,
     "places": 2
   },
-  "total_create_note_count": {
-    "name": "xyz",
-    "unit": "point",
-    "description": "stuff",
-    "majorTicks": 4,
-    "minorTicks": 1,
-    "places": 2
-  },
-  "total_add_note_count": {
-    "name": "xyz",
-    "unit": "point",
-    "description": "stuff",
-    "majorTicks": 4,
-    "minorTicks": 1,
-    "places": 2
-  },
-  "think_aloud_ratio": {
+  "mouseleave-doc_ratio": {
     "name": "xyz",
     "unit": "point",
     "description": "stuff",
@@ -119,7 +103,7 @@
     "minorTicks": 1,
     "places": 2
   },
-  "topic_change_ratio": {
+  "mouseenter-doc_ratio": {
     "name": "xyz",
     "unit": "point",
     "description": "stuff",
@@ -127,7 +111,7 @@
     "minorTicks": 1,
     "places": 2
   },
-  "mouse_hover_ratio": {
+  "drag-start_ratio": {
     "name": "xyz",
     "unit": "point",
     "description": "stuff",
@@ -135,7 +119,7 @@
     "minorTicks": 1,
     "places": 2
   },
-  "draging_ratio": {
+  "drag-end_ratio": {
     "name": "xyz",
     "unit": "point",
     "description": "stuff",
@@ -151,7 +135,7 @@
     "minorTicks": 1,
     "places": 2
   },
-  "reading_ratio": {
+  "collapse-doc_ratio": {
     "name": "xyz",
     "unit": "point",
     "description": "stuff",
@@ -159,7 +143,7 @@
     "minorTicks": 1,
     "places": 2
   },
-  "highlight_ratio": {
+  "end-study_ratio": {
     "name": "xyz",
     "unit": "point",
     "description": "stuff",
@@ -167,23 +151,7 @@
     "minorTicks": 1,
     "places": 2
   },
-  "connection_ratio": {
-    "name": "xyz",
-    "unit": "point",
-    "description": "stuff",
-    "majorTicks": 4,
-    "minorTicks": 1,
-    "places": 2
-  },
-  "create_note_ratio": {
-    "name": "xyz",
-    "unit": "point",
-    "description": "stuff",
-    "majorTicks": 4,
-    "minorTicks": 1,
-    "places": 2
-  },
-  "add_note_ratio": {
+  "end-notes_ratio": {
     "name": "xyz",
     "unit": "point",
     "description": "stuff",

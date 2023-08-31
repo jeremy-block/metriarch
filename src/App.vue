@@ -10,7 +10,7 @@
         data() {
             return {
                 loading: false,
-                localDataUrl: "./data/combined.csv",
+                localDataUrl: "./data/dataset123.csv",
                 configDataURL: "./data/dataConfig.json"
             };
         },

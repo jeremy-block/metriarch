@@ -12,19 +12,15 @@
         data() {
             return {
                 isLoaded: false,
-                plotHeight: 0,
             };
         },
         computed: {
             ...mapState({
                 hasSeenNote: state => state.hasSeenNote,
-                selection: state => state.selection,
                 sessions: state => state.sessions,
             }),
         },
         methods: {
-            DoXThing:() => d => d.minutes,
-            DoYThing: () => d => d.difficulty,
             toggleNote() {
                 this.$store.dispatch("setHasSeenNote", false);
             },

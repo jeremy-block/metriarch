@@ -4,11 +4,11 @@ and replace with the following:
 
 " : { 
 "name":  "xyz",
-"units": "points",
+"unit": "point",
 "description": "stuff",
 "majorTicks": 4,
 "minorTicks": 1,
-"places":-2
+"places": 2
 },
 "
 
