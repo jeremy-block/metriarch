@@ -94,7 +94,7 @@ export default {
                 majorTicks: 0,
                 minorTicks: 0,
                 places: 0,
-                units: this.defaultUnitFunction
+                unit: this.defaultUnitFunction
             },
         };
     },

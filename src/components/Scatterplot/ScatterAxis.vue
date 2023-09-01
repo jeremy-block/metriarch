@@ -49,9 +49,9 @@ export default {
             xRuleDistance: 12,
             unitPluralMakerFunction: (d) => {
                 if (d == 1) {
-                    return this.units
+                    return this.unit
                 } else {
-                    return (this.units+"s")
+                    return (this.unit+"s")
                 }
             },
             //helper function to select for a particular property in an object.
