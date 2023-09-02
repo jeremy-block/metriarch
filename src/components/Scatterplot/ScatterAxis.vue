@@ -162,12 +162,12 @@ export default {
 
         <!-- Hoizontal Axis label -->
         <g class="Axis__label__wrapper" :style="{ transform: `translate(0px, 4px)` }">
-            <rect class="label-plate" :width="labelPlateMultiplier * label.length" :height="xRuleDistance + 12" :style="{
-                transform: `translate(3px, -13px)`,
+            <rect class="label-plate" width="25%" :height="xRuleDistance + 12" :style="{
+                transform: `translate(30%, -2px)`,
             }" />
             <text :style="{
-                transform: `translate(5px, 0px)`,
-            }" class="Axis__label x-axis">
+                transform: `translate(30%, 12px)`,
+            }" textLength="25%" class="Axis__label x-axis">
                 {{ label }}
             </text>
         </g>
@@ -222,18 +222,18 @@ export default {
             <!-- {{ tick == 1 ? "" : tick - 1 }} -->
 
         {/* yaxis label */}
-        <g class="Axis__label__wrapper" :style="{
+        <g class="Axis__label__wrapper" :width="(mainChartProps.boundedWidth * 0.25)+'px'" :style="{
             transform: `translate(
-                ${-10}px, 
-                ${mainChartProps.boundedHeight - xRuleDistance}px) 
+                1px, 
+                52%)
                 rotate(-90deg)`,
         }">
-            <rect class="label-plate" :width="labelPlateMultiplier * label.length" :height="xRuleDistance" :style="{
+            <rect class="label-plate" width="26%" :height="xRuleDistance" :style="{
                 transform: `translate(
                     1px, 
-                    ${-xRuleDistance / 2 - 4}px)`,
+                    -10px`,
             }" />
-            <text :style="{ transform: `translate(7px, 0px)` }" class="Axis__label">
+            <text textLength="25%" :style="{ transform: `translate(7px, 0px)` }" class="Axis__label">
                 {{ label }}
             </text>
         </g>
