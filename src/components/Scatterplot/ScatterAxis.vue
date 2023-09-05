@@ -117,7 +117,7 @@ export default {
                 .range([this.mainChartProps.boundedHeight, 0]);
         },
         decimalPlaces() {
-            console.log(this.places)
+            // console.log(this.places)
             return parseInt(this.places)
 
         },
@@ -222,7 +222,7 @@ export default {
             <!-- {{ tick == 1 ? "" : tick - 1 }} -->
 
         {/* yaxis label */}
-        <g class="Axis__label__wrapper" :width="(mainChartProps.boundedWidth * 0.25)+'px'" :style="{
+        <g class="Axis__label__wrapper" :width="(mainChartProps.boundedHeight * 0.25)+'px'" :style="{
             transform: `translate(
                 1px, 
                 52%)

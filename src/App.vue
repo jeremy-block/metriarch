@@ -2,82 +2,95 @@
     import {Head, useHead} from "@vueuse/head";
     import {timeDay} from "d3";
     import {mapState} from "vuex";
-    export default {
-        components: {
-            Head,
-        },
-        props: {},
-        data() {
-            return {
-                loading: false,
-                localDataUrl: "./data/dataset123.csv",
-                configDataURL: "./data/dataConfig.json"
-            };
-        },
-        computed: {
-            ...mapState({
-                mode: state => state.mode,
-                data: state => state.data,
-                sessions: state => state.sessions,
-                hasSeenNote: state => state.hasSeenNote,
-                localStorageKey: state => state.localStorageKey,
-            }),
-        },
-        methods: {
-            async initData() {
+export default {
+    components: {
+        Head,
+    },
+    props: {},
+    data() {
+        return {
+            loading: false,
+            localDataUrl: "./data/dataset123.csv",
+            configDataURL: "./data/dataConfig.json"
+        };
+    },
+    computed: {
+        ...mapState({
+            mode: state => state.mode,
+            data: state => state.data,
+            sessions: state => state.sessions,
+            hasSeenNote: state => state.hasSeenNote,
+            localStorageKey: state => state.localStorageKey,
+        }),
+    },
+    methods: {
+        async initData() {
+            return new Promise((resolve, reject) => {
                 this.$papa.parse(this.localDataUrl, {
                     download: true,
                     header: true,
                     error: (err, file, inputElem, reason) => {
-                        console.log(reason);
+                        // console.log(reason);
+                        reject(err, reason)
                     },
                     complete: data => {
-                        this.$store.dispatch("setData", data.data);
+                        // console.log(data)
+                        resolve(data.data)
                     },
-                });
-            },
-            async initConfig() {
-                // this.$papa.parse(this.configDataURL, {
-                //     download: true,
-                //     header: true,
-                //     error: (err, file, inputElem, reason) => {
-                //         console.log(reason);
-                //     },
-                //     complete: fileContent => {
-                //         this.$store.dispatch("setConfig", fileContent.data);
-                //     },
-                // });
-                fetch(this.configDataURL)
-                .then(response => response.json())
-                .then(data => {
-                    // Use the 'data' object (parsed JSON) here
-                    // console.log(data);
-                    this.$store.dispatch("setConfig", data)
                 })
-                .catch(error => {
-                    console.error('Error loading JSON:', error);
-                });
+            })
 
-
-            },
-            checkNoteDate() {
-                if (this.hasSeenNote.hasSeenNote) {
-                    let shouldExpire = timeDay.count(new Date(this.hasSeenNote.expire), new Date());
-
-                    if (shouldExpire > 0) {
-                        this.$store.dispatch("setHasSeenNote", false);
-                    }                    
+        },
+        async initConfig() {
+            try {
+                const response = await fetch(this.configDataURL);
+                if (!response.ok) {
+                    throw new Error(`Fetch failed with status ${response.status}`);
                 }
-            },
+                const data = await response.json();
+
+                if (data) {
+                    return data;
+                }
+            } catch (error) {
+                throw error;
+            }
         },
-        async beforeMount() {
-            this.initData();           
-            this.initConfig();           
+        checkNoteDate() {
+            if (this.hasSeenNote.hasSeenNote) {
+                let shouldExpire = timeDay.count(new Date(this.hasSeenNote.expire), new Date());
+
+                if (shouldExpire > 0) {
+                    this.$store.dispatch("setHasSeenNote", false);
+                }
+            }
         },
-        mounted() {
-            this.checkNoteDate();
+    },
+    async beforeMount() {
+        try {
+            // Load data from PapaParse
+            const metricData = await this.initData();
+
+            // Load data from Fetch
+            const configData = await this.initConfig();
+
+            // Now you can use both papaParseData and fetchData in your component
+            console.log('Metric Data:', metricData);
+            this.$store.dispatch("setData", metricData);
+
+            console.log('Config Data:', configData);
+            this.$store.dispatch("setConfig", configData);
+
+
+            // Proceed with component mounting
+        } catch (error) {
+            console.error('Error loading data:', error);
         }
-    };
+    },
+    mounted() {
+        this.checkNoteDate();
+    }
+};
 </script>
 
 <template>
