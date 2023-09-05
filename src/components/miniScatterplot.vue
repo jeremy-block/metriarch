@@ -116,4 +116,7 @@ export default {
   background-color:rgb(243, 114, 234);
 }
 
+.miniScatterplot:hover{
+  background-color: rgb(238, 184, 234);
+}
 </style>

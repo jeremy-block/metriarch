@@ -1,15 +1,21 @@
 <template>
 
-  <div class="scatterplot row"
+  <div class="scatterplot row cell"
         :class="computedClasses"
         :id="rowIDname" 
         :style="dynamicGridCSSRule">
-    <h6 class="splomTitle">
-      {{ this.yValue }}
-    </h6>
+    <span class="description">
+      {{ getDescription }}
+    </span>
+    <p class="splomTitle"
+    :class="isSelected? 'selectedRow': 'notSelectedRow'"
+    @click="handleFacetClick([lockedDimension.x,yValue])">
+      {{ config[yValue].name }}
+    </p>
       <mini-Scatterplot
       v-for="xValue in this.numericVariables" :key="xValue"
-      :class="xValue == this.$route.query.xDomain ? 'selectedCol' : ''" 
+      class="cell"
+      :class="xValue == lockedDimension.x ? 'selectedCol' : yValue == lockedDimension.y ? 'selectedRow': ''" 
       :data="data"
       :x="xValue"
       :y="yValue"
@@ -32,32 +38,47 @@ export default {
   },
   emits: ['metricChange'],
   props: {
+    isSelected: false,
     yValue: "",
   },
   data() {
     return {
       miniPadding: 12,
       miniSize: 70,
-      rowIDname: this.yValue+"-row"
+      rowIDname: this.yValue + "-row",
     };
   },
   computed: {
     ...mapState({
       data: state => state.data,
+      config: state => state.config,
       numericVariables: state => state.numericColumnNames,
-      selRowName: state => state.lockedDimension.y,
+      lockedDimension: state => state.lockedDimension,
     }),
     computedClasses() {
       return {
-        "selectedRow": this.yValue === this.selRowName
+        "selectedRow": this.yValue === this.lockedDimension.y
       }
     },
     getNumericLength() {
       return this.numericVariables.length
     },
     dynamicGridCSSRule() {
-      return `grid-template-columns:repeat(${this.getNumericLength+1}, 1fr)`;
+      return `grid-template-columns: 8% 5% repeat(${this.getNumericLength}, 1fr)`;
     },
+    getDescription() {
+      try {
+        if (this.config == undefined) {
+          return "undefined config file"
+        } else {
+          // console.log(this.yValue)
+          return this.config[this.yValue]?.description || "nothing"
+        }
+      } catch (e) {
+        console.log("no config", e)
+        return "broken"
+      }
+    }
   },
   methods: {
         // ...mapMutations(['updateSelectedFacet']),
@@ -105,9 +126,37 @@ export default {
 
 .splomTitle{
   text-align: right;
-  padding-right: 3px;
+  align-self: center;
+  padding: 17% 4% 6% 0.6em;
+  // padding-right: 3px;
   font-size: x-small;
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    height: 100%;
+    border-right: 3px var(--grey-600) solid;
+    font-weight: 700;
+    // white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide the overflowing text */
+  text-overflow: ellipsis; /* Display an ellipsis (...) for overflow */
+    // grid-row: span 1; /* Sticky header cell spans 1 column */
+  }
+  .notSelectedRow{
+  background-color: #f2f2f2;
+  font-weight: 400;
+
 }
+  .description {
+    position: sticky;
+    left: 0;
+      font-size: x-small;
+      font-weight: 300;
+      text-align:left;
+    padding: 0.3em;
+    z-index: 0;
+    text-overflow: ellipsis;
+    grid-row: span 1;
+  }
 .row.scatterplot {
   display: grid;
   // transform: translate(4px,-4px); /*This centers the grid... not sure where the extranious gap rule is coming from... */

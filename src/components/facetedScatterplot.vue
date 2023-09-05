@@ -1,18 +1,21 @@
 <template>
   <div id="splom"
   :style="dynamicGridCSSRule">
-      <div class="scatterplot row" id="splomTopTitles"
+      <div class="scatterplot row cell" id="splomTopTitles"
       :style="dynamicGridCSSRulePlus">
-      <h6></h6>
+      <h6 class="Axis__tick"></h6>
+        <h6 class="Axis__tick splomTitle">Metric</h6>
       <!-- :class="this.computedClasses[xValue]" -->
       <h6 v-for="xValue in this.numericVariables" 
       class="Axis__tick"
        :class="xValue == this.$route.query.xDomain ? 'selectedCol' : ''" 
-       :key="xValue">
-        {{xValue}}
+       :key="xValue"
+       @click="handleFacetClick([xValue, lockedDimension.y])"
+       >
+        {{config[xValue].name}}
       </h6>
     </div>
-    <scatterplot-row v-for="yValue in numericVariables" :key="yValue" :yValue="yValue" />
+    <scatterplot-row v-for="yValue in numericVariables" :key="yValue" :yValue="yValue" :isSelected="lockedDimension.y === yValue" />
   </div>
 </template>
 
@@ -31,36 +34,78 @@ export default {
   computed: {
     ...mapState({
       numericVariables: (state) => state.numericColumnNames,  
-      // selColName: (state) => state.lockedDimension.x,
+      lockedDimension: state => state.lockedDimension,
+      config: state => state.config
     }),
     getNumericLength() {
       return this.numericVariables.length
     },
     dynamicGridCSSRulePlus() {
-      return `grid-template-columns:repeat(${this.getNumericLength + 1}, 1fr)`;
+      return `grid-template-columns: 8% 5% repeat(${this.getNumericLength+4 }, 74px)`;
     },
     dynamicGridCSSRule() {
-      return `grid-template-rows: 45px repeat(${this.getNumericLength}, 1fr)`;
+      return `grid-template-rows: 12% repeat(${this.getNumericLength}, 1fr)`;
     },
   },
   methods: {
+        handleFacetClick(selectedFacet) {
+      // console.log(selectedFacet)
+      let xDomain = selectedFacet[0]
+      let yRange = selectedFacet[1]
+      // this.updateSelectedFacet(selectedFacet);
+      //todo: may need to keep other elements of the query selected before pushing new things or changing. Not sure if this feature is better or not
+      this.$router.push({ query: { xDomain, yRange } });
+      this.$emit("metricChange", [xDomain, yRange])
+    },
   },
 };
 </script>
 
 <style lang="scss">
 #splom {
-    border-radius: var(--border-radius);
-    background-color: var(--background-color);
-    max-height: 550px;
-    max-width: 550px;
+  position: relative;
     overflow: auto;
-    display:grid;
+    display: grid;
+    // grid-template-columns: auto repeat(4, 1fr); /* Adjust the number of columns as needed */
+    // grid-gap: 1px;
+    background-color: var(--dusty-rose-200);
+    padding: 0em 0.6em 0.6em 0em;
+    // border-radius: var(--border-radius);
+    // background-color: var(--background-color);
+    max-height: 550px;
+    overflow: auto;
+    // display:grid;
 }
+.cell {
+      // padding: 10px;
+    // width: 50px;
+    // height: 50px;
+    text-align: center;
+    z-index: 1;
+    border: 1px solid var(--grey-400);
+    background-color: #f2f2f2;
+}
+
 #splomTopTitles{
-  height: 25px;
-  text-align: center;
   display: grid;
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  // grid-column: span 1; /* Sticky header cell spans 1 column */
+  text-align: center;
+  align-content: center;
+  //  overflow: hidden; /* Hide the overflowing text */
+  // text-overflow: ellipsis; /* Display an ellipsis (...) for overflow */
+}
+#splomTopTitles h6{
+  // transform: rotate(20deg);
+  // max-width: 100px;
+  // text-overflow: clip;
+  align-self: stretch;
+  height: 80%;
+  padding: 1.6em 0em 0em 0em;
+  position: relative;
+  transform: translate(0px, -26%);
 }
 .selectedRow{
   background-color: thistle;

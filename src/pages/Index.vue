@@ -1,13 +1,13 @@
 <script>
     import {mapState} from "vuex";
     import Scatterplot from "@/components/Scatterplot/Scatterplot.vue";
-    import SelectionPanel from '@/components/SelectionPanel.vue';
+    import facetedScatterplot from "../components/facetedScatterplot.vue";
 
     export default {
         name: "Index",
         components: {
             Scatterplot,
-            SelectionPanel,
+            facetedScatterplot,
         },
         data() {
             return {
@@ -52,13 +52,13 @@
                 <Button @click="toggleNote" class="note-btn"> See Note </Button>
             </div>
         </div>
-        <SelectionPanel/>
+        <faceted-scatterplot/>
         <FilterBar />
         <div class="flex">
             <wonderplot title="Metric Comparison" ref="wonderful"/>
             <!-- <Scatterplot title="Name of Chart" :xAccessor="DoXThing()" :yAccessor="DoYThing()" ref="plot" /> -->
-            <Session />
         </div>
+        <Session />
         <Note v-if="!hasSeenNote.hasSeenNote" />
     </MaxWidth>
 </template>

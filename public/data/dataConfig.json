@@ -18,7 +18,7 @@
   "total_think_aloud_count": {
     "name": "Total Think Aloud Events",
     "unit": "event",
-    "description": "stuff",
+    "description": "This is the total number of Think aloud events that have taken place in a session.",
     "majorTicks": 5,
     "minorTicks": 1,
     "places": 2
