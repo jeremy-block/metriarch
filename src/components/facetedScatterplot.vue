@@ -72,7 +72,7 @@ export default {
     padding: 0em 0.6em 0.6em 0em;
     // border-radius: var(--border-radius);
     // background-color: var(--background-color);
-    max-height: 550px;
+    max-height: 50vh;
     overflow: auto;
     // display:grid;
 }

@@ -223,7 +223,7 @@
                 <div
                     class="table-scroll"
                     ref="table-scroll"
-                    :style="{maxHeight: `${mainChartProps.boundedHeight + 20}px`}"
+                    :style="{maxHeight: `24vh`}"
                 >
                     <div class="table" v-if="sortedSessions[0]" ref="table">
                         <template
@@ -345,34 +345,36 @@
 <style lang="scss">
     .Session {
         position: relative;
-        max-width: 22em;
-        width: 100%;
+        // max-width: 22em;
+        // width: 100%;
         background: var(--background-color);
         border-radius: var(--border-radius);
-        padding-top: 1em;
+        margin: 1em 0em;
+        // padding-top: 1em;
+        // max-height: 20em;
         color: var(--text-base-color);
         transition: all 100ms linear;
-        //overflow: hidden;
+        // overflow: scroll;
 
-        @media (max-width: 1250px) {
-            max-width: 15em;
-        }
+        // @media (max-width: 1250px) {
+        //     max-width: 15em;
+        // }
 
-        @media (max-width: 1200px) {
-            max-width: 14em;
-        }
+        // @media (max-width: 1200px) {
+        //     max-width: 14em;
+        // }
 
-        @media (max-width: 900px) {
-            max-width: 100%;
-        }
+        // @media (max-width: 900px) {
+        //     max-width: 100%;
+        // }
 
-        @media (max-width: 600px) {
-            max-height: 500px;
-        }
+        // @media (max-width: 600px) {
+        //     max-height: 500px;
+        // }
 
-        @media (min-width: 1250px) {
-            wax-width: 100%;
-        }
+        // @media (min-width: 1250px) {
+        //     wax-width: 100%;
+        // }
 
         .active-session {
             padding: 0 1em;
@@ -390,8 +392,8 @@
 
         .session-list-container {
             h2 {
-                text-align: center;
-                margin: 0 0 1em;
+                text-align: left;
+                margin: 0 0 0 0.7em;
                 color: $dp-dark;
 
                 font-family: var(--molitor);

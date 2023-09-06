@@ -48,17 +48,21 @@
                     </p>
                 </div>
             </div>
-            <div class="col">
+            <div class="col subtitle">
                 <Button @click="toggleNote" class="note-btn"> See Note </Button>
             </div>
+            <FilterBar />
         </div>
-        <faceted-scatterplot/>
-        <FilterBar />
-        <div class="flex">
-            <wonderplot title="Metric Comparison" ref="wonderful"/>
+        <div class="explorationTool">
+            <div class="left">    
+                <faceted-scatterplot class="splom-grid-area"/>
+                <Session class="table-grid-area" />
+            </div>
+            <div class="right">
+                <wonderplot class="graph-grid-area" title="Metric Comparison" ref="wonderful"/>
+            </div>
             <!-- <Scatterplot title="Name of Chart" :xAccessor="DoXThing()" :yAccessor="DoYThing()" ref="plot" /> -->
         </div>
-        <Session />
         <Note v-if="!hasSeenNote.hasSeenNote" />
     </MaxWidth>
 </template>
@@ -67,8 +71,8 @@
     @import "./../styles/globals";
 
     .Index {
-        height: 100%;
-        padding: 0em 2em 6em 2em;
+        height: 100vh;
+        padding: 0em 2em 2em 2em;
         position: relative;
         background-color: rgb(193, 163, 158);
         // background: url("/images/background-marble-04.jpg");
@@ -121,21 +125,45 @@
             }
         }
 
-        .flex {
-            display: flex;
-            gap: 2em;
-            position: relative;
-            z-index: 10;
+        // .flex {
+        //     display: flex;
+        //     gap: 2em;
+        //     position: relative;
+        //     z-index: 10;
 
-            @media (max-width: 900px) {
-                flex-direction: column;
-            }
+        //     @media (max-width: 900px) {
+        //         flex-direction: column;
+        //     }
 
-            @media (max-width: 600px) {
-                gap: 1em;
-            }
+        //     @media (max-width: 600px) {
+        //         gap: 1em;
+        //     }
+        // }
+        
+        .left, .right{
+            width: 47vw;
         }
 
+
+        .splom-grid-area{
+            grid-area: "splom";
+        }
+        .table-grid-area{
+            grid-area: "table";
+        }
+        .graph-grid-area{
+            grid-area: "graph";
+            // grid-row: span 2;
+        }
+        .explorationTool{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 0.5em;
+            grid:
+            "splom graph" minmax(100px, auto);
+            // "table graph" minmax(100px, auto);
+        }
         img {
             position: relative;
         }

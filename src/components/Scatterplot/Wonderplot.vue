@@ -632,23 +632,23 @@ export default {
 .Scatterplot {
     position: relative;
     height: 100%;
-    max-height: 80vh;
+    max-height: 95vh;
     width: 100%;
     background: var(--background-color);
     border: 1em solid var(--background-color);
     border-radius: var(--border-radius);
 
-    @media (max-height: 600px) {
-        max-height: 90vh;
-    }
+    // @media (max-height: 600px) {
+    //     max-height: 90vh;
+    // }
 
-    @media (max-height: 900px) {
-        max-height: 50vh;
-    }
+    // @media (max-height: 900px) {
+    //     max-height: 50vh;
+    // }
 
-    @media (max-height: 1200px) {
-        max-height: 75vh;
-    }
+    // @media (max-height: 1200px) {
+    //     max-height: 95vh;
+    // }
 
     .chart-header {
         display: flex;
