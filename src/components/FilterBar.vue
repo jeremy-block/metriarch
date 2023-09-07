@@ -79,7 +79,7 @@
                     class="FilterBar__toggle"
                     @click="shouldShowChapters = !shouldShowChapters"
                 >
-                    Behavior Types
+                    Dataset Name
                     <div class="FilterBar__toggle__icon">
                         {{ shouldShowChapters ? "—" : "+" }}
                     </div>

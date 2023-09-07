@@ -3,7 +3,7 @@
   :style="dynamicGridCSSRule">
       <div class="scatterplot row cell" id="splomTopTitles"
       :style="dynamicGridCSSRulePlus">
-      <h6 class="Axis__tick"></h6>
+      <h6 class="Axis__tick">Description</h6>
         <h6 class="Axis__tick splomTitle">Metric</h6>
       <!-- :class="this.computedClasses[xValue]" -->
       <h6 v-for="xValue in this.numericVariables" 
