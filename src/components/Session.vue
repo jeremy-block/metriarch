@@ -39,7 +39,8 @@
                 return title
                     .replaceAll("And", "and")
                     .replaceAll("Of", "of")
-                    .replaceAll("With", "with");
+                    .replaceAll("With", "with")
+                    .replaceAll("_", " ");
             },
             toggleSort(sort) {
                 if (sort == this.activeSort[0]) {
@@ -76,11 +77,11 @@
                 } else {
                     if (this.activeSort[1] == 1) {
                         sorted = sorted.sort((a, b) => {
-                            return a.difficulty - b.difficulty;
+                            return a.total_search_count - b.total_search_count;
                         });
                     } else {
                         sorted = sorted.sort((a, b) => {
-                            return b.difficulty - a.difficulty;
+                            return b.total_search_count - a.total_search_count;
                         });
                     }
                 }
@@ -209,15 +210,15 @@
                     </div>
                     <div
                         class="header-toggle right-align"
-                        @click="toggleSort('difficulty')"
+                        @click="toggleSort('total_search_count')"
                     >
                         <span
-                            v-if="activeSort[0] == 'difficulty'"
+                            v-if="activeSort[0] == 'total_search_count'"
                             class="arrow"
                         >
                             {{ activeSort[1] == 1 ? "&#8593;" : "&#8595;" }}
                         </span>
-                        Difficulty
+                        Searches
                     </div>
                 </div>
                 <div
@@ -281,7 +282,7 @@
                                 <div class="right-align">
                                     {{
                                         (
-                                            Math.floor(session.difficulty * 10) /
+                                            Math.floor(session.total_search_count * 10) /
                                             10
                                         ).toFixed(1)
                                     }}
@@ -307,12 +308,9 @@
                                 </div>
                                 <div class="info">
                                     <div>
-                                        Level
-                                        {{ Math.floor(lockedData.difficulty) }}
-                                        | Total time:
-                                        {{ humanTime(lockedData.minutes) }}
-
-                                        <!-- | Page: {{ lockedData.page }} -->
+                                        Search Variation: {{ Math.floor(lockedData.search_time_std_dev) }}
+                                        | Search Term Similarity: {{ lockedData.search_term_similarity }}
+                                        | Total time: {{ humanTime(Math.floor(lockedData.total_duration/1000)) }}
                                     </div>
                                 </div>
                                 <YouTubeLink
@@ -332,13 +330,13 @@
                 </div>
             </div>
         </div>
-        <div class="decoration">
+        <!-- <div class="decoration">
             <div
                 v-for="tab in [1, 2, 3, 4]"
                 :key="tab"
                 class="corner-tab"
             ></div>
-        </div>
+        </div> -->
     </div>
 </template>
 

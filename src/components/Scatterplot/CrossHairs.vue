@@ -71,7 +71,7 @@
                 class="ScatterPlot__locked-circle"
                 :cx="lockedData.lockedCoords.x"
                 :cy="lockedData.lockedCoords.y"
-                r="5"
+                r="8"
             />
         </g>
         <g
@@ -103,7 +103,7 @@
                 class="ScatterPlot__hovered-circle"
                 :cx="hoveredData.hoveredCoords.x"
                 :cy="hoveredData.hoveredCoords.y"
-                r="5"
+                r="6"
             />
         </g>
     </g>

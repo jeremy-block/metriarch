@@ -24,9 +24,19 @@
         <div class="Note">
             <h1>Hello! Quick note. <span>😊</span></h1>
             <h2>
-                The <i>Dessert Person</i> cookbook is created by Claire Saffitz
-                and designed by Mia Johnson.
+                The interface you will see is a reserch project artifact created at the <i>University of Florida</i>.        
             </h2>
+            <h4>
+                The original code base is based on the work created by <em>Marguerite</em> from 
+                <Link to="https://marguerite.io" do-open-in-new-tab>
+                    marguerite.io
+                </Link>. 
+                Their work was based on, <em>Dessert Person</em>, a cookbook by Claire Saffitz and the graph was designed by Mia Johnson.
+                I have no affiliations with <em>Dessert Person</em> nor Marguerite.
+                <br />
+                <br />
+                This interface is an extention of the functionality created by Marguerite to explore of behavior metrics.
+            </h4>
             <h4 class="Note__links">
                 <Link to="https://www.dessertperson.com/" do-open-in-new-tab>
                     <i>Dessert Person</i> Site &#8594;
@@ -34,14 +44,6 @@
                 <Link to="https://www.miaajohnson.com/" do-open-in-new-tab>
                     Mia Johnson Site &#8594;
                 </Link>
-            </h4>
-            <h4>
-                I did not design this original scatter plot and have no
-                affiliations with <i>Dessert Person</i> nor its design.
-                <br />
-                <br />
-                This chart appears at the beginning of the cookbook, showcasing
-                the relationships between session difficulty and session time.
             </h4>
             <div class="toggle-neon-separator">&nbsp; &nbsp; &nbsp; &nbsp;</div>
             <div class="flex-sections">
@@ -60,7 +62,13 @@
                     </p>
                 </div>
                 <div class="section">
-                    <h5>Project code</h5>
+                    <h5>Icon</h5>
+                    <p> 
+                        <Link to="https://thenounproject.com/icon/crown-1076245/" do-open-in-new-tab>by Jivan on the Noun Project</Link>
+                    </p>
+                </div>
+                <div class="section">
+                    <h5>Marguerite's original Project code</h5>
                     <p>
                         <Link
                             to="https://github.com/margueriteroth/dessert-person"
@@ -76,10 +84,8 @@
                     Got it!
                 </Button>
                 <div class="signoff">
-                        <div>— Marguerite</div>
-                    <Link to="https://marguerite.io" do-open-in-new-tab>
-                        marguerite.io
-                    </Link>
+                        <div>— Jeremy Block</div>
+                    
                 </div>
             </div>
 

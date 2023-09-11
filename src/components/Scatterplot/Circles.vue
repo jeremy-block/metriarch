@@ -58,7 +58,7 @@
             :key="d"
             :cx="d.x"
             :cy="animated ? d.y : mainChartProps.boundedHeight"
-            r="3"
+            r="6"
             :opacity="
                 animated ? 0.15 : 0
             "
@@ -69,14 +69,14 @@
             :key="d"
             :cx="d.x"
             :cy="animated ? d.y : mainChartProps.boundedHeight"
-            :r="selection.chapter ? 4 : 3"
+            :r="selection.chapter ? 8 : 6"
             :opacity="
                 animated ? 1 : 0
             "
             :fill="doShowChapterColors ? chapterColors[d.section] : '#501017'"
         />
        
-        <text
+        <!-- <text
             :class="{
                 flip: d.x > mainChartProps.boundedWidth * 0.85,
                 large: selection.chapter,
@@ -84,8 +84,8 @@
             class="dot-title"
             v-for="d in data"
             :key="d"
-            :x="parseInt(d.x) + (d.x > mainChartProps.boundedWidth * 0.85 ? -3 : 3)"
-            :y="d.y + (parseInt(d.x) > mainChartProps.boundedWidth * 0.85 ? 9 : -2)"
+            :x="parseFloat(d.x) + (d.x > mainChartProps.boundedWidth * 0.85 ? -3 : 3)"
+            :y="d.y + (parseFloat(d.x) > mainChartProps.boundedWidth * 0.85 ? 9 : -2)"
             :opacity="
                 selection.chapter && selection.chapter != d.section
                     ? 0
@@ -94,7 +94,7 @@
                     : 0.85
             "
             >{{ d.title }}</text
-        >
+        > -->
     </template>
 </template>
 

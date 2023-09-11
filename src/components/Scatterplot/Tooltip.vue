@@ -61,10 +61,10 @@
                 {{ title }}
             </div>
             <div class="info">
-                Level {{ Math.floor(data.difficulty) }}
+                Searches {{ Math.floor(data.total_search_count) }}
             </div>
             <div class="info">
-                Page {{ data.page }}
+                Interactions {{ data.total_interaction_count }}
             </div>
         </div>
     </div>

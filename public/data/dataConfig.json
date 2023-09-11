@@ -16,241 +16,241 @@
     "places": 2
   },
   "total_think_aloud_count": {
-    "name": "Total Think Aloud Events",
-    "unit": "event",
-    "description": "This is the total number of Think aloud events that have taken place in a session.",
-    "majorTicks": 5,
-    "minorTicks": 1,
-    "places": 2
+    "name": "Think Aloud Events",
+    "unit": "phrase",
+    "description": "The quantity of verbal utterances recorded from a session.",
+    "majorTicks": 3,
+    "minorTicks": 4,
+    "places": 0
   },
   "total_search_count": {
-    "name": "Total Search Events",
+    "name": "Search Events",
     "unit": "event",
-    "description": "stuff",
+    "description": "The quantity of search events performed in a session.",
     "majorTicks": 4,
     "minorTicks": 1,
-    "places": 2
+    "places": 0
   },
   "total_topic_change_count": {
-    "name": "xyz",
-    "unit": "point",
-    "description": "stuff",
+    "name": "Topic changes",
+    "unit": "topic",
+    "description": "The number of detected topics that occur in a session.",
     "majorTicks": 4,
     "minorTicks": 1,
-    "places": 2
+    "places": 0
   },
   "total_mouse_hover_count": {
-    "name": "xyz",
-    "unit": "point",
-    "description": "stuff",
+    "name": "Mouse Hovers",
+    "unit": "hover",
+    "description": "The quantity of events where a mouse is hovering over a document.",
     "majorTicks": 4,
     "minorTicks": 1,
-    "places": 2
+    "places": 0
   },
   "total_draging_count": {
-    "name": "xyz",
-    "unit": "point",
-    "description": "stuff",
+    "name": "Dragging Events",
+    "unit": "event",
+    "description": "The quantity of documents being moved on the interface.",
     "majorTicks": 4,
     "minorTicks": 1,
-    "places": 2
+    "places": 0
   },
   "total_open-doc_count": {
-    "name": "xyz",
-    "unit": "point",
-    "description": "stuff",
+    "name": "Document Open Events",
+    "unit": "event",
+    "description": "The number of document open events performed in a session.",
     "majorTicks": 4,
     "minorTicks": 1,
-    "places": 2
+    "places": 0
   },
   "total_reading_count": {
-    "name": "xyz",
-    "unit": "point",
-    "description": "stuff",
+    "name": "Reading Events",
+    "unit": "event",
+    "description": "The number of events charcterized as reading.",
     "majorTicks": 4,
     "minorTicks": 1,
-    "places": 2
+    "places": 0
   },
   "total_highlight_count": {
-    "name": "xyz",
-    "unit": "point",
-    "description": "stuff",
+    "name": "Highlight events",
+    "unit": "event",
+    "description": "The quantity of highlight events performed in a session.",
     "majorTicks": 4,
     "minorTicks": 1,
-    "places": 2
+    "places": 0
   },
   "total_connection_count": {
-    "name": "xyz",
+    "name": "Connection Events",
     "unit": "point",
-    "description": "stuff",
+    "description": "The quantity of documents being connected to eachother in a session.",
     "majorTicks": 4,
     "minorTicks": 1,
-    "places": 2
+    "places": 0
   },
   "total_create_note_count": {
-    "name": "xyz",
-    "unit": "point",
-    "description": "stuff",
+    "name": "Note Creation Events",
+    "unit": "note",
+    "description": "The number of notes created in a session.",
     "majorTicks": 4,
     "minorTicks": 1,
-    "places": 2
+    "places": 0
   },
   "total_add_note_count": {
-    "name": "xyz",
-    "unit": "point",
-    "description": "stuff",
+    "name": "Note Modification Events",
+    "unit": "modification",
+    "description": "The number of edits performed on a note in a session.",
     "majorTicks": 4,
     "minorTicks": 1,
-    "places": 2
+    "places": 0
   },
   "think_aloud_ratio": {
-    "name": "xyz",
-    "unit": "point",
-    "description": "stuff",
+    "name": "Proportion Think Aloud",
+    "unit": "% event",
+    "description": "The Proportional amount of think aloud events occring in a session.",
     "majorTicks": 4,
     "minorTicks": 1,
     "places": 2
   },
   "search_ratio": {
-    "name": "xyz",
-    "unit": "point",
-    "description": "stuff",
+    "name": "Proportion Search Events",
+    "unit": "% event",
+    "description": "The Proportional amount of search events occring in a session.",
     "majorTicks": 4,
     "minorTicks": 1,
     "places": 2
   },
   "topic_change_ratio": {
-    "name": "xyz",
-    "unit": "point",
-    "description": "stuff",
+    "name": "Proportion Topic Changes",
+    "unit": "% event",
+    "description": "The Proportional amount of topic change events occring in a session.",
     "majorTicks": 4,
     "minorTicks": 1,
     "places": 2
   },
   "mouse_hover_ratio": {
-    "name": "xyz",
-    "unit": "point",
-    "description": "stuff",
+    "name": "Proportion Hover Events",
+    "unit": "% event",
+    "description": "The Proportional amount of Mouse Hover events over a documnet in a session.",
     "majorTicks": 4,
     "minorTicks": 1,
     "places": 2
   },
   "draging_ratio": {
-    "name": "xyz",
-    "unit": "point",
-    "description": "stuff",
+    "name": "Proportion Drag Events",
+    "unit": "% event",
+    "description": "The Proportional amount of document movement events in a session.",
     "majorTicks": 4,
     "minorTicks": 1,
     "places": 2
   },
   "open-doc_ratio": {
-    "name": "xyz",
-    "unit": "point",
-    "description": "stuff",
+    "name": "Proportion Doc Opens",
+    "unit": "% event",
+    "description": "The Proportional amount of document open events in a session.",
     "majorTicks": 4,
     "minorTicks": 1,
     "places": 2
   },
   "reading_ratio": {
-    "name": "xyz",
-    "unit": "point",
-    "description": "stuff",
+    "name": "Proportion Reading Events",
+    "unit": "% event",
+    "description": "The Proportional amount of reading events in a session.",
     "majorTicks": 4,
     "minorTicks": 1,
     "places": 2
   },
   "highlight_ratio": {
-    "name": "xyz",
-    "unit": "point",
-    "description": "stuff",
+    "name": "Proportion Highlight Events",
+    "unit": "% event",
+    "description": "The Proportional amount of highlight events in a session.",
     "majorTicks": 4,
     "minorTicks": 1,
     "places": 2
   },
   "connection_ratio": {
-    "name": "xyz",
-    "unit": "point",
-    "description": "stuff",
+    "name": "Proportion Connection Events",
+    "unit": "% event",
+    "description": "The Proportional amount of document connection events in a session.",
     "majorTicks": 4,
     "minorTicks": 1,
     "places": 2
   },
   "create_note_ratio": {
-    "name": "xyz",
-    "unit": "point",
-    "description": "stuff",
+    "name": "Proportion Note Creations",
+    "unit": "% event",
+    "description": "The Proportional amount of Note creation events in a session.",
     "majorTicks": 4,
     "minorTicks": 1,
     "places": 2
   },
   "add_note_ratio": {
-    "name": "xyz",
-    "unit": "point",
-    "description": "stuff",
+    "name": "Proportion Note Edits",
+    "unit": "% event",
+    "description": "The Proportional amount of Note modification events in a session.",
     "majorTicks": 4,
     "minorTicks": 1,
     "places": 2
   },
   "total_interaction_count": {
-    "name": "xyz",
-    "unit": "point",
-    "description": "stuff",
+    "name": "Interaction Events",
+    "unit": "interaction",
+    "description": "The number of events recorded for a session regardless of type.",
     "majorTicks": 4,
     "minorTicks": 1,
-    "places": 2
+    "places": 0
   },
   "total_duration": {
-    "name": "xyz",
-    "unit": "point",
-    "description": "stuff",
-    "majorTicks": 4,
-    "minorTicks": 1,
-    "places": 2
+    "name": "Session Duration",
+    "unit": "Second",
+    "description": "The time of the last recorded interaction in an interaction log in micro seconds",
+    "majorTicks": 3,
+    "minorTicks": 4,
+    "places": 0
   },
   "repeat_searches": {
-    "name": "xyz",
-    "unit": "point",
-    "description": "stuff",
+    "name": "Search Repetition",
+    "unit": "repeat",
+    "description": "Records the number of searches that are exact matches. Not necessarily how many searches return the same results, but how many searches are an exact string match.",
     "majorTicks": 4,
     "minorTicks": 1,
-    "places": 2
+    "places": 0
   },
   "prop_repeat_searches": {
-    "name": "xyz",
-    "unit": "point",
-    "description": "stuff",
+    "name": "Proportion Search Repetition",
+    "unit": "rel.repeat",
+    "description": "Records the ratio of searches that are exact matches. Out of all the searches run, what proportion is the exact same string of text.",
     "majorTicks": 4,
     "minorTicks": 1,
     "places": 2
   },
   "search_term_similarity": {
-    "name": "xyz",
-    "unit": "point",
-    "description": "stuff",
+    "name": "Term Similarity",
+    "unit": "unit",
+    "description": "Using SpaCy's Similarity function, this records how similar words are to each other. Averaged over the entire session, to determine a relative amount of similarity between different terms.",
     "majorTicks": 4,
     "minorTicks": 1,
     "places": 2
   },
   "search_time_std_dev": {
-    "name": "xyz",
-    "unit": "point",
-    "description": "stuff",
+    "name": "Search Burstiness",
+    "unit": "unit",
+    "description": "The standard deviation in when a search is conducted in an analysis session. When values are high, it means there is lots of variation in when searches are conducted, thus they are likely more clumped together in time.",
     "majorTicks": 4,
     "minorTicks": 1,
     "places": 2
   },
   "search_open_overlap": {
-    "name": "xyz",
-    "unit": "point",
-    "description": "stuff",
+    "name": "Search Rigor",
+    "unit": "unit",
+    "description": "The ratio of the average number of documents explored between search events. A value of 1, means that, on average, a user opened every document returned from each of their searches before conducting a new search.",
     "majorTicks": 4,
     "minorTicks": 1,
     "places": 2
   },
   "search_term_efficiency": {
-    "name": "xyz",
-    "unit": "point",
-    "description": "stuff",
+    "name": "Search Broadness",
+    "unit": "Avg document",
+    "description": "The average number of documents returned for the searches conducted by the individual. High numbers here mean the user had many documents returned per search.",
     "majorTicks": 4,
     "minorTicks": 1,
     "places": 2

@@ -41,7 +41,7 @@ export default {
       return this.numericVariables.length
     },
     dynamicGridCSSRulePlus() {
-      return `grid-template-columns: 8% 5% repeat(${this.getNumericLength+4 }, 74px)`;
+      return `grid-template-columns: 8% 6% repeat(${this.getNumericLength+3 }, 70px)`;
     },
     dynamicGridCSSRule() {
       return `grid-template-rows: 12% repeat(${this.getNumericLength}, 1fr)`;
@@ -74,6 +74,7 @@ export default {
     // background-color: var(--background-color);
     max-height: 50vh;
     overflow: auto;
+    border-radius: var(--border-radius);
     // display:grid;
 }
 .cell {
@@ -101,11 +102,11 @@ export default {
   // transform: rotate(20deg);
   // max-width: 100px;
   // text-overflow: clip;
-  align-self: stretch;
-  height: 80%;
+  align-self: baseline;
+  height: 60%;
   padding: 1.6em 0em 0em 0em;
   position: relative;
-  transform: translate(0px, -26%);
+  transform: translate(0px, -14%);
 }
 .selectedRow{
   background-color: thistle;

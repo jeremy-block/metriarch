@@ -622,9 +622,9 @@ export default {
                 }px, ${mainChartProps.marginTop + hoveredCoords.y}px)`,
         }" :flipped="hoveredCoords?.x > mainChartProps.boundedWidth * 0.75" ref="hoveredTooltip" />
 
-        <div class="decoration">
+        <!-- <div class="decoration">
             <div v-for="tab in [1, 2, 3, 4]" :key="tab" class="corner-tab"></div>
-        </div>
+        </div> -->
     </div>
 </template>
 

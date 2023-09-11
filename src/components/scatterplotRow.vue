@@ -64,7 +64,7 @@ export default {
       return this.numericVariables.length
     },
     dynamicGridCSSRule() {
-      return `grid-template-columns: 8% 5% repeat(${this.getNumericLength}, 1fr)`;
+      return `grid-template-columns: 8% 6% repeat(${this.getNumericLength}, 70px)`;
     },
     getDescription() {
       try {
