@@ -2,7 +2,7 @@
 import { mapState } from "vuex";
 import utils from "@/scripts/utils.js";
 
-import { scaleLinear, max } from "d3";
+import { scaleLinear, max, min } from "d3";
 import { Delaunay } from "d3-delaunay";
 import ScatterAxis from "./ScatterAxis.vue"
 import Circles from "./Circles.vue";
@@ -112,6 +112,10 @@ export default {
         yMax() {
             const maximumValue = max(this.accessor(this.data, this.getObjValue, this.lockedDimension.y))
             return maximumValue
+        },
+        yMin() {
+            const minimumValue = min(this.accessor(this.data, this.getObjValue, this.lockedDimension.y))
+            return minimumValue
         },
         xMax() {
             const maximumValue = max(this.accessor(this.data, this.getObjValue, this.lockedDimension.x))
@@ -231,7 +235,7 @@ export default {
                 return;
             }
             this.yScale = scaleLinear()
-                .domain([this.yMax, 1])
+                .domain([this.yMax, this.yMin])
                 .range([0, this.mainChartProps.boundedHeight]);
             this.yRuleDistance =
                 this.yScale(this.levelRules[1]) -
