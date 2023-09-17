@@ -14,10 +14,6 @@ export default {
     name: "Wonderplot",
     components: [ScatterAxis, Circles, CrossHairs, Tooltip],
     props: {
-        propToCareAbout: {
-            type: String,
-            default: 'minutes',
-        },
         title: {
             type: String,
             default: "Matrix",
@@ -52,15 +48,7 @@ export default {
             ],
             mainLevels: [1, 2, 3, 4, 5],
             xRuleDistance: 0,
-            yRuleDistance: 0,
-            yRyleDistanceThrees: 0,
             yArrowOffset: 0,
-            // colsPerSection: {
-            //     mins55: 1,
-            //     mins30: 6,
-            //     mins120: 1,
-            //     mins360: 2,
-            // },
             mainChartProps: {
                 marginTop: 10,
                 marginRight: 40,
@@ -72,14 +60,11 @@ export default {
                 height: 0,
                 width: 0,
                 axisOffset: 35,
+                dataPaddingX: 50,
+                dataPaddingY: 50,
             },
             yScale: scaleLinear(),
             xScale: scaleLinear(),
-            xScales: {},
-            xScale55mins: scaleLinear(),
-            xScale30mins: scaleLinear(),
-            xScale120mins: scaleLinear(),
-            xScale360mins: scaleLinear(),
                         //helper function to select for a particular property in an object.
             //get floats for the value so they are interpreted as numbers and not just strings.
             getObjValue: (obj, property) => parseFloat(obj[property]),
@@ -235,41 +220,14 @@ export default {
                 return;
             }
             this.yScale = scaleLinear()
-                .domain([this.yMax, this.yMin])
-                .range([0, this.mainChartProps.boundedHeight]);
-            this.yRuleDistance =
-                this.yScale(this.levelRules[1]) -
-                this.yScale(this.levelRules[2]);
-            this.yRyleDistanceThrees = Math.abs(
-                this.yScale(this.levelRules[16]) -
-                this.yScale(this.levelRules[17])
-            );
+                .domain([this.yMax, 0])
+                .range([this.mainChartProps.dataPaddingY, this.mainChartProps.boundedHeight]);
             this.xScale =
                 scaleLinear()
                     .domain([0, this.xMax])
-                    .range([0,this.mainChartProps.boundedWidth]); 
-            // let xScales = {}
-            // let xDomains = [
-            //     [5, 60],
-            //     [60, 240],
-            //     [240, 360],
-            //     [360, 1080],
-            // ];
-            // Object.keys(this.colsPerSection).forEach((mins, i) => {
-            //     xScales[mins] = scaleLinear()
-            //         .domain(xDomains[i])
-            //         .range([
-            //             0,
-            //             this.mainChartProps.sectionWidth *
-            //             this.colsPerSection[mins],
-            //         ]);
-            // });
-            // this.xScales = xScales;
+                    .range([0,this.mainChartProps.boundedWidth-this.mainChartProps.dataPaddingX]); 
+
             this.xRuleDistance = 0;
-            // this.xRuleDistance = Math.abs(
-            //     this.xScales["mins55"](this.minVertRules[1]) -
-            //     this.xScales["mins55"](this.minVertRules[2])
-            // );
             this.yArrowOffset = this.xRuleDistance * 3;
 
             let data;

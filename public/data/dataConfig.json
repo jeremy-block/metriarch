@@ -27,15 +27,15 @@
     "name": "Search Events",
     "unit": "event",
     "description": "The quantity of search events performed in a session.",
-    "majorTicks": 4,
-    "minorTicks": 1,
+    "majorTicks": 5,
+    "minorTicks": 10,
     "places": 0
   },
   "total_topic_change_count": {
     "name": "Topic changes",
     "unit": "topic",
     "description": "The number of detected topics that occur in a session.",
-    "majorTicks": 4,
+    "majorTicks": 6,
     "minorTicks": 1,
     "places": 0
   },
@@ -227,8 +227,8 @@
     "name": "Term Similarity",
     "unit": "unit",
     "description": "Using SpaCy's Similarity function, this records how similar words are to each other. Averaged over the entire session, to determine a relative amount of similarity between different terms.",
-    "majorTicks": 4,
-    "minorTicks": 1,
+    "majorTicks": 8,
+    "minorTicks": 2,
     "places": 2
   },
   "search_time_std_dev": {

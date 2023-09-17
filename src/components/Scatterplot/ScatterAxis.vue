@@ -109,12 +109,12 @@ export default {
         xScale() {
             return scaleLinear()
                 .domain([0, this.valueMax])
-                .range([0, this.mainChartProps.boundedWidth]);
+                .range([0, this.mainChartProps.boundedWidth - this.mainChartProps.dataPaddingX]);
         },
         yScale() {
             return scaleLinear()
                 .domain([0, this.valueMax])
-                .range([this.mainChartProps.boundedHeight, 0]);
+                .range([this.mainChartProps.boundedHeight, this.mainChartProps.dataPaddingY]);
         },
         decimalPlaces() {
             // console.log(this.places)
@@ -194,7 +194,7 @@ export default {
 
         <!-- Horizontal background colors -->
         <rect v-for="(tick, i) in ticks" :key="'y-stripe-'+tick" class="Grid__stripe" :width="mainChartProps.boundedWidth + xRuleDistance"
-            :height="yScale(valueMax - valueMax/numberOfTicks)" :y="yScale(ticks[i+1])" :x="-xRuleDistance" />
+            :height="yScale(valueMax - valueMax/numberOfTicks)-mainChartProps.dataPaddingY" :y="yScale(ticks[i+1])" :x="-xRuleDistance" />
 
         <!-- Hoizontal lines that expand beyond the y axis - major ticks -->
             <template v-for="tick in ticks" :key="'y-major-'+tick">
