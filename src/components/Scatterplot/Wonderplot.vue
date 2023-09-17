@@ -52,7 +52,7 @@ export default {
             mainChartProps: {
                 marginTop: 10,
                 marginRight: 40,
-                marginBottom: 125,
+                marginBottom: 110,
                 marginLeft: 70,
                 boundedWidth: 0,
                 boundedHeight: 0,

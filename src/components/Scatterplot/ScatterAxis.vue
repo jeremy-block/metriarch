@@ -45,7 +45,7 @@ export default {
             arrowSize: 10,
             yArrowOffset: 7,
             labelPlateMultiplier: 11,
-            xTickOffset: 50,
+            xTickOffset: 15,
             xRuleDistance: 12,
             unitPluralMakerFunction: (d) => {
                 if (d == 1) {
@@ -156,17 +156,17 @@ export default {
         }">
             <text :style="{ transform: `translate(5px, 0)` }" class="Axis__tick x-tick">
                 {{ ticks[i].toFixed(decimalPlaces) }}
-                {{ unitPluralMakerFunction(ticks[i]) }}
+                {{ this.unit }}
             </text>
         </g>
 
         <!-- Hoizontal Axis label -->
         <g class="Axis__label__wrapper" :style="{ transform: `translate(0px, 4px)` }">
             <rect class="label-plate" width="25%" :height="xRuleDistance + 12" :style="{
-                transform: `translate(30%, -2px)`,
+                transform: `translate(30%, 32px)`,
             }" />
             <text :style="{
-                transform: `translate(30%, 12px)`,
+                transform: `translate(30%, 42px)`,
             }" textLength="25%" class="Axis__label x-axis">
                 {{ label }}
             </text>
@@ -205,8 +205,8 @@ export default {
             
             <text v-for="(tick, i) in ticks" :key="'y-scale-label-'+i" class="Axis__tick Axis__tick--difficulty" :style="{
                 transform: `translate(
-                    ${-xRuleDistance - mainChartProps.marginLeft/4*3 }px,
-                    ${yScale(tick) + 3 - (yScale(ticks[0]) - yScale(ticks[1])) / 6 }px)`,
+                    ${xScale(0)-40}px,
+                    ${yScale(tick) - 5 }px)`,
                 }">
          {{ ticks[i].toFixed(decimalPlaces) }}
         </text>
@@ -214,10 +214,10 @@ export default {
          {*/ units for the axis */}
          <text v-for="(tick, i) in ticks" :key="'y-units'+tick" class="Axis__tick Axis__tick--difficulty" :style="{
             transform: `translate(
-                        ${-xRuleDistance - mainChartProps.marginLeft / 4 * 3 }px,
-                        ${yScale(tick) + 3 -(yScale(ticks[0]) - yScale(ticks[1])) / 11 }px)`,
+                        ${xScale(0)-70}px,
+                        ${yScale(tick) + 12 }px)`,
          }">
-         {{ unitPluralMakerFunction(ticks[i]) }}
+         {{ this.unit }}
          </text>
             <!-- {{ tick == 1 ? "" : tick - 1 }} -->
 
@@ -231,9 +231,9 @@ export default {
             <rect class="label-plate" width="26%" :height="xRuleDistance" :style="{
                 transform: `translate(
                     1px, 
-                    -10px`,
+                    -70px`,
             }" />
-            <text textLength="25%" :style="{ transform: `translate(7px, 0px)` }" class="Axis__label">
+            <text textLength="25%" :style="{ transform: `translate(7px, -60px)` }" class="Axis__label">
                 {{ label }}
             </text>
         </g>
