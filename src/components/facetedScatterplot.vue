@@ -44,7 +44,7 @@ export default {
       return this.numericVariables.length
     },
     dynamicGridCSSRulePlus() {
-      return `grid-template-columns: 8% 6% repeat(${this.getNumericLength+3 }, 70px)`;
+      return `grid-template-columns: 8% 6% repeat(${this.getNumericLength+4 }, 70px)`;
     },
     dynamicGridCSSRule() {
       return `grid-template-rows: 12% repeat(${this.getNumericLength}, 1fr)`;
@@ -117,10 +117,10 @@ export default {
   // max-width: 100px;
   // text-overflow: clip;
   align-self: baseline;
-  height: 60%;
-  padding: 1.6em 0em 0em 0em;
+  height: 80%;
+  padding: 3.6em 0em 0em 0em;
   position: relative;
-  transform: translate(0px, -14%);
+  transform: translate(0px, -25%);
 }
 .selectedRow{
   background-color: thistle;
