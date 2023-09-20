@@ -1,13 +1,15 @@
 <template>
   <div id="splom"
-  :style="dynamicGridCSSRule">
-      <div class="scatterplot row cell" id="splomTopTitles"
+  :style="dynamicGridCSSRule"
+  @scroll="showDescIcon()"
+  ref="splomComponent">
+    <div class="scatterplot row cell" id="splomTopTitles"
       :style="dynamicGridCSSRulePlus">
       <h6 class="Axis__tick">Description</h6>
-        <h6 class="Axis__tick splomTitle">Metric</h6>
+      <h6 class="Axis__tick splomTitle">Metric</h6>
       <!-- :class="this.computedClasses[xValue]" -->
       <h6 v-for="xValue in this.numericVariables" 
-      class="Axis__tick"
+        class="Axis__tick"
        :class="xValue == this.$route.query.xDomain ? 'selectedCol' : ''" 
        :key="xValue"
        @click="handleFacetClick([xValue, lockedDimension.y])"
@@ -15,7 +17,7 @@
         {{config[xValue].name}}
       </h6>
     </div>
-    <scatterplot-row v-for="yValue in numericVariables" :key="yValue" :yValue="yValue" :isSelected="lockedDimension.y === yValue" />
+    <scatterplot-row v-for="yValue in numericVariables" :key="yValue" :yValue="yValue" :isSelected="lockedDimension.y === yValue" :showDescriptionIcon="miniTooltipVisable"/>
   </div>
 </template>
 
@@ -26,6 +28,7 @@ import ScatterplotRow from './ScatterplotRow.vue';
 export default {
   data() {
     return {
+      miniTooltipVisable:false
     };
   },
   components: {
@@ -56,6 +59,17 @@ export default {
       //todo: may need to keep other elements of the query selected before pushing new things or changing. Not sure if this feature is better or not
       this.$router.push({ query: { xDomain, yRange } });
       this.$emit("metricChange", [xDomain, yRange])
+    },
+    showDescIcon() {
+      // Define the threshold for showing the element
+      const threshold = 200; // Adjust this value as needed
+      const elem = this.$refs.splomComponent
+      // Check the scroll position
+      if (elem.scrollLeft > threshold) {
+        this.miniTooltipVisable = true;
+      } else {
+        this.miniTooltipVisable = false;
+      }
     },
   },
 };
