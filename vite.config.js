@@ -1,11 +1,15 @@
-import {defineConfig} from "vite";
+import { fileURLToPath, URL } from "url";
+import { defineConfig } from "vite";
 import ViteComponents from "vite-plugin-components";
 import vue from "@vitejs/plugin-vue";
 
 export default defineConfig({
     siteName: "dessert-person",
     resolve: {
-        alias: [{find: "@", replacement: "/src"}],
+        alias: {
+            "@": fileURLToPath(new URL("./src", import.meta.url)),
+        },
+            // [{ find: "@", replacement: "/src" }],
     },
     css: {
         preprocessorOptions: {
@@ -34,6 +38,7 @@ export default defineConfig({
             customLoaderMatcher: id => id.endsWith(".md"),
         }),
     ],
+    base: "/metriarch/",
     ssgOptions: {
         script: "async",
         formatting: "minify",

@@ -42,7 +42,7 @@ app.use(VuePapaParse);
 store.dispatch("setMode", mode);
 
 let router = createRouter({
-    history: createWebHistory(),
+    history: createWebHistory(`/metriarch`),
     base: import.meta.env.BASE_URL,
     routes: allRoutes,
 });
