@@ -18,8 +18,7 @@ const store = createStore({
                 y: "",
             },
             lockedData: {
-                data: {},
-                index: "",
+                data: {index: -1},
             },
             data: [],
             sessions: {},

@@ -20,20 +20,23 @@ export default {
     width: {type: Number, default: 50},
     height: { type: Number, default: 50 },
     edge: { type: Number, default: 5 }, //how many pixels from the edge of the scatter plot?
+    selectedSessionIndex: {type: Number, default: -1}
   },
   data() {
     return {
       plotName: this.x + "_x_" + this.y,
       colIDname: this.x + "-col",
-      padding: { top: parseFloat(this.edge), right: parseFloat(this.edge), bottom: parseFloat(this.edge), left: parseFloat(this.edge) },      
+      padding: { top: parseFloat(this.edge), right: parseFloat(this.edge), bottom: parseFloat(this.edge), left: parseFloat(this.edge) },
+      defaultColor: '#794c89',
+      emphasisColor: '#D91C38',
     }
   },
   mounted() {
     this.renderScatterplot();
   },
-    updated() {
-    this.updateScatterplot();
-  },
+  //   updated() {
+  //   this.updateScatterplot();
+  // },
   methods: {
     //todo: - Would call these functions if they were recognized by the time the component is mounting. I think theres an issue with lifecycle timing of these functions.
     // xScale(variable) { 
@@ -79,33 +82,61 @@ export default {
         .attr('cx', d => xScale(d[this.x])) //, (d) => d.x))
         .attr('cy', d => yScale(d[this.y]))
         .attr('r', this.r)
-        .attr('fill', '#794c89')
+        .attr('fill', (d, i) => {
+          if (i == this.selectedSessionIndex) {
+            // console.log(i)
+            return this.emphasisColor
+          } else {
+            return this.defaultColor
+          }
+        })
     },
-    updateScatterplot() { //I don't think we ever hit the update function.
-      const plotSelectorID = "#" + this.plotName
-      const svg = d3.select(plotSelectorID);  //this.$refs.scatterplot);
-
-      // Update scatterplot using D3 functions
+    checkDotColors() {
+      // console.log("🚀 ~ file: miniScatterplot.vue:93 ~ checkDotColors")
+       const plotSelectorID = "#" + this.plotName
+      const svg = d3.select(plotSelectorID); //this.$refs.scatterplotSvg);
       svg.selectAll('circle')
-        .exit().remove()
-
-      svg.selectAll('circle')
-        .data(this.data)
-        .enter()
-        .append('circle')
-        .attr('cx', d => xScale(d[this.x])) //, (d) => d.x))
-        .attr('cy', d => yScale(d[this.y]))
-        .attr('r', this.r)
-        .attr('fill','#794c89')
+      .attr('fill', (d, i) => {
+          if (i == this.selectedSessionIndex) {
+            // console.log(i)
+            return this.emphasisColor
+          } else {
+            return this.defaultColor
+          }
+        })
     },
+    // updateScatterplot() { //I don't think we ever hit the update function.
+    //   const plotSelectorID = "#" + this.plotName
+    //   const svg = d3.select(plotSelectorID);  //this.$refs.scatterplot);
+
+    //   // Update scatterplot using D3 functions
+    //   svg.selectAll('circle')
+    //     .exit().remove()
+
+    //   svg.selectAll('circle')
+    //     .data(this.data)
+    //     .enter()
+    //     .append('circle')
+    //     .attr('cx', d => xScale(d[this.x])) //, (d) => d.x))
+    //     .attr('cy', d => yScale(d[this.y]))
+    //     .attr('r', this.r)
+    //     .attr('fill','#794c89')
+    // },
   },
   watch: {
-    data: {
+    // data: {
+    //   deep: true,
+    //   handler() {
+    //     this.updateScatterplot();
+    //   },
+    // },
+    selectedSessionIndex: {
+      immediate: true,
       deep: true,
       handler() {
-        this.updateScatterplot();
-      },
-    },
+        this.checkDotColors();
+      }
+    }
   },
 };
 </script>

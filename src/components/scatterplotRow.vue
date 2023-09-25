@@ -27,6 +27,7 @@
       :width="miniSize"
       :height="miniSize"
       :edge="miniPadding"
+      :selectedSessionIndex="selectedIndex"
       @click="handleFacetClick([xValue,yValue])"
       />
   </div>
@@ -62,6 +63,7 @@ export default {
       config: state => state.config,
       numericVariables: state => state.numericColumnNames,
       lockedDimension: state => state.lockedDimension,
+      selectedIndex: state => state.lockedData.selectedIndex,
     }),
     computedClasses() {
       return {
@@ -90,8 +92,7 @@ export default {
   },
   methods: {
         // ...mapMutations(['updateSelectedFacet']),
-    /* 
-    //Alternative Facet select function that maintains other URL Parameters.
+    // Facet select function that maintains URL Parameters instead of replaces all of them.
     handleFacetClick(selectedFacet) {
   // console.log(selectedFacet)
   let xDomain = selectedFacet[0]
@@ -114,16 +115,6 @@ export default {
   this.$emit("metricChange", [xDomain, yRange])
 
 },
-*/
-    handleFacetClick(selectedFacet) {
-      // console.log(selectedFacet)
-      let xDomain = selectedFacet[0]
-      let yRange = selectedFacet[1]
-      // this.updateSelectedFacet(selectedFacet);
-      //todo: may need to keep other elements of the query selected before pushing new things or changing. Not sure if this feature is better or not
-      this.$router.push({ query: { xDomain, yRange } });
-      this.$emit("metricChange", [xDomain, yRange])
-    },
   },
 };
 </script>

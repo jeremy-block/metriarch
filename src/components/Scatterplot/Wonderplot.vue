@@ -411,25 +411,31 @@ export default {
 
                 if (this.lockedData?.session != session) {
                     // set locked data and coords
+                    //but first check if there a session in the url parameters at all
+                    if (session == undefined) {
+                        this.$store.dispatch("setLockedData", { "data": { "selectedIndex": -1 } });
+                    } else {
+                        //if there is a session, set it as the session and set selected index
+                        let data = this.sessions[session];
+                        this.lockedIndex = Object.keys(this.sessions).indexOf(
+                            session
+                            );
+                            data["selectedIndex"] = this.lockedIndex;
 
-                    let data = this.sessions[session];
-                    this.lockedIndex = Object.keys(this.sessions).indexOf(
-                        session
-                    );
+                            if (this.coordLookup[session]) {
+                                this.lockedCoords = {
+                                    x: this.coordLookup[session].x,
+                                    y: this.coordLookup[session].y,
+                                };
+                            }
 
-                    if (this.coordLookup[session]) {
-                        this.lockedCoords = {
-                            x: this.coordLookup[session].x,
-                            y: this.coordLookup[session].y,
-                        };
-                    }
+                            selection["session"] = session;
 
-                    selection["session"] = session;
-
-                    this.$store.dispatch("setLockedData", data);
+                            this.$store.dispatch("setLockedData", data);
+                        } 
                 } else if (!this.selection.session) {
-                    // clear
-                    this.lockedIndex = "";
+                    // clear URL param
+                    this.lockedIndex = ""; //todo I feel this should be -1 but it breaks something sometimes...
                     this.lockedCoords = { x: 0, y: 0 };
                 }
 
