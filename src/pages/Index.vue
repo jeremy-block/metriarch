@@ -74,7 +74,7 @@
         height: 100vh;
         padding: 0em 2em 2em 2em;
         position: relative;
-        background-color: rgb(193, 163, 158);
+        background-color:rgb(203, 179, 197);
         // background: url("/images/background-marble-04.jpg");
         // background-repeat: no-repeat;
         // background-size: cover;

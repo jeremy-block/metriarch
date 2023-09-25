@@ -27,7 +27,7 @@ export default {
       plotName: this.x + "_x_" + this.y,
       colIDname: this.x + "-col",
       padding: { top: parseFloat(this.edge), right: parseFloat(this.edge), bottom: parseFloat(this.edge), left: parseFloat(this.edge) },
-      defaultColor: '#794c89',
+      defaultColor: '#9e6ead',
       emphasisColor: '#D91C38',
     }
   },
@@ -81,7 +81,13 @@ export default {
         .append('circle')
         .attr('cx', d => xScale(d[this.x])) //, (d) => d.x))
         .attr('cy', d => yScale(d[this.y]))
-        .attr('r', this.r)
+        .attr('r', (d, i) => {
+          if (i == this.selectedSessionIndex) {
+            return this.r + this.r
+          } else {
+            return this.r
+          }
+        })
         .attr('fill', (d, i) => {
           if (i == this.selectedSessionIndex) {
             // console.log(i)
@@ -102,6 +108,13 @@ export default {
             return this.emphasisColor
           } else {
             return this.defaultColor
+        }
+      })
+        .attr('r', (d, i) => {
+          if (i == this.selectedSessionIndex) {
+            return this.r+this.r*0.5
+          } else {
+            return this.r
           }
         })
     },

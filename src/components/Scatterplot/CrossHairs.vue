@@ -43,6 +43,39 @@
 
 <template>
     <g class="CrossHairs">
+                <g
+                v-if="hoveredData.hoveredIndex"
+                :style="{
+                    transition: '500ms ease-in-out all 200ms',
+                }"
+            >
+                <rect
+                    class="
+                    ScatterPlot__hovered-line
+                    ScatterPlot__hovered-line--vertical
+                "
+                    width="1"
+                    :height="mainChartProps.boundedHeight"
+                    :x="hoveredData.hoveredCoords.x"
+                />
+                <rect
+                    class="
+                    ScatterPlot__hovered-line
+                    ScatterPlot__hovered-line--horizontal
+                "
+                    :width="mainChartProps.boundedWidth + xRuleDistance"
+                    height="1"
+                    :x="-xRuleDistance"
+                    :y="hoveredData.hoveredCoords.y"
+                />
+                <circle
+                    class="ScatterPlot__hovered-circle"
+                    :cx="hoveredData.hoveredCoords.x"
+                    :cy="hoveredData.hoveredCoords.y"
+                    r="6.3"
+                    fill='#FF570A'
+                />
+            </g>
         <g
             v-if="lockedData?.lockedData?.session"
             :style="{
@@ -72,40 +105,10 @@
                 :cx="lockedData.lockedCoords.x"
                 :cy="lockedData.lockedCoords.y"
                 r="8"
+                fill='#D91C38'
             />
         </g>
-        <g
-            v-if="hoveredData.hoveredIndex"
-            :style="{
-                transition: '500ms ease-in-out all 200ms',
-            }"
-        >
-            <rect
-                class="
-                    ScatterPlot__hovered-line
-                    ScatterPlot__hovered-line--vertical
-                "
-                width="1"
-                :height="mainChartProps.boundedHeight"
-                :x="hoveredData.hoveredCoords.x"
-            />
-            <rect
-                class="
-                    ScatterPlot__hovered-line
-                    ScatterPlot__hovered-line--horizontal
-                "
-                :width="mainChartProps.boundedWidth + xRuleDistance"
-                height="1"
-                :x="-xRuleDistance"
-                :y="hoveredData.hoveredCoords.y"
-            />
-            <circle
-                class="ScatterPlot__hovered-circle"
-                :cx="hoveredData.hoveredCoords.x"
-                :cy="hoveredData.hoveredCoords.y"
-                r="6"
-            />
-        </g>
+
     </g>
 </template>
 
