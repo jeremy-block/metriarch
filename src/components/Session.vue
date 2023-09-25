@@ -102,40 +102,43 @@
             },
             scrollList(session) {
                 let scrollDiv = this.$refs["table-scroll"];
+                if (scrollDiv) { //check that there is a reference to element we wish to scroll. If there is, proceed.
+                    if (!session) {
+                        scrollDiv.scrollTo({
+                            top: 0,
+                            behavior: "smooth",
+                            duration: 100,
+                        });
+                        return;
+                    }
 
-                if (!session) {
-                    scrollDiv.scrollTo({
-                        top: 0,
-                        behavior: "smooth",
-                        duration: 100,
-                    });
-                    return;
-                }
+                    let scrollDepth = scrollDiv?.scrollTop;
+                    let rowHeight = 0
+                    if (this.$refs[session][0]?.clientHeight != undefined) {
+                        rowHeight = this.$refs[session][0]?.clientHeight
+                    }
+                    let rowOffsetTop = this.$refs[session][0]?.offsetTop - rowHeight;
 
-                let scrollDepth = scrollDiv.scrollTop;
-                let rowHeight = this.$refs[session][0]?.clientHeight
-                    ? this.$refs[session][0]?.clientHeight
-                    : 0;
-                let rowOffsetTop = this.$refs[session][0]?.offsetTop - rowHeight;
+                    let tableHeight =
+                        this.$refs["table-container"]?.clientHeight * 0.85;
 
-                let tableHeight =
-                    this.$refs["table-container"].clientHeight * 0.85;
+                    let isSessionVisible =
+                        rowOffsetTop > scrollDepth &&
+                        rowOffsetTop - 50 < scrollDepth + tableHeight;
 
-                let isSessionVisible =
-                    rowOffsetTop > scrollDepth &&
-                    rowOffsetTop - 50 < scrollDepth + tableHeight;
+                    let additionalOffset = 70;
+                    if (window.screen.width < 601) {
+                        additionalOffset = 10;
+                    }
 
-                let additionalOffset = 70;
-                if (window.screen.width < 601) {
-                    additionalOffset = 10;
-                }
-
-                if (!isSessionVisible) {
-                    scrollDiv.scrollTo({
-                        top: rowOffsetTop - additionalOffset,
-                        behavior: "smooth",
-                        duration: 100,
-                    });
+                    if (!isSessionVisible) {
+                        scrollDiv?.scrollTo({
+                            top: rowOffsetTop - additionalOffset,
+                            behavior: "smooth",
+                            duration: 100,
+                        });
+                        return;
+                    }
                 }
             },
             humanTime(minutes) {
@@ -290,7 +293,7 @@
                             </a>
                             <div
                                 class="expanded-row"
-                                v-if="selection?.session == session.slug"
+                                v-if="selection?.session == session.slug && lockedData.section != undefined"
                             >
                                 <div class="info">
                                     <div
@@ -298,7 +301,7 @@
                                         :style="{
                                             background:
                                                 chapterColors[
-                                                    slugify(lockedData.section)
+                                                    slugify(lockedData?.section)
                                                 ],
                                         }"
                                     ></div>
