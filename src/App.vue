@@ -10,8 +10,8 @@ export default {
     data() {
         return {
             loading: false,
-            localDataUrl: "./data/dataset123.csv",
-            configDataURL: "./data/dataConfig.json"
+            localDataUrl: "./data/datasetAll.csv",
+            configDataURL: "./data/datasetAll.json"
         };
     },
     computed: {
