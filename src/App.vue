@@ -29,6 +29,7 @@ export default {
                 this.$papa.parse(this.localDataUrl, {
                     download: true,
                     header: true,
+                    skipEmptyLines: true,
                     error: (err, file, inputElem, reason) => {
                         // console.log(reason);
                         reject(err, reason)
