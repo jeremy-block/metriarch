@@ -986,7 +986,7 @@ export default {
             bottom: 4px;
             content: "";
             height: 19px;
-            left: 4px;
+            left: 16px;
             position: absolute;
             transition: 100ms;
             width: 19px;
@@ -1025,7 +1025,7 @@ export default {
             }
 
             input:checked+.FilterBar__slider:before {
-                transform: translateX(12px);
+                transform: translateX(-12px);
             }
         }
     }

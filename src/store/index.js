@@ -28,7 +28,7 @@ const store = createStore({
                 other: [],
             },
             mainChartProps: {}, //todo: modify to accept the new tuple: lockedDimension
-            doShowChapterColors: false,
+            doShowChapterColors: true,
             doShowVoronoi: false,
 
             chapterColors: {},
