@@ -255,6 +255,14 @@
         "minorTicks": 1,
         "places": 2
     },
+    "total_initialized_count": {
+        "name": "total_read_count",
+        "unit": "",
+        "description": "a_written_description for total_read_count",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
     "total_query_results_count": {
         "name": "total_query_results_count",
         "unit": "",
@@ -265,6 +273,14 @@
     },
     "total_read_count": {
         "name": "total_read_count",
+        "unit": "",
+        "description": "a_written_description for total_read_count",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "total_playaudiofileinnewwindow_count": {
+        "name": "Play Audio Count",
         "unit": "",
         "description": "a_written_description for total_read_count",
         "majorTicks": 4,
@@ -311,6 +327,54 @@
         "minorTicks": 1,
         "places": 2
     },
+    "total_dispositionupdated_count": {
+        "name": "Recorded Disposition",
+        "unit": "",
+        "description": "The number of times the user recorded their disposition in the questions interface.",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "total_noteupdated_count": {
+        "name": "Notes Updated",
+        "unit": "",
+        "description": "a_written_description for total_noteupdated_counto",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "total_listening_count": {
+        "name": "total_listening_count",
+        "unit": "",
+        "description": "a_written_description for total_listening_count",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "total_createdocumentbucket_count": {
+        "name": "total_createdocumentbucket_count",
+        "unit": "",
+        "description": "a_written_description for total_createdocumentbucket_count",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "total_addtodocumentbucket_count": {
+        "name": "total_addtodocumentbucket_count",
+        "unit": "",
+        "description": "a_written_description for total_addtodocumentbucket_count",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "total_removefromdocumentbucket_count": {
+        "name": "total_removefromdocumentbucket_count",
+        "unit": "",
+        "description": "a_written_description for total_removefromdocumentbucket_count",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
     "query_results_ratio": {
         "name": "query_results_ratio",
         "unit": "",
@@ -335,6 +399,198 @@
         "minorTicks": 1,
         "places": 2
     },
+    "selecteddateonhistogram_ratio": {
+        "name": "selecteddateonhistogram_ratio",
+        "unit": "",
+        "description": "a_written_description for selecteddateonhistogram_ratio",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "find_ratio": {
+        "name": "find_ratio",
+        "unit": "",
+        "description": "a_written_description for find_ratio",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "total_edit_document_bucket_count": {
+        "name": "total_edit_document_bucket_count",
+        "unit": "",
+        "description": "a_written_description for total_edit_document_bucket_count",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "total_loaddocumentlist_count": {
+        "name": "total_loaddocumentlist_count",
+        "unit": "",
+        "description": "a_written_description for total_loaddocumentlist_count",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "total_show_count": {
+        "name": "total_show_count",
+        "unit": "",
+        "description": "a_written_description for total_show_count",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "total_getdocuments_count": {
+        "name": "total_getdocuments_count",
+        "unit": "",
+        "description": "a_written_description for total_getdocuments_count",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "total_answers_question_count": {
+        "name": "total_answers_question_count",
+        "unit": "",
+        "description": "a_written_description for total_answers_question_count",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "total_tabs_to_supplementary_count": {
+        "name": "total_tabs_to_supplementary_count",
+        "unit": "",
+        "description": "a_written_description for total_tabs_to_supplementary_count",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "total_tabs_to_bundle_count": {
+        "name": "total_tabs_to_bundle_count",
+        "unit": "",
+        "description": "a_written_description for total_tabs_to_bundle_count",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "total_reads_count": {
+        "name": "total_reads_count",
+        "unit": "",
+        "description": "a_written_description for total_reads_count",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "total_tabs_to_abreviations_count": {
+        "name": "total_tabs_to_abreviations_count",
+        "unit": "",
+        "description": "a_written_description for total_tabs_to_abreviations_count",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "total_answers_confidence_count": {
+        "name": "total_answers_confidence_count",
+        "unit": "",
+        "description": "a_written_description for total_answers_confidence_count",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "total_tabs_to_bundles_count": {
+        "name": "total_tabs_to_bundles_count",
+        "unit": "",
+        "description": "a_written_description for total_tabs_to_bundles_count",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "total_answer_count": {
+        "name": "total_answer_count",
+        "unit": "",
+        "description": "a_written_description for total_answer_count",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "total_initiate_count": {
+        "name": "total_initiate_count",
+        "unit": "",
+        "description": "a_written_description for total_initiate_count",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "total_custom_count": {
+        "name": "total_custom_count",
+        "unit": "",
+        "description": "a_written_description for total_custom_count",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "initialized_ratio": {
+        "name": "initialized_ratio",
+        "unit": "",
+        "description": "a_written_description for initialized_ratio",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "playaudiofileinnewwindow_ratio": {
+        "name": "playaudiofileinnewwindow_ratio",
+        "unit": "",
+        "description": "a_written_description for playaudiofileinnewwindow_ratio",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "dispositionupdated_ratio": {
+        "name": "dispositionupdated_ratio",
+        "unit": "",
+        "description": "a_written_description for dispositionupdated_ratio",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "noteupdated_ratio": {
+        "name": "noteupdated_ratio",
+        "unit": "",
+        "description": "a_written_description for noteupdated_ratio",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "listening_ratio": {
+        "name": "listening_ratio",
+        "unit": "",
+        "description": "a_written_description for listening_ratio",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "createdocumentbucket_ratio": {
+        "name": "createdocumentbucket_ratio",
+        "unit": "",
+        "description": "a_written_description for createdocumentbucket_ratio",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "addtodocumentbucket_ratio": {
+        "name": "addtodocumentbucket_ratio",
+        "unit": "",
+        "description": "a_written_description for addtodocumentbucket_ratio",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "removefromdocumentbucket_ratio": {
+        "name": "removefromdocumentbucket_ratio",
+        "unit": "",
+        "description": "a_written_description for removefromdocumentbucket_ratio",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
     "tabs_to_questions_ratio": {
         "name": "tabs_to_questions_ratio",
         "unit": "",
@@ -351,20 +607,892 @@
         "minorTicks": 1,
         "places": 2
     },
-    "selecteddateonhistogram_ratio": {
-        "name": "selecteddateonhistogram_ratio",
+    "edit_document_bucket_ratio": {
+        "name": "edit_document_bucket_ratio",
         "unit": "",
-        "description": "a_written_description for selecteddateonhistogram_ratio",
+        "description": "a_written_description for edit_document_bucket_ratio",
         "majorTicks": 4,
         "minorTicks": 1,
         "places": 2
     },
-    "find_ratio": {
-        "name": "find_ratio",
+    "loaddocumentlist_ratio": {
+        "name": "loaddocumentlist_ratio",
         "unit": "",
-        "description": "a_written_description for find_ratio",
+        "description": "a_written_description for loaddocumentlist_ratio",
         "majorTicks": 4,
         "minorTicks": 1,
         "places": 2
+    },
+    "show_ratio": {
+        "name": "show_ratio",
+        "unit": "",
+        "description": "a_written_description for show_ratio",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "getdocuments_ratio": {
+        "name": "getdocuments_ratio",
+        "unit": "",
+        "description": "a_written_description for getdocuments_ratio",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "answers_question_ratio": {
+        "name": "answers_question_ratio",
+        "unit": "",
+        "description": "a_written_description for answers_question_ratio",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "tabs_to_supplementary_ratio": {
+        "name": "tabs_to_supplementary_ratio",
+        "unit": "",
+        "description": "a_written_description for tabs_to_supplementary_ratio",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "tabs_to_bundle_ratio": {
+        "name": "tabs_to_bundle_ratio",
+        "unit": "",
+        "description": "a_written_description for tabs_to_bundle_ratio",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "reads_ratio": {
+        "name": "reads_ratio",
+        "unit": "",
+        "description": "a_written_description for reads_ratio",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "tabs_to_abreviations_ratio": {
+        "name": "tabs_to_abreviations_ratio",
+        "unit": "",
+        "description": "a_written_description for tabs_to_abreviations_ratio",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "answers_confidence_ratio": {
+        "name": "answers_confidence_ratio",
+        "unit": "",
+        "description": "a_written_description for answers_confidence_ratio",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "tabs_to_bundles_ratio": {
+        "name": "tabs_to_bundles_ratio",
+        "unit": "",
+        "description": "a_written_description for tabs_to_bundles_ratio",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "answer_ratio": {
+        "name": "answer_ratio",
+        "unit": "",
+        "description": "a_written_description for answer_ratio",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "initiate_ratio": {
+        "name": "initiate_ratio",
+        "unit": "",
+        "description": "a_written_description for initiate_ratio",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "custom_ratio": {
+        "name": "custom_ratio",
+        "unit": "",
+        "description": "a_written_description for custom_ratio",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "total_switch_count": {
+        "name": "total_switch_count",
+        "unit": "",
+        "description": "a_written_description for total_switch_count",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "total_discover_count": {
+        "name": "total_discover_count",
+        "unit": "",
+        "description": "a_written_description for total_discover_count",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "total_save_count": {
+        "name": "total_save_count",
+        "unit": "",
+        "description": "a_written_description for total_save_count",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "total_revisit_count": {
+        "name": "total_revisit_count",
+        "unit": "",
+        "description": "a_written_description for total_revisit_count",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "total_assign_count": {
+        "name": "total_assign_count",
+        "unit": "",
+        "description": "a_written_description for total_assign_count",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "switch_ratio": {
+        "name": "switch_ratio",
+        "unit": "",
+        "description": "a_written_description for switch_ratio",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "discover_ratio": {
+        "name": "discover_ratio",
+        "unit": "",
+        "description": "a_written_description for discover_ratio",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "save_ratio": {
+        "name": "save_ratio",
+        "unit": "",
+        "description": "a_written_description for save_ratio",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "revisit_ratio": {
+        "name": "revisit_ratio",
+        "unit": "",
+        "description": "a_written_description for revisit_ratio",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "assign_ratio": {
+        "name": "assign_ratio",
+        "unit": "",
+        "description": "a_written_description for assign_ratio",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "DataExploreCounts": {
+        "name": "Data Exploration Transitions",
+        "unit": "",
+        "description": "a_written_description for DataExploreCounts",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "VisualExploreCounts": {
+        "name": "Visual Exploration Transitions",
+        "unit": "",
+        "description": "a_written_description for VisualExploreCounts",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "InsightCounts": {
+        "name": "Insight Transitions",
+        "unit": "",
+        "description": "a_written_description for InsightCounts",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "TheorizeCounts": {
+        "name": "Theory Transitions",
+        "unit": "",
+        "description": "a_written_description for TheorizeCounts",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "DiscoveryCounts": {
+        "name": "Discovery Transitions",
+        "unit": "",
+        "description": "a_written_description for DiscoveryCounts",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "NewIdeaCounts": {
+        "name": "New Idea Transitions",
+        "unit": "",
+        "description": "a_written_description for NewIdeaCounts",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "OrganizeCounts": {
+        "name": "Organization Transitions",
+        "unit": "",
+        "description": "a_written_description for OrganizeCounts",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "PatternRecognitionCounts": {
+        "name": "Pattern Recognition Transitions",
+        "unit": "",
+        "description": "a_written_description for PatternRecognitionCounts",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "TrailCounts": {
+        "name": "Trailing Transitions",
+        "unit": "",
+        "description": "a_written_description for TrailCounts",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "DataExploreUsual": {
+        "name": "Data Exploration Likelihood",
+        "unit": "",
+        "description": "How unusual is it for a user to transition into the Data exploration event.",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "VisualExploreUsual": {
+        "name": "Visual Exploration Likelihood",
+        "unit": "",
+        "description": "a_written_description for VisualExploreUsual",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "InsightUsual": {
+        "name": "Insight Likelihood",
+        "unit": "",
+        "description": "a_written_description for InsightUsual",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "TheorizeUsual": {
+        "name": "Theorizing Likelihood",
+        "unit": "",
+        "description": "a_written_description for TheorizeUsual",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "DiscoveryUsual": {
+        "name": "Discovery Likelihood",
+        "unit": "",
+        "description": "a_written_description for DiscoveryUsual",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "NewIdeaUsual": {
+        "name": "New Idea Likelihood",
+        "unit": "",
+        "description": "a_written_description for NewIdeaUsual",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "OrganizeUsual": {
+        "name": "Organization Event Likelihood",
+        "unit": "",
+        "description": "a_written_description for OrganizeUsual",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "PatternRecognitionUsual": {
+        "name": "Recognize Pattern Likelihood",
+        "unit": "",
+        "description": "a_written_description for PatternRecognitionUsual",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "TrailUsual": {
+        "name": "Trailing Likelihood",
+        "unit": "",
+        "description": "a_written_description for TrailUsual",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "TotalUsual": {
+        "name": "Likelihood of Event",
+        "unit": "",
+        "description": "A generic amount of likelihood that some event may occur.",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "DataExploreUnusual": {
+        "name": "Odd Data Exploration Transition",
+        "unit": "",
+        "description": "Of all event pairs, what porportion of the transitions come from an unusual prior event type. High Value they transition to Data Exploration events rarely.",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "VisualExploreUnusual": {
+        "name": "Odd Visual Exploration Transition",
+        "unit": "",
+        "description": "a_written_description for VisualExploreUnusual",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "InsightUnusual": {
+        "name": "Odd Insight Transition",
+        "unit": "",
+        "description": "a_written_description for InsightUnusual",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "TheorizeUnusual": {
+        "name": "Odd Theory Transition",
+        "unit": "",
+        "description": "a_written_description for TheorizeUnusual",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "DiscoveryUnusual": {
+        "name": "Odd Discovery Transition",
+        "unit": "",
+        "description": "a_written_description for DiscoveryUnusual",
+        "majorTicks": 5,
+        "minorTicks": 3,
+        "places": 2
+    },
+    "NewIdeaUnusual": {
+        "name": "Odd New Idea Transition",
+        "unit": "",
+        "description": "a_written_description for NewIdeaUnusual",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "OrganizeUnusual": {
+        "name": "Odd Organization Transition",
+        "unit": "",
+        "description": "a_written_description for OrganizeUnusual",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "PatternRecognitionUnusual": {
+        "name": "Odd Pattern Recognition Transition",
+        "unit": "",
+        "description": "a_written_description for PatternRecognitionUnusual",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "TrailUnusual": {
+        "name": "Odd Trail Transition",
+        "unit": "",
+        "description": "a_written_description for TrailUnusual",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "TotalUnusual": {
+        "name": "Odd General Transition",
+        "unit": "",
+        "description": "a_written_description for TotalUnusual",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "DataExploreCounts_x": {
+        "name": "DataExploreCounts_x",
+        "unit": "",
+        "description": "a_written_description for DataExploreCounts_x",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "VisualExploreCounts_x": {
+        "name": "VisualExploreCounts_x",
+        "unit": "",
+        "description": "a_written_description for VisualExploreCounts_x",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "InsightCounts_x": {
+        "name": "InsightCounts_x",
+        "unit": "",
+        "description": "a_written_description for InsightCounts_x",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "TheorizeCounts_x": {
+        "name": "TheorizeCounts_x",
+        "unit": "",
+        "description": "a_written_description for TheorizeCounts_x",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "DiscoveryCounts_x": {
+        "name": "DiscoveryCounts_x",
+        "unit": "",
+        "description": "a_written_description for DiscoveryCounts_x",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "NewIdeaCounts_x": {
+        "name": "NewIdeaCounts_x",
+        "unit": "",
+        "description": "a_written_description for NewIdeaCounts_x",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "OrganizeCounts_x": {
+        "name": "OrganizeCounts_x",
+        "unit": "",
+        "description": "a_written_description for OrganizeCounts_x",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "PatternRecognitionCounts_x": {
+        "name": "PatternRecognitionCounts_x",
+        "unit": "",
+        "description": "a_written_description for PatternRecognitionCounts_x",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "TrailCounts_x": {
+        "name": "TrailCounts_x",
+        "unit": "",
+        "description": "a_written_description for TrailCounts_x",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "DataExploreUsual_x": {
+        "name": "DataExploreUsual_x",
+        "unit": "",
+        "description": "a_written_description for DataExploreUsual_x",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "VisualExploreUsual_x": {
+        "name": "VisualExploreUsual_x",
+        "unit": "",
+        "description": "a_written_description for VisualExploreUsual_x",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "InsightUsual_x": {
+        "name": "InsightUsual_x",
+        "unit": "",
+        "description": "a_written_description for InsightUsual_x",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "TheorizeUsual_x": {
+        "name": "TheorizeUsual_x",
+        "unit": "",
+        "description": "a_written_description for TheorizeUsual_x",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "DiscoveryUsual_x": {
+        "name": "DiscoveryUsual_x",
+        "unit": "",
+        "description": "a_written_description for DiscoveryUsual_x",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "NewIdeaUsual_x": {
+        "name": "NewIdeaUsual_x",
+        "unit": "",
+        "description": "a_written_description for NewIdeaUsual_x",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "OrganizeUsual_x": {
+        "name": "OrganizeUsual_x",
+        "unit": "",
+        "description": "a_written_description for OrganizeUsual_x",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "PatternRecognitionUsual_x": {
+        "name": "PatternRecognitionUsual_x",
+        "unit": "",
+        "description": "a_written_description for PatternRecognitionUsual_x",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "TrailUsual_x": {
+        "name": "TrailUsual_x",
+        "unit": "",
+        "description": "a_written_description for TrailUsual_x",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "TotalUsual_x": {
+        "name": "TotalUsual_x",
+        "unit": "",
+        "description": "a_written_description for TotalUsual_x",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "DataExploreUnusual_x": {
+        "name": "DataExploreUnusual_x",
+        "unit": "",
+        "description": "a_written_description for DataExploreUnusual_x",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "VisualExploreUnusual_x": {
+        "name": "VisualExploreUnusual_x",
+        "unit": "",
+        "description": "a_written_description for VisualExploreUnusual_x",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "InsightUnusual_x": {
+        "name": "InsightUnusual_x",
+        "unit": "",
+        "description": "a_written_description for InsightUnusual_x",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "TheorizeUnusual_x": {
+        "name": "TheorizeUnusual_x",
+        "unit": "",
+        "description": "a_written_description for TheorizeUnusual_x",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "DiscoveryUnusual_x": {
+        "name": "DiscoveryUnusual_x",
+        "unit": "",
+        "description": "a_written_description for DiscoveryUnusual_x",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "NewIdeaUnusual_x": {
+        "name": "NewIdeaUnusual_x",
+        "unit": "",
+        "description": "a_written_description for NewIdeaUnusual_x",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "OrganizeUnusual_x": {
+        "name": "OrganizeUnusual_x",
+        "unit": "",
+        "description": "a_written_description for OrganizeUnusual_x",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "PatternRecognitionUnusual_x": {
+        "name": "PatternRecognitionUnusual_x",
+        "unit": "",
+        "description": "a_written_description for PatternRecognitionUnusual_x",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "TrailUnusual_x": {
+        "name": "TrailUnusual_x",
+        "unit": "",
+        "description": "a_written_description for TrailUnusual_x",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "TotalUnusual_x": {
+        "name": "TotalUnusual_x",
+        "unit": "",
+        "description": "a_written_description for TotalUnusual_x",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "DataExploreCounts_y": {
+        "name": "DataExploreCounts_y",
+        "unit": "",
+        "description": "a_written_description for DataExploreCounts_y",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "VisualExploreCounts_y": {
+        "name": "VisualExploreCounts_y",
+        "unit": "",
+        "description": "a_written_description for VisualExploreCounts_y",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "InsightCounts_y": {
+        "name": "InsightCounts_y",
+        "unit": "",
+        "description": "a_written_description for InsightCounts_y",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "TheorizeCounts_y": {
+        "name": "TheorizeCounts_y",
+        "unit": "",
+        "description": "a_written_description for TheorizeCounts_y",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "DiscoveryCounts_y": {
+        "name": "DiscoveryCounts_y",
+        "unit": "",
+        "description": "a_written_description for DiscoveryCounts_y",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "NewIdeaCounts_y": {
+        "name": "NewIdeaCounts_y",
+        "unit": "",
+        "description": "a_written_description for NewIdeaCounts_y",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "OrganizeCounts_y": {
+        "name": "OrganizeCounts_y",
+        "unit": "",
+        "description": "a_written_description for OrganizeCounts_y",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "PatternRecognitionCounts_y": {
+        "name": "PatternRecognitionCounts_y",
+        "unit": "",
+        "description": "a_written_description for PatternRecognitionCounts_y",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "TrailCounts_y": {
+        "name": "TrailCounts_y",
+        "unit": "",
+        "description": "a_written_description for TrailCounts_y",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "DataExploreUsual_y": {
+        "name": "DataExploreUsual_y",
+        "unit": "",
+        "description": "a_written_description for DataExploreUsual_y",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "VisualExploreUsual_y": {
+        "name": "VisualExploreUsual_y",
+        "unit": "",
+        "description": "a_written_description for VisualExploreUsual_y",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "InsightUsual_y": {
+        "name": "InsightUsual_y",
+        "unit": "",
+        "description": "a_written_description for InsightUsual_y",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "TheorizeUsual_y": {
+        "name": "TheorizeUsual_y",
+        "unit": "",
+        "description": "a_written_description for TheorizeUsual_y",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "DiscoveryUsual_y": {
+        "name": "DiscoveryUsual_y",
+        "unit": "",
+        "description": "a_written_description for DiscoveryUsual_y",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "NewIdeaUsual_y": {
+        "name": "NewIdeaUsual_y",
+        "unit": "",
+        "description": "a_written_description for NewIdeaUsual_y",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "OrganizeUsual_y": {
+        "name": "OrganizeUsual_y",
+        "unit": "",
+        "description": "a_written_description for OrganizeUsual_y",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "PatternRecognitionUsual_y": {
+        "name": "PatternRecognitionUsual_y",
+        "unit": "",
+        "description": "a_written_description for PatternRecognitionUsual_y",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "TrailUsual_y": {
+        "name": "TrailUsual_y",
+        "unit": "",
+        "description": "a_written_description for TrailUsual_y",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "TotalUsual_y": {
+        "name": "TotalUsual_y",
+        "unit": "",
+        "description": "a_written_description for TotalUsual_y",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "DataExploreUnusual_y": {
+        "name": "DataExploreUnusual_y",
+        "unit": "",
+        "description": "a_written_description for DataExploreUnusual_y",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "VisualExploreUnusual_y": {
+        "name": "VisualExploreUnusual_y",
+        "unit": "",
+        "description": "a_written_description for VisualExploreUnusual_y",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "InsightUnusual_y": {
+        "name": "InsightUnusual_y",
+        "unit": "",
+        "description": "a_written_description for InsightUnusual_y",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "TheorizeUnusual_y": {
+        "name": "TheorizeUnusual_y",
+        "unit": "",
+        "description": "a_written_description for TheorizeUnusual_y",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "DiscoveryUnusual_y": {
+        "name": "DiscoveryUnusual_y",
+        "unit": "",
+        "description": "a_written_description for DiscoveryUnusual_y",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "NewIdeaUnusual_y": {
+        "name": "NewIdeaUnusual_y",
+        "unit": "",
+        "description": "a_written_description for NewIdeaUnusual_y",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "OrganizeUnusual_y": {
+        "name": "OrganizeUnusual_y",
+        "unit": "",
+        "description": "a_written_description for OrganizeUnusual_y",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "PatternRecognitionUnusual_y": {
+        "name": "PatternRecognitionUnusual_y",
+        "unit": "",
+        "description": "a_written_description for PatternRecognitionUnusual_y",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "TrailUnusual_y": {
+        "name": "TrailUnusual_y",
+        "unit": "",
+        "description": "a_written_description for TrailUnusual_y",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
+    },
+    "TotalUnusual_y": {
+        "name": "TotalUnusual_y",
+        "unit": "",
+        "description": "a_written_description for TotalUnusual_y",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 0
     }
 }
