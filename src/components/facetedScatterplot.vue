@@ -41,13 +41,14 @@ export default {
       config: state => state.config
     }),
     getNumericLength() {
+      // console.log(this.numericVariables.length)
       return this.numericVariables.length
     },
     dynamicGridCSSRulePlus() {
-      return `grid-template-columns: 8% 6% repeat(${this.getNumericLength+4 }, 70px)`;
+      return `grid-template-columns: 19em 10em repeat(${this.getNumericLength}, 70px)`;
     },
     dynamicGridCSSRule() {
-      return `grid-template-rows: 12% repeat(${this.getNumericLength}, 1fr)`;
+      return `grid-template-rows: 5em repeat(${this.getNumericLength}, 1fr)`;
     },
   },
   methods: {

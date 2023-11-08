@@ -74,14 +74,14 @@ export default {
       return this.numericVariables.length
     },
     dynamicGridCSSRule() {
-      return `grid-template-columns: 8% 6% repeat(${this.getNumericLength}, 70px)`;
+      return `grid-template-columns: 19em 10em repeat(${this.getNumericLength}, 70px)`;
     },
     getDescription() {
       try {
         if (this.config == undefined) {
           return "undefined config file"
         } else {
-          // console.log(this.yValue)
+          // console.log(this.yValue, this.config[this.yValue])
           return this.config[this.yValue]?.description || "nothing"
         }
       } catch (e) {
