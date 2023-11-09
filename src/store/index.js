@@ -80,9 +80,9 @@ const store = createStore({
                 "#56CCF2",
                 "#F2C94C",
                 "#6FCF97",
-                "#827AE8",
-                "#BB6BD9",
                 "#EB5757",
+                "#BB6BD9",
+                "#827AE8",
                 "#BDEFFF",
             ];
             let chapterColors = {};
