@@ -799,226 +799,10 @@
         "minorTicks": 1,
         "places": 2
     },
-    "DataExploreCounts": {
-        "name": "Data Exploration Transitions",
-        "unit": "",
-        "description": "a_written_description for DataExploreCounts",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "VisualExploreCounts": {
-        "name": "Visual Exploration Transitions",
-        "unit": "",
-        "description": "a_written_description for VisualExploreCounts",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "InsightCounts": {
-        "name": "Insight Transitions",
-        "unit": "",
-        "description": "a_written_description for InsightCounts",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "TheorizeCounts": {
-        "name": "Theory Transitions",
-        "unit": "",
-        "description": "a_written_description for TheorizeCounts",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "DiscoveryCounts": {
-        "name": "Discovery Transitions",
-        "unit": "",
-        "description": "a_written_description for DiscoveryCounts",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "NewIdeaCounts": {
-        "name": "New Idea Transitions",
-        "unit": "",
-        "description": "a_written_description for NewIdeaCounts",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "OrganizeCounts": {
-        "name": "Organization Transitions",
-        "unit": "",
-        "description": "a_written_description for OrganizeCounts",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "PatternRecognitionCounts": {
-        "name": "Pattern Recognition Transitions",
-        "unit": "",
-        "description": "a_written_description for PatternRecognitionCounts",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "TrailCounts": {
-        "name": "Trailing Transitions",
-        "unit": "",
-        "description": "a_written_description for TrailCounts",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "DataExploreUsual": {
-        "name": "Data Exploration Likelihood",
-        "unit": "",
-        "description": "How unusual is it for a user to transition into the Data exploration event.",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 2
-    },
-    "VisualExploreUsual": {
-        "name": "Visual Exploration Likelihood",
-        "unit": "",
-        "description": "a_written_description for VisualExploreUsual",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 2
-    },
-    "InsightUsual": {
-        "name": "Insight Likelihood",
-        "unit": "",
-        "description": "a_written_description for InsightUsual",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 2
-    },
-    "TheorizeUsual": {
-        "name": "Theorizing Likelihood",
-        "unit": "",
-        "description": "a_written_description for TheorizeUsual",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 2
-    },
-    "DiscoveryUsual": {
-        "name": "Discovery Likelihood",
-        "unit": "",
-        "description": "a_written_description for DiscoveryUsual",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 2
-    },
-    "NewIdeaUsual": {
-        "name": "New Idea Likelihood",
-        "unit": "",
-        "description": "a_written_description for NewIdeaUsual",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 2
-    },
-    "OrganizeUsual": {
-        "name": "Organization Event Likelihood",
-        "unit": "",
-        "description": "a_written_description for OrganizeUsual",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 2
-    },
-    "PatternRecognitionUsual": {
-        "name": "Recognize Pattern Likelihood",
-        "unit": "",
-        "description": "a_written_description for PatternRecognitionUsual",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 2
-    },
-    "TrailUsual": {
-        "name": "Trailing Likelihood",
-        "unit": "",
-        "description": "a_written_description for TrailUsual",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 2
-    },
     "TotalUsual": {
         "name": "Likelihood of Event",
         "unit": "",
         "description": "A generic amount of likelihood that some event may occur.",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 2
-    },
-    "DataExploreUnusual": {
-        "name": "Odd Data Exploration Transition",
-        "unit": "",
-        "description": "Of all event pairs, what porportion of the transitions come from an unusual prior event type. High Value they transition to Data Exploration events rarely.",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 2
-    },
-    "VisualExploreUnusual": {
-        "name": "Odd Visual Exploration Transition",
-        "unit": "",
-        "description": "a_written_description for VisualExploreUnusual",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 2
-    },
-    "InsightUnusual": {
-        "name": "Odd Insight Transition",
-        "unit": "",
-        "description": "a_written_description for InsightUnusual",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 2
-    },
-    "TheorizeUnusual": {
-        "name": "Odd Theory Transition",
-        "unit": "",
-        "description": "a_written_description for TheorizeUnusual",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 2
-    },
-    "DiscoveryUnusual": {
-        "name": "Odd Discovery Transition",
-        "unit": "",
-        "description": "a_written_description for DiscoveryUnusual",
-        "majorTicks": 5,
-        "minorTicks": 3,
-        "places": 2
-    },
-    "NewIdeaUnusual": {
-        "name": "Odd New Idea Transition",
-        "unit": "",
-        "description": "a_written_description for NewIdeaUnusual",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 2
-    },
-    "OrganizeUnusual": {
-        "name": "Odd Organization Transition",
-        "unit": "",
-        "description": "a_written_description for OrganizeUnusual",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 2
-    },
-    "PatternRecognitionUnusual": {
-        "name": "Odd Pattern Recognition Transition",
-        "unit": "",
-        "description": "a_written_description for PatternRecognitionUnusual",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 2
-    },
-    "TrailUnusual": {
-        "name": "Odd Trail Transition",
-        "unit": "",
-        "description": "a_written_description for TrailUnusual",
         "majorTicks": 4,
         "minorTicks": 1,
         "places": 2
@@ -1031,466 +815,218 @@
         "minorTicks": 1,
         "places": 2
     },
-    "DataExploreCounts_x": {
-        "name": "DataExploreCounts_x",
+    "DataExplorationCounts": {
+        "name": "Data Exploration Transitions",
         "unit": "",
-        "description": "a_written_description for DataExploreCounts_x",
+        "description": "a_written_description for DataExplorationCounts",
         "majorTicks": 4,
         "minorTicks": 1,
         "places": 0
     },
-    "VisualExploreCounts_x": {
-        "name": "VisualExploreCounts_x",
+    "VisualExplorationCounts": {
+        "name": "Visual Exploration Transitions",
         "unit": "",
-        "description": "a_written_description for VisualExploreCounts_x",
+        "description": "a_written_description for VisualExplorationCounts",
         "majorTicks": 4,
         "minorTicks": 1,
         "places": 0
     },
-    "InsightCounts_x": {
-        "name": "InsightCounts_x",
+    "InsightActionCounts": {
+        "name": "Insight Transitions",
         "unit": "",
-        "description": "a_written_description for InsightCounts_x",
+        "description": "a_written_description for InsightActionCounts",
         "majorTicks": 4,
         "minorTicks": 1,
         "places": 0
     },
-    "TheorizeCounts_x": {
-        "name": "TheorizeCounts_x",
+    "TheorizingCounts": {
+        "name": "Theorizing Transitions",
         "unit": "",
-        "description": "a_written_description for TheorizeCounts_x",
+        "description": "a_written_description for TheorizingCounts",
         "majorTicks": 4,
         "minorTicks": 1,
         "places": 0
     },
-    "DiscoveryCounts_x": {
-        "name": "DiscoveryCounts_x",
+    "DiscoveringCounts": {
+        "name": "Discovering Transitions",
         "unit": "",
-        "description": "a_written_description for DiscoveryCounts_x",
+        "description": "a_written_description for DiscoveringCounts",
         "majorTicks": 4,
         "minorTicks": 1,
         "places": 0
     },
-    "NewIdeaCounts_x": {
-        "name": "NewIdeaCounts_x",
+    "AuditingCounts": {
+        "name": "Auditing Transitions",
         "unit": "",
-        "description": "a_written_description for NewIdeaCounts_x",
+        "description": "a_written_description for AuditingCounts",
         "majorTicks": 4,
         "minorTicks": 1,
         "places": 0
     },
-    "OrganizeCounts_x": {
-        "name": "OrganizeCounts_x",
+    "OrganizingCounts": {
+        "name": "Organizing Transitions",
         "unit": "",
-        "description": "a_written_description for OrganizeCounts_x",
+        "description": "a_written_description for OrganizingCounts",
         "majorTicks": 4,
         "minorTicks": 1,
         "places": 0
     },
-    "PatternRecognitionCounts_x": {
-        "name": "PatternRecognitionCounts_x",
+    "RecognizingCounts": {
+        "name": "Recognizing Transitions",
         "unit": "",
-        "description": "a_written_description for PatternRecognitionCounts_x",
+        "description": "a_written_description for RecognizingCounts",
         "majorTicks": 4,
         "minorTicks": 1,
         "places": 0
     },
-    "TrailCounts_x": {
-        "name": "TrailCounts_x",
+    "TrackingCounts": {
+        "name": "Tracking Transitions",
         "unit": "",
-        "description": "a_written_description for TrailCounts_x",
+        "description": "a_written_description for TrackingCounts",
         "majorTicks": 4,
         "minorTicks": 1,
         "places": 0
     },
-    "DataExploreUsual_x": {
-        "name": "DataExploreUsual_x",
+    "DataExploringUsual": {
+        "name": "Data Exploration Likelihood",
         "unit": "",
-        "description": "a_written_description for DataExploreUsual_x",
+        "description": "How unusual is it for a user to transition into the Data exploration event.",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "VisualExploringUsual": {
+        "name": "Visual Exploration Likelihood",
+        "unit": "",
+        "description": "a_written_description for VisualExploring Likelihood",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "InsightActionUsual": {
+        "name": "Insight Likelihood",
+        "unit": "",
+        "description": "a_written_description for InsightAction Likelihood",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "TheorizingUsual": {
+        "name": "Theorizing Likelihood",
+        "unit": "",
+        "description": "a_written_description for Theorizing Likelihood",
         "majorTicks": 4,
         "minorTicks": 1,
         "places": 0
     },
-    "VisualExploreUsual_x": {
-        "name": "VisualExploreUsual_x",
+    "DiscoveringUsual": {
+        "name": "Discovering Likelihood",
         "unit": "",
-        "description": "a_written_description for VisualExploreUsual_x",
+        "description": "a_written_description for Discovering Likelihood",
         "majorTicks": 4,
         "minorTicks": 1,
         "places": 0
     },
-    "InsightUsual_x": {
-        "name": "InsightUsual_x",
+    "AuditingUsual": {
+        "name": "Auditing Likelihood",
         "unit": "",
-        "description": "a_written_description for InsightUsual_x",
+        "description": "a_written_description for Auditing Likelihood",
         "majorTicks": 4,
         "minorTicks": 1,
         "places": 0
     },
-    "TheorizeUsual_x": {
-        "name": "TheorizeUsual_x",
+    "OrganizingUsual": {
+        "name": "Organizing Likelihood",
         "unit": "",
-        "description": "a_written_description for TheorizeUsual_x",
+        "description": "a_written_description for Organizing Likelihood",
         "majorTicks": 4,
         "minorTicks": 1,
         "places": 0
     },
-    "DiscoveryUsual_x": {
-        "name": "DiscoveryUsual_x",
+    "RecognizingUsual": {
+        "name": "Recognizing Likelihood",
         "unit": "",
-        "description": "a_written_description for DiscoveryUsual_x",
+        "description": "a_written_description for Recognizing Likelihood",
+        "majorTicks": 7,
+        "minorTicks": 1,
+        "places": 1
+    },
+    "TrackingUsual": {
+        "name": "Tracking Likelihood",
+        "unit": "",
+        "description": "a_written_description for Tracking Likelihood",
         "majorTicks": 4,
         "minorTicks": 1,
         "places": 0
     },
-    "NewIdeaUsual_x": {
-        "name": "NewIdeaUsual_x",
+    "DataExploringUnusual": {
+        "name": "Odd Data Exploration Transition",
         "unit": "",
-        "description": "a_written_description for NewIdeaUsual_x",
+        "description": "Of all event pairs, what porportion of the transitions come from an unusual prior event type. High Value they transition to Data Exploration events rarely.",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "VisualExploringUnusual": {
+        "name": "Odd Visual Exploration Transition",
+        "unit": "",
+        "description": "a_written_description for VisualExploreUnusual",
+        "majorTicks": 4,
+        "minorTicks": 1,
+        "places": 2
+    },
+    "InsightActionUnusual": {
+        "name": "Odd Insight Transition",
+        "unit": "",
+        "description": "a_written_description for InsightActionUnusual",
         "majorTicks": 4,
         "minorTicks": 1,
         "places": 0
     },
-    "OrganizeUsual_x": {
-        "name": "OrganizeUsual_x",
+    "TheorizingUnusual": {
+        "name": "Odd Theorizing Transition",
         "unit": "",
-        "description": "a_written_description for OrganizeUsual_x",
+        "description": "a_written_description for Theorizing Transition",
         "majorTicks": 4,
         "minorTicks": 1,
         "places": 0
     },
-    "PatternRecognitionUsual_x": {
-        "name": "PatternRecognitionUsual_x",
+    "DiscoveringUnusual": {
+        "name": "Odd Discovering Transition",
         "unit": "",
-        "description": "a_written_description for PatternRecognitionUsual_x",
+        "description": "a_written_description for Discovering Transition",
         "majorTicks": 4,
         "minorTicks": 1,
         "places": 0
     },
-    "TrailUsual_x": {
-        "name": "TrailUsual_x",
+    "AuditingUnusual": {
+        "name": "Odd Auditing Transition",
         "unit": "",
-        "description": "a_written_description for TrailUsual_x",
+        "description": "a_written_description for Auditing Transition",
         "majorTicks": 4,
         "minorTicks": 1,
         "places": 0
     },
-    "TotalUsual_x": {
-        "name": "TotalUsual_x",
+    "OrganizingUnusual": {
+        "name": "Odd Organizing Transition",
         "unit": "",
-        "description": "a_written_description for TotalUsual_x",
+        "description": "a_written_description for Organizing Transition",
         "majorTicks": 4,
         "minorTicks": 1,
         "places": 0
     },
-    "DataExploreUnusual_x": {
-        "name": "DataExploreUnusual_x",
+    "RecognizingUnusual": {
+        "name": "Odd Recognizing Transition",
         "unit": "",
-        "description": "a_written_description for DataExploreUnusual_x",
+        "description": "a_written_description for Recognizing Transition",
         "majorTicks": 4,
         "minorTicks": 1,
         "places": 0
     },
-    "VisualExploreUnusual_x": {
-        "name": "VisualExploreUnusual_x",
+    "TrackingUnusual": {
+        "name": "Odd Tracking Transition",
         "unit": "",
-        "description": "a_written_description for VisualExploreUnusual_x",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "InsightUnusual_x": {
-        "name": "InsightUnusual_x",
-        "unit": "",
-        "description": "a_written_description for InsightUnusual_x",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "TheorizeUnusual_x": {
-        "name": "TheorizeUnusual_x",
-        "unit": "",
-        "description": "a_written_description for TheorizeUnusual_x",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "DiscoveryUnusual_x": {
-        "name": "DiscoveryUnusual_x",
-        "unit": "",
-        "description": "a_written_description for DiscoveryUnusual_x",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "NewIdeaUnusual_x": {
-        "name": "NewIdeaUnusual_x",
-        "unit": "",
-        "description": "a_written_description for NewIdeaUnusual_x",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "OrganizeUnusual_x": {
-        "name": "OrganizeUnusual_x",
-        "unit": "",
-        "description": "a_written_description for OrganizeUnusual_x",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "PatternRecognitionUnusual_x": {
-        "name": "PatternRecognitionUnusual_x",
-        "unit": "",
-        "description": "a_written_description for PatternRecognitionUnusual_x",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "TrailUnusual_x": {
-        "name": "TrailUnusual_x",
-        "unit": "",
-        "description": "a_written_description for TrailUnusual_x",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "TotalUnusual_x": {
-        "name": "TotalUnusual_x",
-        "unit": "",
-        "description": "a_written_description for TotalUnusual_x",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "DataExploreCounts_y": {
-        "name": "DataExploreCounts_y",
-        "unit": "",
-        "description": "a_written_description for DataExploreCounts_y",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "VisualExploreCounts_y": {
-        "name": "VisualExploreCounts_y",
-        "unit": "",
-        "description": "a_written_description for VisualExploreCounts_y",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "InsightCounts_y": {
-        "name": "InsightCounts_y",
-        "unit": "",
-        "description": "a_written_description for InsightCounts_y",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "TheorizeCounts_y": {
-        "name": "TheorizeCounts_y",
-        "unit": "",
-        "description": "a_written_description for TheorizeCounts_y",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "DiscoveryCounts_y": {
-        "name": "DiscoveryCounts_y",
-        "unit": "",
-        "description": "a_written_description for DiscoveryCounts_y",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "NewIdeaCounts_y": {
-        "name": "NewIdeaCounts_y",
-        "unit": "",
-        "description": "a_written_description for NewIdeaCounts_y",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "OrganizeCounts_y": {
-        "name": "OrganizeCounts_y",
-        "unit": "",
-        "description": "a_written_description for OrganizeCounts_y",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "PatternRecognitionCounts_y": {
-        "name": "PatternRecognitionCounts_y",
-        "unit": "",
-        "description": "a_written_description for PatternRecognitionCounts_y",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "TrailCounts_y": {
-        "name": "TrailCounts_y",
-        "unit": "",
-        "description": "a_written_description for TrailCounts_y",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "DataExploreUsual_y": {
-        "name": "DataExploreUsual_y",
-        "unit": "",
-        "description": "a_written_description for DataExploreUsual_y",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "VisualExploreUsual_y": {
-        "name": "VisualExploreUsual_y",
-        "unit": "",
-        "description": "a_written_description for VisualExploreUsual_y",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "InsightUsual_y": {
-        "name": "InsightUsual_y",
-        "unit": "",
-        "description": "a_written_description for InsightUsual_y",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "TheorizeUsual_y": {
-        "name": "TheorizeUsual_y",
-        "unit": "",
-        "description": "a_written_description for TheorizeUsual_y",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "DiscoveryUsual_y": {
-        "name": "DiscoveryUsual_y",
-        "unit": "",
-        "description": "a_written_description for DiscoveryUsual_y",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "NewIdeaUsual_y": {
-        "name": "NewIdeaUsual_y",
-        "unit": "",
-        "description": "a_written_description for NewIdeaUsual_y",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "OrganizeUsual_y": {
-        "name": "OrganizeUsual_y",
-        "unit": "",
-        "description": "a_written_description for OrganizeUsual_y",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "PatternRecognitionUsual_y": {
-        "name": "PatternRecognitionUsual_y",
-        "unit": "",
-        "description": "a_written_description for PatternRecognitionUsual_y",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "TrailUsual_y": {
-        "name": "TrailUsual_y",
-        "unit": "",
-        "description": "a_written_description for TrailUsual_y",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "TotalUsual_y": {
-        "name": "TotalUsual_y",
-        "unit": "",
-        "description": "a_written_description for TotalUsual_y",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "DataExploreUnusual_y": {
-        "name": "DataExploreUnusual_y",
-        "unit": "",
-        "description": "a_written_description for DataExploreUnusual_y",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "VisualExploreUnusual_y": {
-        "name": "VisualExploreUnusual_y",
-        "unit": "",
-        "description": "a_written_description for VisualExploreUnusual_y",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "InsightUnusual_y": {
-        "name": "InsightUnusual_y",
-        "unit": "",
-        "description": "a_written_description for InsightUnusual_y",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "TheorizeUnusual_y": {
-        "name": "TheorizeUnusual_y",
-        "unit": "",
-        "description": "a_written_description for TheorizeUnusual_y",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "DiscoveryUnusual_y": {
-        "name": "DiscoveryUnusual_y",
-        "unit": "",
-        "description": "a_written_description for DiscoveryUnusual_y",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "NewIdeaUnusual_y": {
-        "name": "NewIdeaUnusual_y",
-        "unit": "",
-        "description": "a_written_description for NewIdeaUnusual_y",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "OrganizeUnusual_y": {
-        "name": "OrganizeUnusual_y",
-        "unit": "",
-        "description": "a_written_description for OrganizeUnusual_y",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "PatternRecognitionUnusual_y": {
-        "name": "PatternRecognitionUnusual_y",
-        "unit": "",
-        "description": "a_written_description for PatternRecognitionUnusual_y",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "TrailUnusual_y": {
-        "name": "TrailUnusual_y",
-        "unit": "",
-        "description": "a_written_description for TrailUnusual_y",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
-    },
-    "TotalUnusual_y": {
-        "name": "TotalUnusual_y",
-        "unit": "",
-        "description": "a_written_description for TotalUnusual_y",
+        "description": "a_written_description for Tracking Transition",
         "majorTicks": 4,
         "minorTicks": 1,
         "places": 0
