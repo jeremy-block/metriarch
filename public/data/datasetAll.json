@@ -249,7 +249,7 @@
     },
     "search_term_efficiency": {
         "name": "Search Broadness",
-        "unit": "Avg documents",
+        "unit": "",
         "description": "The average number of documents returned for the searches conducted by the individual. High numbers here mean the user had many documents returned per search.",
         "majorTicks": 4,
         "minorTicks": 1,
@@ -803,14 +803,14 @@
         "name": "Likelihood of Event",
         "unit": "",
         "description": "A generic amount of likelihood that some event may occur.",
-        "majorTicks": 4,
-        "minorTicks": 1,
+        "majorTicks": 5,
+        "minorTicks": 3,
         "places": 2
     },
     "TotalUnusual": {
         "name": "Odd General Transition",
         "unit": "",
-        "description": "a_written_description for TotalUnusual",
+        "description": "How Likeliy will a odd/unusual event transition occur for the user?",
         "majorTicks": 4,
         "minorTicks": 1,
         "places": 2
@@ -818,7 +818,7 @@
     "DataExplorationCounts": {
         "name": "Data Exploration Transitions",
         "unit": "",
-        "description": "a_written_description for DataExplorationCounts",
+        "description": "How many Data Exploration event pairs occur for the user?",
         "majorTicks": 4,
         "minorTicks": 1,
         "places": 0
@@ -826,7 +826,7 @@
     "VisualExplorationCounts": {
         "name": "Visual Exploration Transitions",
         "unit": "",
-        "description": "a_written_description for VisualExplorationCounts",
+        "description": "How many Visual Exploration event pairs occur for the user?",
         "majorTicks": 4,
         "minorTicks": 1,
         "places": 0
@@ -834,7 +834,7 @@
     "InsightActionCounts": {
         "name": "Insight Transitions",
         "unit": "",
-        "description": "a_written_description for InsightActionCounts",
+        "description": "How many Insight event pairs occur for the user?",
         "majorTicks": 4,
         "minorTicks": 1,
         "places": 0
@@ -842,7 +842,7 @@
     "TheorizingCounts": {
         "name": "Theorizing Transitions",
         "unit": "",
-        "description": "a_written_description for TheorizingCounts",
+        "description": "How many Theorizing event pairs occur for the user? (transition from Data to Visual)",
         "majorTicks": 4,
         "minorTicks": 1,
         "places": 0
@@ -850,7 +850,7 @@
     "DiscoveringCounts": {
         "name": "Discovering Transitions",
         "unit": "",
-        "description": "a_written_description for DiscoveringCounts",
+        "description": "How many Discovering event pairs occur for the user? (transition from Data to Insight)",
         "majorTicks": 4,
         "minorTicks": 1,
         "places": 0
@@ -858,7 +858,7 @@
     "AuditingCounts": {
         "name": "Auditing Transitions",
         "unit": "",
-        "description": "a_written_description for AuditingCounts",
+        "description": "How many Auditing event pairs occur for the user? (transition from Insight to Data)",
         "majorTicks": 4,
         "minorTicks": 1,
         "places": 0
@@ -866,7 +866,7 @@
     "OrganizingCounts": {
         "name": "Organizing Transitions",
         "unit": "",
-        "description": "a_written_description for OrganizingCounts",
+        "description": "How many Organizing event pairs occur for the user? (transition from Insight to Visual)",
         "majorTicks": 4,
         "minorTicks": 1,
         "places": 0
@@ -874,7 +874,7 @@
     "RecognizingCounts": {
         "name": "Recognizing Transitions",
         "unit": "",
-        "description": "a_written_description for RecognizingCounts",
+        "description": "How many Recognizing event pairs occur for the user? (transition from Visual to Insight)",
         "majorTicks": 4,
         "minorTicks": 1,
         "places": 0
@@ -882,7 +882,7 @@
     "TrackingCounts": {
         "name": "Tracking Transitions",
         "unit": "",
-        "description": "a_written_description for TrackingCounts",
+        "description": "How many Tracking event pairs occur for the user? (transition from Visual to Data)",
         "majorTicks": 4,
         "minorTicks": 1,
         "places": 0
@@ -890,7 +890,7 @@
     "DataExploringUsual": {
         "name": "Data Exploration Likelihood",
         "unit": "",
-        "description": "How unusual is it for a user to transition into the Data exploration event.",
+        "description": "How often does a user transition to a Data Exploration event?",
         "majorTicks": 4,
         "minorTicks": 1,
         "places": 2
@@ -898,7 +898,7 @@
     "VisualExploringUsual": {
         "name": "Visual Exploration Likelihood",
         "unit": "",
-        "description": "a_written_description for VisualExploring Likelihood",
+        "description": "How often does a user transition to a Visual Exploration event?",
         "majorTicks": 4,
         "minorTicks": 1,
         "places": 2
@@ -906,7 +906,7 @@
     "InsightActionUsual": {
         "name": "Insight Likelihood",
         "unit": "",
-        "description": "a_written_description for InsightAction Likelihood",
+        "description": "How often does a user transition to a Insight event?",
         "majorTicks": 4,
         "minorTicks": 1,
         "places": 2
@@ -914,39 +914,39 @@
     "TheorizingUsual": {
         "name": "Theorizing Likelihood",
         "unit": "",
-        "description": "a_written_description for Theorizing Likelihood",
+        "description": "How often does a user conduct a Theorizing event pair? (transition from Data to Visual)",
         "majorTicks": 4,
         "minorTicks": 1,
-        "places": 0
+        "places": 2
     },
     "DiscoveringUsual": {
         "name": "Discovering Likelihood",
         "unit": "",
-        "description": "a_written_description for Discovering Likelihood",
+        "description": "How often does a user conduct a Discovering event pair? (transition from Data to Insight)",
         "majorTicks": 4,
         "minorTicks": 1,
-        "places": 0
+        "places": 2
     },
     "AuditingUsual": {
         "name": "Auditing Likelihood",
         "unit": "",
-        "description": "a_written_description for Auditing Likelihood",
+        "description": "How often does a user conduct a Auditing event pair? (transition from Insight to Data)",
         "majorTicks": 4,
         "minorTicks": 1,
-        "places": 0
+        "places": 2
     },
     "OrganizingUsual": {
         "name": "Organizing Likelihood",
         "unit": "",
-        "description": "a_written_description for Organizing Likelihood",
+        "description": "How often does a user conduct a Organizing event pair? (transition from Insight to Visual)",
         "majorTicks": 4,
         "minorTicks": 1,
-        "places": 0
+        "places": 2
     },
     "RecognizingUsual": {
         "name": "Recognizing Likelihood",
         "unit": "",
-        "description": "a_written_description for Recognizing Likelihood",
+        "description": "How often does a user conduct a Recognizing event pair? (transition from Visual to Insight)",
         "majorTicks": 7,
         "minorTicks": 1,
         "places": 1
@@ -954,7 +954,7 @@
     "TrackingUsual": {
         "name": "Tracking Likelihood",
         "unit": "",
-        "description": "a_written_description for Tracking Likelihood",
+        "description": "How often does a user conduct a Tracking event pair? (transition from Visual to Data)",
         "majorTicks": 4,
         "minorTicks": 1,
         "places": 0
@@ -963,70 +963,70 @@
         "name": "Odd Data Exploration Transition",
         "unit": "",
         "description": "Of all event pairs, what porportion of the transitions come from an unusual prior event type. High Value they transition to Data Exploration events rarely.",
-        "majorTicks": 4,
-        "minorTicks": 1,
+        "majorTicks": 5,
+        "minorTicks": 2,
         "places": 2
     },
     "VisualExploringUnusual": {
         "name": "Odd Visual Exploration Transition",
         "unit": "",
-        "description": "a_written_description for VisualExploreUnusual",
-        "majorTicks": 4,
-        "minorTicks": 1,
+        "description": "Of all event pairs, what porportion of the transitions come from an unusual prior event type. High Value they transition to Visual Exploration events rarely.",
+        "majorTicks": 5,
+        "minorTicks": 2,
         "places": 2
     },
     "InsightActionUnusual": {
         "name": "Odd Insight Transition",
         "unit": "",
-        "description": "a_written_description for InsightActionUnusual",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
+        "description": "Of all event pairs, what porportion of the transitions come from an unusual prior event type. High Value they transition to Insight Action events rarely.",
+        "majorTicks": 5,
+        "minorTicks": 2,
+        "places": 2
     },
     "TheorizingUnusual": {
         "name": "Odd Theorizing Transition",
         "unit": "",
-        "description": "a_written_description for Theorizing Transition",
-        "majorTicks": 4,
+        "description": "Of all unusual event pairs, how likely do they transition to a Theorizing step.",
+        "majorTicks": 5,
         "minorTicks": 1,
-        "places": 0
+        "places": 2
     },
     "DiscoveringUnusual": {
         "name": "Odd Discovering Transition",
         "unit": "",
-        "description": "a_written_description for Discovering Transition",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
+        "description": "Of all unusual event pairs, how likely do they transition to a Discovering step.",
+        "majorTicks": 5,
+        "minorTicks": 2,
+        "places": 2
     },
     "AuditingUnusual": {
         "name": "Odd Auditing Transition",
         "unit": "",
-        "description": "a_written_description for Auditing Transition",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
+        "description": "Of all unusual event pairs, how likely do they transition to a Auditing step.",
+        "majorTicks": 5,
+        "minorTicks": 2,
+        "places": 2
     },
     "OrganizingUnusual": {
         "name": "Odd Organizing Transition",
         "unit": "",
-        "description": "a_written_description for Organizing Transition",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
+        "description": "Of all unusual event pairs, how likely do they transition to a Organizing step.",
+        "majorTicks": 5,
+        "minorTicks": 2,
+        "places": 2
     },
     "RecognizingUnusual": {
         "name": "Odd Recognizing Transition",
         "unit": "",
-        "description": "a_written_description for Recognizing Transition",
-        "majorTicks": 4,
-        "minorTicks": 1,
-        "places": 0
+        "description": "Of all unusual event pairs, how likely do they transition to a Recognizing step.",
+        "majorTicks": 5,
+        "minorTicks": 2,
+        "places": 2
     },
     "TrackingUnusual": {
         "name": "Odd Tracking Transition",
         "unit": "",
-        "description": "a_written_description for Tracking Transition",
+        "description": "Of all unusual event pairs, how likely do they transition to a Tracking step.",
         "majorTicks": 4,
         "minorTicks": 1,
         "places": 0
